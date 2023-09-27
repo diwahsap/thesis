@@ -55,6 +55,10 @@ qed=\qedsymbol%
 \usepackage{placeins}
 \usepackage{breqn}
 
+% for bibliography
+\usepackage{biblatex}
+\bibliography{Thesis.bib}
+
 \usepackage{chngcntr}
 \counterwithout{subsubsection}{subsection}
 
@@ -239,7 +243,9 @@ qed=\qedsymbol%
 	
 	\backmatter
 	\addcontentsline{toc}{chapter}{\textbf{DAFTAR PUSTAKA}}
-	\include{DaftarPustaka}
+	% \include{DaftarPustaka}
+	
+	\include{DaftarPustakaNew.tex}
 	%\addcontentsline{toc}{chapter}{\textbf{LAMPIRAN}}
 	%\include{Lampiran}
 	
