@@ -1,0 +1,322 @@
+\chapter{Penutup}
+\pagestyle{fancy}
+\fancyhead[L]{\textsl{BAB VI : Penutup}}
+\fancyhead[R]{}
+\fancyfoot[C]{\thepage}
+\onehalfspacing
+
+\section{Kesimpulan}
+Untuk sebarang graf terhubung $G$ dengan orde $n\ge 3$, diperoleh $\max(f(n),Z)\le CD(G)\le n-1$, dengan fungsi $f$ dan konstanta $Z$ diberikan seperti pada Bab \ref{second} sebelumnya. Pertidaksamaan ini cukup rapat, terutama untuk graf terhubung $G$ yang memiliki banyak titik berderajat $1$, dan himpunan titik dengan setiap pasangan titiknya memiliki himpunan tetangga buka atau himpunan tetangga tutup yang sama.
+
+Properti pada Lemma \ref{LE01} sangat bermanfaat dalam menentukan batas bawah dari dimensi sentroidal beberapa keluarga graf. Dari penelitian ini, dapat disimpulkan bahwa : 
+\begin{itemize}
+	\item $CD(T)=k^{l-1}$, dengan T adalah graf pohon $k-er$ sempurna dengan tinggi $l$,
+	\item $CD(B(n,k))=\begin{cases}
+	n+1, & untuk\;k=2\\
+	2n, & untuk\;k=3\\
+	n(k-2)+1, & untuk\;k>3
+	\end{cases}$,
+	\item $CD(n-\text{sisir})=n+\lceil\frac{n}{3}\rceil$,
+	\item $CD(H_n)=n+1$,
+	\item Untuk $n>3$, $CD(D_n^{(m)})=m(n-2)$, dan $CD(f_m)=m+1$, dan
+	\item $CD(n-\text{matahari})=n+\lceil\frac{n}{3}\rceil$.
+\end{itemize}
+
+Terdapat graf sirkulan yang isomorfik dengan graf bipartit lengkap dan graf multipartit lengkap, yang sebelumnya telah diketahui dimensi sentroidalnya. Secara umum, dengan generator tertentu, terdapat graf sirkulan yang memiliki himpunan titik dengan setiap pasangan titiknya memiliki himpunan tetangga buka atau tutup yang sama. Dari Lemma \ref{LE01}, dapat ditentukan batas bawah dari dimensi sentroidalnya, dan dapat disimpulkan bahwa batas bawah itulah yang merupakan dimensi sentroidal dari graf sirkulan tersebut.
+
+Pada operasi join dua graf $G_1$ dan $G_2$, dengan orde berturut-turut $m$ dan $n$, diperoleh $h(m+n)\le CD(G_1+G_2)\le m+n-1$, dengan fungsi $h$ diberikan seperti pada Bab \cref{fifth} sebelumnya. Untuk salah satu dari graf isomorfik dengan $K_n$ atau $\overbar{K_n}$, dimensi sentroidal hasil operasi join-nya dibatas-bawahi oleh $n$. Untuk $G+K_n$, dimensi sentroidalnya sama dengan $n$ jika dan hanya jika $G$ isomorfik dengan $K_1$. Sedangkan untuk $G+\overbar{K_n}$, dimensi sentroidalnya sama dengan $n$ jika dan hanya $G$ isomorfik dengan $K_1$ atau $\overbar{K_2}$. Pada operasi korona dua graf $G$ dan $H$, dengan $|V(G)|=m$ dan $|V(H)|>1$, diperoleh $2m\le CD(G\circ H)\le CD(H+K_1)m$. Untuk $|V(H)|=1$, diperoleh $m+1\le CD(G\circ K_1)\le m+s(G)$, dengan fungsi $s$ diberikan seperti pada Bab \ref{fifth} sebelumnya.
+
+Untuk hasil operasi kali antara $K_n$ dan $P_2$, dapat disimpulkan bahwa : 
+\begin{itemize}
+	\item $CD(K_n\times P_2)=\begin{cases}
+	n-1, & untuk\;n\ge 7\\
+	n, & untuk\;n<7
+	\end{cases},$ dan
+	\item $CD(K_n\;\square\; P_2)=\begin{cases}
+	n, & untuk\;n\le 4\\
+	n-1 & untuk \;n>4
+	\end{cases}$.
+\end{itemize}
+
+\section{Masalah Terbuka}
+Pada Bab \ref{third}, telah ditunjukkan secara umum bahwa \[f(|V(G)|)\le CD(G)\le |V(G)|-1,\] dengan fungsi $f$ yang telah diberikan sebelumnya. Telah dibahas juga karakterisasi graf $G$ yang memenuhi $CD(G)=|V(G)|-1$.
+\begin{masalah}
+	Bagaimanakah karakterisasi graf $G$ dengan $CD(G)=f(|V(G)|)$?
+\end{masalah}
+
+Pada Bab \ref{fourth}, telah ditunjukkan sebelumnya bahwa dengan konstanta $b_1$ dan $b_2$ yang berbeda, graf sirkulan
+$C_n(b_1,q-b_1,q+b_1,\cdots)$ dan graf sirkulan $C_n(b_2,q-b_2,q+b_2,\cdots)$ keduanya memiliki himpunan $H_i$ dengan setiap pasangan titiknya memiliki himpunan tetangga yang sama. Jika kedua generator dari $b_1$ dan $b_2$ digabung, maka graf sirkulan $C_n(b_1,b_2,q-b_2,q-b_1,q+b_1,q+b_2,\cdots)$ tetap mengakibatkan $H_i$ memiliki setiap pasangan titik dengan himpunan tetangga yang sama.
+\begin{masalah}
+	Untuk konstanta $b_1<b_2<\cdots<b_s<\frac{q}{2}$, dengan \[G\cong C_n(b_1,\cdots,b_s,q-b_s,\cdots,q-b_1,q+b_1,\cdots,q+b_s,\cdots),\]
+	apakah $CD(G)=(p-1)q$?
+\end{masalah}
+
+\begin{figure}[h]
+	\begin{center}
+		\definecolor{qqffqq}{rgb}{0.,1.,0.}
+		\definecolor{ffffff}{rgb}{1.,1.,1.}
+		\definecolor{qqqqff}{rgb}{0.,0.,1.}
+		\definecolor{ffqqqq}{rgb}{1.,0.,0.}
+		\definecolor{ffffqq}{rgb}{1.,1.,0.}
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+		\clip(1.7,1.7) rectangle (16.3,6.3);
+		\draw [line width=0.8pt] (4.209056926535307,5.989043790736547)-- (5.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (5.618033988749895,5.175570504584947)-- (5.956295201467611,3.5841766183644816);
+		\draw [line width=0.8pt] (5.956295201467611,3.5841766183644816)-- (5.,2.2679491924311233);
+		\draw [line width=0.8pt] (5.,2.2679491924311233)-- (3.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (3.381966011250105,2.097886967409693)-- (2.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (2.1729090847147985,3.1865267138483997)-- (2.172909084714798,4.813473286151599);
+		\draw [line width=0.8pt] (2.172909084714798,4.813473286151599)-- (3.3819660112501047,5.902113032590307);
+		\draw [line width=0.8pt] (3.3819660112501047,5.902113032590307)-- (5.,5.732050807568878);
+		\draw [line width=0.8pt] (5.,5.732050807568878)-- (5.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (5.956295201467611,4.415823381635519)-- (5.618033988749895,2.824429495415054);
+		\draw [line width=0.8pt] (5.618033988749895,2.824429495415054)-- (4.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (4.209056926535307,2.010956209263454)-- (2.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (2.6617387872822835,2.513710349045212)-- (2.,4.);
+		\draw [line width=0.8pt] (2.,4.)-- (2.661738787282283,5.486289650954788);
+		\draw [line width=0.8pt] (2.661738787282283,5.486289650954788)-- (4.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (3.3819660112501047,5.902113032590307)-- (5.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (5.618033988749895,5.175570504584947)-- (5.618033988749895,2.824429495415054);
+		\draw [line width=0.8pt] (5.618033988749895,2.824429495415054)-- (3.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (3.381966011250105,2.097886967409693)-- (2.,4.);
+		\draw [line width=0.8pt] (2.,4.)-- (3.3819660112501047,5.902113032590307);
+		\draw [line width=0.8pt] (4.209056926535307,5.989043790736547)-- (5.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (5.956295201467611,4.415823381635519)-- (5.,2.2679491924311233);
+		\draw [line width=0.8pt] (5.,2.2679491924311233)-- (2.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (2.6617387872822835,2.513710349045212)-- (2.172909084714798,4.813473286151599);
+		\draw [line width=0.8pt] (2.172909084714798,4.813473286151599)-- (4.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (5.,5.732050807568878)-- (5.956295201467611,3.5841766183644816);
+		\draw [line width=0.8pt] (5.956295201467611,3.5841766183644816)-- (4.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (4.209056926535307,2.010956209263454)-- (2.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (2.1729090847147985,3.1865267138483997)-- (2.661738787282283,5.486289650954788);
+		\draw [line width=0.8pt] (2.661738787282283,5.486289650954788)-- (5.,5.732050807568878);
+		\draw [line width=0.8pt] (4.209056926535307,2.010956209263454)-- (4.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (4.209056926535307,5.989043790736547)-- (3.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (3.381966011250105,2.097886967409693)-- (5.,5.732050807568878);
+		\draw [line width=0.8pt] (5.,5.732050807568878)-- (2.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (2.6617387872822835,2.513710349045212)-- (5.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (5.618033988749895,5.175570504584947)-- (2.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (2.1729090847147985,3.1865267138483997)-- (5.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (5.956295201467611,4.415823381635519)-- (2.,4.);
+		\draw [line width=0.8pt] (2.,4.)-- (5.956295201467611,3.5841766183644816);
+		\draw [line width=0.8pt] (5.956295201467611,3.5841766183644816)-- (2.172909084714798,4.813473286151599);
+		\draw [line width=0.8pt] (2.172909084714798,4.813473286151599)-- (5.618033988749895,2.824429495415054);
+		\draw [line width=0.8pt] (5.618033988749895,2.824429495415054)-- (2.661738787282283,5.486289650954788);
+		\draw [line width=0.8pt] (2.661738787282283,5.486289650954788)-- (5.,2.2679491924311233);
+		\draw [line width=0.8pt] (5.,2.2679491924311233)-- (3.3819660112501047,5.902113032590307);
+		\draw [line width=0.8pt] (3.3819660112501047,5.902113032590307)-- (4.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (8.381966011250105,5.902113032590307)-- (9.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (9.209056926535307,5.989043790736547)-- (10.,5.732050807568878);
+		\draw [line width=0.8pt] (10.,5.732050807568878)-- (10.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (10.618033988749895,5.175570504584947)-- (10.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (10.956295201467611,4.415823381635519)-- (10.956295201467611,3.584176618364482);
+		\draw [line width=0.8pt] (10.956295201467611,3.584176618364482)-- (10.618033988749895,2.8244294954150546);
+		\draw [line width=0.8pt] (10.618033988749895,2.8244294954150546)-- (10.,2.2679491924311237);
+		\draw [line width=0.8pt] (10.,2.2679491924311237)-- (9.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (9.209056926535307,2.010956209263454)-- (8.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (8.381966011250105,2.097886967409693)-- (7.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (7.6617387872822835,2.513710349045212)-- (7.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (7.1729090847147985,3.1865267138483997)-- (7.,4.);
+		\draw [line width=0.8pt] (7.,4.)-- (7.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (7.172909084714798,4.813473286151601)-- (7.6617387872822835,5.486289650954789);
+		\draw [line width=0.8pt] (7.6617387872822835,5.486289650954789)-- (8.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (9.209056926535307,5.989043790736547)-- (10.956295201467611,3.584176618364482);
+		\draw [line width=0.8pt] (10.956295201467611,3.584176618364482)-- (8.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (8.381966011250105,2.097886967409693)-- (7.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (7.172909084714798,4.813473286151601)-- (10.,5.732050807568878);
+		\draw [line width=0.8pt] (10.,5.732050807568878)-- (10.618033988749895,2.8244294954150546);
+		\draw [line width=0.8pt] (10.618033988749895,2.8244294954150546)-- (7.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (7.6617387872822835,2.513710349045212)-- (7.6617387872822835,5.486289650954789);
+		\draw [line width=0.8pt] (7.6617387872822835,5.486289650954789)-- (10.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (10.618033988749895,5.175570504584947)-- (10.,2.2679491924311237);
+		\draw [line width=0.8pt] (10.,2.2679491924311237)-- (7.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (7.1729090847147985,3.1865267138483997)-- (8.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (8.381966011250105,5.902113032590307)-- (10.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (10.956295201467611,4.415823381635519)-- (9.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (9.209056926535307,2.010956209263454)-- (7.,4.);
+		\draw [line width=0.8pt] (7.,4.)-- (9.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (9.209056926535307,5.989043790736547)-- (10.,2.2679491924311237);
+		\draw [line width=0.8pt] (10.,2.2679491924311237)-- (7.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (7.172909084714798,4.813473286151601)-- (10.956295201467611,4.415823381635519);
+		\draw [line width=0.8pt] (10.956295201467611,4.415823381635519)-- (7.6617387872822835,2.513710349045212);
+		\draw [line width=0.8pt] (7.6617387872822835,2.513710349045212)-- (9.209056926535307,5.989043790736547);
+		\draw [line width=0.8pt] (10.,5.732050807568878)-- (9.209056926535307,2.010956209263454);
+		\draw [line width=0.8pt] (9.209056926535307,2.010956209263454)-- (7.6617387872822835,5.486289650954789);
+		\draw [line width=0.8pt] (7.6617387872822835,5.486289650954789)-- (10.956295201467611,3.584176618364482);
+		\draw [line width=0.8pt] (10.956295201467611,3.584176618364482)-- (7.1729090847147985,3.1865267138483997);
+		\draw [line width=0.8pt] (7.1729090847147985,3.1865267138483997)-- (10.,5.732050807568878);
+		\draw [line width=0.8pt] (10.618033988749895,5.175570504584947)-- (8.381966011250105,2.097886967409693);
+		\draw [line width=0.8pt] (8.381966011250105,2.097886967409693)-- (8.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (8.381966011250105,5.902113032590307)-- (10.618033988749895,2.8244294954150546);
+		\draw [line width=0.8pt] (10.618033988749895,2.8244294954150546)-- (7.,4.);
+		\draw [line width=0.8pt] (7.,4.)-- (10.618033988749895,5.175570504584947);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (14.209056926535307,5.989043790736546);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (14.209056926535307,5.989043790736546);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (14.209056926535307,5.989043790736546);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (14.209056926535307,5.989043790736546);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (14.209056926535307,5.989043790736546);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (14.209056926535307,5.989043790736546)-- (14.209056926535307,2.010956209263453);
+		\draw [line width=0.8pt] (14.209056926535307,2.010956209263453)-- (13.381966011250105,5.902113032590307);
+		\draw [line width=0.8pt] (13.381966011250105,5.902113032590307)-- (15.,2.267949192431123);
+		\draw [line width=0.8pt] (15.,2.267949192431123)-- (12.661738787282284,5.486289650954789);
+		\draw [line width=0.8pt] (12.661738787282284,5.486289650954789)-- (15.618033988749895,2.8244294954150537);
+		\draw [line width=0.8pt] (15.618033988749895,2.8244294954150537)-- (12.172909084714798,4.813473286151601);
+		\draw [line width=0.8pt] (12.172909084714798,4.813473286151601)-- (15.956295201467611,3.584176618364481);
+		\draw [line width=0.8pt] (15.956295201467611,3.584176618364481)-- (12.,4.);
+		\draw [line width=0.8pt] (12.,4.)-- (15.956295201467611,4.415823381635518);
+		\draw [line width=0.8pt] (15.956295201467611,4.415823381635518)-- (12.172909084714798,3.1865267138483997);
+		\draw [line width=0.8pt] (12.172909084714798,3.1865267138483997)-- (15.618033988749895,5.175570504584946);
+		\draw [line width=0.8pt] (15.618033988749895,5.175570504584946)-- (12.661738787282284,2.5137103490452115);
+		\draw [line width=0.8pt] (12.661738787282284,2.5137103490452115)-- (15.,5.732050807568877);
+		\draw [line width=0.8pt] (15.,5.732050807568877)-- (13.381966011250105,2.0978869674096927);
+		\draw [line width=0.8pt] (13.381966011250105,2.0978869674096927)-- (14.209056926535307,5.989043790736546);
+		\begin{scriptsize}
+		\draw [fill=ffffqq] (2.,4.) circle (3.0pt);
+		\draw [fill=ffqqqq] (2.1729090847147985,3.1865267138483997) circle (3.0pt);
+		\draw [fill=qqqqff] (2.6617387872822835,2.513710349045212) circle (3.0pt);
+		\draw [fill=ffffff] (3.381966011250105,2.097886967409693) circle (3.0pt);
+		\draw [fill=qqffqq] (4.209056926535307,2.010956209263454) circle (3.0pt);
+		\draw [fill=ffffqq] (5.,2.2679491924311233) circle (3.0pt);
+		\draw [fill=ffqqqq] (5.618033988749895,2.824429495415054) circle (3.0pt);
+		\draw [fill=qqqqff] (5.956295201467611,3.5841766183644816) circle (3.0pt);
+		\draw [fill=ffffff] (5.956295201467611,4.415823381635519) circle (3.0pt);
+		\draw [fill=qqffqq] (5.618033988749895,5.175570504584947) circle (3.0pt);
+		\draw [fill=ffffqq] (5.,5.732050807568878) circle (3.0pt);
+		\draw [fill=ffqqqq] (4.209056926535307,5.989043790736547) circle (3.0pt);
+		\draw [fill=qqqqff] (3.3819660112501047,5.902113032590307) circle (3.0pt);
+		\draw [fill=ffffff] (2.661738787282283,5.486289650954788) circle (3.0pt);
+		\draw [fill=qqffqq] (2.172909084714798,4.813473286151599) circle (3.0pt);
+		\draw [fill=ffffqq] (7.,4.) circle (3.0pt);
+		\draw [fill=ffqqqq] (7.1729090847147985,3.1865267138483997) circle (3.0pt);
+		\draw [fill=qqqqff] (7.6617387872822835,2.513710349045212) circle (3.0pt);
+		\draw [fill=ffffff] (8.381966011250105,2.097886967409693) circle (3.0pt);
+		\draw [fill=qqffqq] (9.209056926535307,2.010956209263454) circle (3.0pt);
+		\draw [fill=ffffqq] (10.,2.2679491924311237) circle (3.0pt);
+		\draw [fill=ffqqqq] (10.618033988749895,2.8244294954150546) circle (3.0pt);
+		\draw [fill=qqqqff] (10.956295201467611,3.584176618364482) circle (3.0pt);
+		\draw [fill=ffffff] (10.956295201467611,4.415823381635519) circle (3.0pt);
+		\draw [fill=qqffqq] (10.618033988749895,5.175570504584947) circle (3.0pt);
+		\draw [fill=ffffqq] (10.,5.732050807568878) circle (3.0pt);
+		\draw [fill=ffqqqq] (9.209056926535307,5.989043790736547) circle (3.0pt);
+		\draw [fill=qqqqff] (8.381966011250105,5.902113032590307) circle (3.0pt);
+		\draw [fill=ffffff] (7.6617387872822835,5.486289650954789) circle (3.0pt);
+		\draw [fill=qqffqq] (7.172909084714798,4.813473286151601) circle (3.0pt);
+		\draw [fill=ffffqq] (12.,4.) circle (3.0pt);
+		\draw [fill=ffqqqq] (12.172909084714798,3.1865267138483997) circle (3.0pt);
+		\draw [fill=qqqqff] (12.661738787282284,2.5137103490452115) circle (3.0pt);
+		\draw [fill=ffffff] (13.381966011250105,2.0978869674096927) circle (3.0pt);
+		\draw [fill=qqffqq] (14.209056926535307,2.010956209263453) circle (3.0pt);
+		\draw [fill=ffffqq] (15.,2.267949192431123) circle (3.0pt);
+		\draw [fill=ffqqqq] (15.618033988749895,2.8244294954150537) circle (3.0pt);
+		\draw [fill=qqqqff] (15.956295201467611,3.584176618364481) circle (3.0pt);
+		\draw [fill=ffffff] (15.956295201467611,4.415823381635518) circle (3.0pt);
+		\draw [fill=qqffqq] (15.618033988749895,5.175570504584946) circle (3.0pt);
+		\draw [fill=ffffqq] (15.,5.732050807568877) circle (3.0pt);
+		\draw [fill=ffqqqq] (14.209056926535307,5.989043790736546) circle (3.0pt);
+		\draw [fill=qqqqff] (13.381966011250105,5.902113032590307) circle (3.0pt);
+		\draw [fill=ffffff] (12.661738787282284,5.486289650954789) circle (3.0pt);
+		\draw [fill=qqffqq] (12.172909084714798,4.813473286151601) circle (3.0pt);
+		\end{scriptsize}
+		\end{tikzpicture}
+		\caption{Graf Sirkulan $C_{15}(2,3,7)$ dan $C_{15}(1,4,6)$. Dengan menggabungkan generatornya diperoleh $C_{15}(1,2,3,4,6,7)$.}
+	\end{center}
+\end{figure}
+
+Secara khusus, graf sirkulan yang dibahas pada penelitian ini adalah graf sirkulan yang memiliki himpunan dengan setiap dua titik pada graf tersebut memiliki himpunan tetangga buka atau tutup yang sama.
+\begin{masalah}
+	Bagaimanakah dimensi sentroidal dari graf sirkulan lain yang tidak memiliki himpunan dengan properti di atas? Bagaimanakah dimensi sentroidal dari graf sirkulan $C_{2n}(a,b)$ dengan $a+b\ne n$? 
+\end{masalah}
+
+Pada operasi join, telah ditunjukkan bahwa \[h(|V(G_1)|+|V(G_2)|)\le CD(G_1+G_2)\le |V(G_1)|+|V(G_2)|-1,\] dengan fungsi $h$ diberikan pada bab sebelumnya. Telah diberikan juga karakterisasi graf $G_1$ dan $G_2$ yang memenuhi batas atas dari dimensi sentroidalnya.
+\begin{masalah}
+	Bagaimanakah karakterisasi dari graf $G_1$ dan $G_2$ sehingga $CD(G_1+G_2)=h(|V(G_1)|+|V(G_2)|)$?
+\end{masalah}
+
+Untuk graf hasil operasi join $G+K_n$ dan $G+\overbar{K_n}$, telah ditunjukkan sebelumnya bahwa dimensi sentroidal keduanya dibatas-bawahi oleh $n$. Kemudian telah diberikan dimensi sentroidal dari $G+K_n$, untuk $G$ isomorfik dengan graf $\overbar{K_m}$, ataupun sebaliknya.
+\begin{masalah}
+	Bagaimanakah dimensi sentroidal dari $G+K_n$ dan $G+K_n$ jika $G$ isomorfik dengan graf siklis, graf lintasan, atau dengan graf lain yang memuat properti pada Lemma \ref{LE01} seperti graf kincir angin?
+\end{masalah}
+Pada graf hasil operasi korona, telah dibuktikan sebelumnya bahwa jika $G$ graf terhubung dengan $|V(G)|=m$, dan $H$ sebarang graf dengan $|V(H)|>1$, maka $2m\le CD(G\circ H)\le CD(H+K_1)m$. Kemudian telah dibuktikan juga bahwa untuk $n\ge 2$, $CD(G\circ \overbar{K_n})=mn$ dan $CD(G\circ K_2)=2m$.
+\begin{masalah}
+	Apakah terdapat graf $H$ lain selain $K_2$ dan $\overbar{K_n}$ sehingga $CD(G\circ H)=CD(H+K_1)m$.
+\end{masalah} 
+
+Selanjutnya, telah dibuktikan bahwa $m+1\le CD(G\circ K_1)\le m+s(G)$.
+\begin{masalah}
+	Bagaimanakah karakterisasi dari graf $G$ dengan $s(G)=t$, untuk suatu bilangan bulat $t>1$? Dengan karakterisasi tersebut, apakah $CD(G\circ K_1)=m+t$?
+\end{masalah}
+
+Untuk operasi hasil kali yang telah dibahas adalah operasi kali tensor dan operasi kali kartesius antara graf lengkap $K_n$ dan $P_2$.
+\begin{masalah}
+	Bagaimanakah dimensi sentroidal dari hasil kali tensor $G\times H$ dan hasil kali kartesius $G\;\square\; H$ secara umum?
+\end{masalah}
