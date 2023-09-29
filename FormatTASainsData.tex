@@ -56,7 +56,7 @@ qed=\qedsymbol%
 \usepackage{breqn}
 
 % for bibliography
-\usepackage{biblatex}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
 \bibliography{Thesis.bib}
 
 \usepackage{chngcntr}
@@ -168,67 +168,67 @@ qed=\qedsymbol%
 	\frontmatter
 % Cover
 	\include{CoverHard}
-	\include{CoverSoft}
-	\include{Pengesahan}
-	\include{Orisinalitas}
-	\include{PersetujuanPublikasi}
-	\include{Abstrak}
-	\include{Abstract}
-	\include{Motto}
-	\include{Persembahan}
-	\include{KataPengantar}	
+	%\include{CoverSoft}
+	%\include{Pengesahan}
+	%\include{Orisinalitas}
+	%\include{PersetujuanPublikasi}
+	%\include{Abstrak}
+	%\include{Abstract}
+	%\include{Motto}
+	%\include{Persembahan}
+	%\include{KataPengantar}	
 
-	\thispagestyle{myheadings}
-	\renewcommand{\contentsname}{DAFTAR ISI}
-	\pagestyle{fancy}
-	%\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
-	%\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
-	%\singlespacing
-	\newpage
-	\addcontentsline{toc}{chapter}{\textbf{DAFTAR ISI}}
-	\tableofcontents
-	%\singlespacing
-	\fancyhead[L]{\textsl{Daftar Isi}}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\thepage}
-	
-	\parindent 0cm
-	\makeatletter
-	\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
-	\makeatother
-	\renewcommand{\listfigurename}{DAFTAR GAMBAR}
-	\listoffigures
-	\addcontentsline{toc}{chapter}{\textbf{DAFTAR GAMBAR}}
-	\pagestyle{fancy}
-	\fancyhead[L]{\textsl{Daftar Gambar}}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\thepage}
-	
-	\renewcommand{\listtablename}{DAFTAR TABEL}
-	\makeatletter
-	\renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
-	\makeatother
-	\listoftables
-	\addcontentsline{toc}{chapter}{\textbf{DAFTAR TABEL}}
-	\pagestyle{fancy}
-	\fancyhead[L]{\textsl{Daftar Tabel}}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\thepage}
-	
-	\renewcommand{\listofalgorithms}{ 
-		\begingroup 
-		\listof{algorithm}{DAFTAR ALGORITMA} 
-		\endgroup 
-	}
-	\makeatletter
-	\renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
-	\makeatother
-	\listofalgorithms
-	\addcontentsline{toc}{chapter}{\textbf{DAFTAR ALGORITMA}}
-	\pagestyle{fancy}
-	\fancyhead[L]{\textsl{Daftar Algoritma}}
-	\fancyhead[R]{}
-	\fancyfoot[C]{\thepage}
+%	\thispagestyle{myheadings}
+%	\renewcommand{\contentsname}{DAFTAR ISI}
+%	\pagestyle{fancy}
+%	%\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
+%	%\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
+%	%\singlespacing
+%	\newpage
+%	\addcontentsline{toc}{chapter}{\textbf{DAFTAR ISI}}
+%	\tableofcontents
+%	%\singlespacing
+%	\fancyhead[L]{\textsl{Daftar Isi}}
+%	\fancyhead[R]{}
+%	\fancyfoot[C]{\thepage}
+%	
+%	\parindent 0cm
+%	\makeatletter
+%	\renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+%	\makeatother
+%	\renewcommand{\listfigurename}{DAFTAR GAMBAR}
+%	\listoffigures
+%	\addcontentsline{toc}{chapter}{\textbf{DAFTAR GAMBAR}}
+%	\pagestyle{fancy}
+%	\fancyhead[L]{\textsl{Daftar Gambar}}
+%	\fancyhead[R]{}
+%	\fancyfoot[C]{\thepage}
+%	
+%	\renewcommand{\listtablename}{DAFTAR TABEL}
+%	\makeatletter
+%	\renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
+%	\makeatother
+%	\listoftables
+%	\addcontentsline{toc}{chapter}{\textbf{DAFTAR TABEL}}
+%	\pagestyle{fancy}
+%	\fancyhead[L]{\textsl{Daftar Tabel}}
+%	\fancyhead[R]{}
+%	\fancyfoot[C]{\thepage}
+%	
+%	\renewcommand{\listofalgorithms}{ 
+%		\begingroup 
+%		\listof{algorithm}{DAFTAR ALGORITMA} 
+%		\endgroup 
+%	}
+%	\makeatletter
+%	\renewcommand*\l@table{\@dottedtocline{1}{1em}{3.2em}}
+%	\makeatother
+%	\listofalgorithms
+%	\addcontentsline{toc}{chapter}{\textbf{DAFTAR ALGORITMA}}
+%	\pagestyle{fancy}
+%	\fancyhead[L]{\textsl{Daftar Algoritma}}
+%	\fancyhead[R]{}
+%	\fancyfoot[C]{\thepage}
 	
 %	\include{DaftarSDL}
 	% BAB 1, BAB 2, BAB 3.
@@ -236,10 +236,10 @@ qed=\qedsymbol%
 	\thispagestyle{myheadings}
 	\pagenumbering{arabic}
 	\include{Bab1}
-	\include{Bab2}
-	\include{Bab3}
-	\include{Bab4}
-	\include{Bab5}
+	%\include{Bab2}
+	%\include{Bab3}
+	%\include{Bab4}
+	%\include{Bab5}
 	
 	\backmatter
 	\addcontentsline{toc}{chapter}{\textbf{DAFTAR PUSTAKA}}

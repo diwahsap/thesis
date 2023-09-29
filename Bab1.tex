@@ -1,28 +1,56 @@
 \chapter{PENDAHULUAN}
 \section{Latar Belakang}
-Pada bagian ini masalah pokok dan urgensi yang menjadi latar belakang penelitian disajikan. Bagian latar belakag hendaknya memuat: pokok permasalahan, manfaat penelitian (mengapa subjek/tema penelitian penting untuk dikaji) dan telaahan tentang penelitian yang telah dilakukan peneliti-peneliti sebelumnya secara ringkas \cite{muthiahPerformanceEvaluationHadoopa}
 
-Telaahan terhadap berbagai penelitian terdahulu dapat disarikan dari Bab II Tinjauan Pustaka. Telaahan ini hendaknya bermuara pada sisi-sisi kajian atau pokok persoalan yang akan diteliti dalam penelitian ini \cite{ahnPerformanceStudySpark2018}
+Pengolahan dan analisis data telah menjadi bagian penting dalam berbagai aspek kehidupan modern. Organisasi, perusahaan, dan lembaga pemerintah mengandalkan data untuk pengambilan keputusan yang lebih baik, inovasi produk, pengembangan layanan pelanggan, dan banyak aspek lainnya. Seiring dengan meningkatnya volume data yang dihasilkan setiap hari, tantangan utama yang dihadapi adalah bagaimana mengelola dan menganalisis data ini dengan efisien dan cepat. Beberapa solusi telah tersedia untuk mengatasi masalah ini. Salah satu solusi yang paling efisien adalah komputasi terdistribusi. Dalam komputasi terdistribusi, data besar dibagi ke dalam sejumlah \textit{node} atau server yang bekerja bersama-sama untuk mengolahnya. Dua teknologi yang umum digunakan dalam komputasi terdistribusi ini adalah \textit{Apache Hadoop (MapReduce)} dan \textit{Apache Spark.}
+
+\textit{Hadoop} dan \textit{Spark} adalah dua \textit{platform} komputasi \textit{big data} yang paling populer dan banyak digunakan di seluruh dunia. \textit{Platform} ini menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. Kedua \textit{platform} ini menyediakan berbagai fungsi menggunakan \textit{application programming interface} (API) yang sederhana sehingga dapat memudahkan dalam penggunaan.
+
+\textit{MapReduce} adalah alat yang digunakan untuk komputasi terdistribusi, dirancang khusus untuk menulis, membaca, dan memproses jumlah data yang besar \cite{deanMapReduceSimplifiedData2004}. Pemrosesan data dalam \textit{MapReduce} ini terdiri dari tiga tahap: fase \textit{Map}, fase \textit{Shuffle}, dan fase \textit{Reduce}. Dalam teknik ini, berkas-berkas besar dibagi menjadi beberapa blok kecil dengan ukuran yang sama dan didistribusikan ke seluruh klaster untuk penyimpanan. \textit{MapReduce} dan sistem file terdistribusi (HDFS) adalah bagian inti dari sistem \textit{Hadoop}, sehingga komputasi dan penyimpanan bekerja bersama-sama di seluruh \textit{node} yang membentuk klaster komputer \cite{samadiComparativeStudyHadoop2016}.
+
+\textit{Spark}, di sisi lain, menawarkan teknologi \textit{Resilient Distributed Datasets} (RDDs) untuk mendukung proses \textit{Map} dan \textit{Reducing} secara lebih efektif dan cepat \cite{ahmadvandGapproxUsingGallup2019}. \textit{Spark} bukan hanya alternatif \textit{Hadoop}, tetapi juga menyediakan berbagai fungsi, misalnya mendukung \textit{MLib}, \textit{GraphX}, dan \textit{Spark streaming }untuk analisis data besar \cite{zahariaSparkClusterComputing2010}. Spark menggunakan memori untuk menyimpan data, mengurangi siklus baca/tulis. Di sisi lain, \textit{Hadoop MapReduce} memerlukan akses ke penyimpanan untuk membaca dan menulis data, sehingga dapat memperlambat proses komputasi.
+
+Tolok ukur \textit{HiBench} adalah salah satu tolak ukur kinerja yang paling sering digunakan. \textit{HiBench} mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuite}. Oleh karena itu, \textit{HiBench} adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara \textit{platform Hadoop}dan \textit{Spark} dalam berbagai skenario penggunaan.
+
+Penelitian ini bertujuan untuk menginvestigasi perbandingan kinerja antara \textit{Hadoop} dan \textit{Spark} menggunakan tolak ukur \textit{HiBench}. Dengan memahami kekuatan dan kelemahan masing-masing platform dalam berbagai konteks pemrosesan data, organisasi atau peneliti dapat membuat keputusan yang lebih informasional saat memilih platform yang sesuai dengan kebutuhan mereka.
 
 \section{Rumusan Masalah}
-Tuliskan secara jelas, rumusan masalah dalam penelitian Anda \cite{samadiPerformanceComparisonHadoop2018} .
+Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
 \begin{enumerate}{\tiny }
 	\item 
-	Point pertama?
+	Bagaimana perbandingan kinerja antara \textit{Hadoop} dan \textit{Spark} dalam mode pseudo-distribusi dalam konteks pemrosesan data dalam skala besar dengan menggunakan tolak ukur \textit{HiBench}?
 	\item
-	Point dua?
-	\item
-	Point tiga?
+	Bagaimana kinerja \textit{Hadoop} dan \textit{Spark} ketika diuji menggunakan berbagai beban kerja (\textit{workloads}) yang disediakan oleh \textit{HiBench benchmarks}?
 \end{enumerate}
+
 \section{Tujuan}
-Tuliskan secara jelas, tujuan umum maupun tujuan khusus penelitian. 
-\begin{enumerate}
+Penelitian ini memiliki tujuan, yaitu:
+	\begin{enumerate}
+		\item 
+		Untuk membandingkan kinerja antara \textit{Hadoop} dan \textit{Spark} dalam mode pseudo-distribusi saat memproses data dalam skala besar dengan menggunakan tolak ukur \textit{HiBench}.
+		\item
+		Untuk mengukur kinerja \textit{Hadoop} dan \textit{Spark} ketika diuji menggunakan berbagai beban kerja (workloads) yang disediakan oleh HiBench benchmarks.
+	\end{enumerate}
+
+\section{Manfaat}
+Hasil dari penelitian ini diharapkan akan memberikan manfaat sebagai berikut:\begin{enumerate}
 	\item 
-	Point satu. Ini adalah \cite{KOMPARASIKECEPATANHADOOP}
+	Penelitian ini akan memberikan informasi yang berguna bagi organisasi yang sedang mempertimbangkan pemilihan platform \textit{Big Data}, sehingga mereka dapat membuat keputusan yang lebih terinformasi.	
 	\item
-	Point dua.
+	Penelitian ini akan membantu dalam memahami lebih dalam kinerja \textit{Hadoop} dan \textit{Spark} dalam berbagai skenario pemrosesan data.
 	\item
-	Point tiga.
+	Hasil dari penelitian ini dapat menjadi dasar untuk penelitian lebih lanjut dalam pengembangan dan peningkatan platform \textit{Big Data.}
 \end{enumerate}
+
+
 \section{Batasan Masalah}
-Memuat batas-batas kajian dengan jelas termasuk asumsi-asumsi yang digunakan selama penelitian. Batas-batas penelitian dapat berupa komposisi bahan (diambil dari daerah tertentu atau spesies tertentu), umpan (apakah umpan sintetik atau nyata), alat (alat jenis tertentu) dan sebagainya.
+Penelitian ini memiliki beberapa batasan yang perlu diperhatikan sebagai berikut:
+	\begin{enumerate}
+		\item 
+		Penelitian ini akan fokus pada perbandingan kinerja antara \textit{Hadoop} dan \textit{Spark} dalam mode \textit{pseudo-distributed.}
+		\item
+		Pengujian kinerja akan menggunakan \textit{HiBench}, sebuah tolok ukur kinerja yang umum digunakan dalam penelitian \textit{Big Data.}
+		\item
+		Implementasi \textit{Hadoop} dalam lingkungan komputasi awan akan menggunakan salah satu penyedia awan, yaitu \textit{DigitalOcean}.
+		\item
+		Penelitian ini akan berfokus pada aspek kinerja. Aspek lain seperti keamanan dan administrasi tidak akan dibahas secara rinci.
+	\end{enumerate}
