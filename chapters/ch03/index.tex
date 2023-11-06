@@ -1,10 +1,123 @@
-\chapter{Metodologi Penelitian}
+\chapter{Metode Penelitian}
+\section{Alur Penelitian}
+Adapun diagram alir penelitian ini ditunjukkan pada Gambar \ref{fig:diagram alir} terdapat enam tahapan. Langkah awal yang dilakukan pada penelitian ini adalah melakukan identifikasi masalah, yaitu proses mencari, menghimpun, serta menemukan permasalahan yang nantinya akan diselesaikan. Setelah melakukan identifikasi masalah, langkah selanjutnya adalah studi literatur. Studi literatur adalah tahapan untuk mencari solusi dari permasalahan yang sebelumnya sudah kita definisikan. Pencarian solusi ini dapat melalui membaca referensi ilmiah terdahulu, baik melalui jurnal, buku, dokumentasi resmi, tesis, dan lain-lain. Tahapan ini akan memberikan pemahaman mendasar mengenai permasalahan yang sudah didapatkan sebelumnya. 
 
-\section{Analisis Masalah}
-\blindtext
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch03/Diagram Tugas Akhir.png}
+    \caption{Diagram Alir Penelitian}
+    \label{fig:diagram alir}
+\end{figure}
 
-\section{Solusi Umum}
-\blindtext
+Kemudian, penelitian ini akan dilanjutkan pada tahap membangun \textit{virtual machine} di DigitalOcean. DigitalOcean adalah perusahaan penyedia layanan awan \textit{Infrastructure as a Service} (IaaS) yang memberikan banyak pilihan kepada pengguna untuk menggunakan berbagai jenis layanan sesuai dengan kebutuhan, salah satunya yaitu \textit{virtual machine}. \textit{Virtual Machine} tersebut dapat dihentikan atau dihapus kapanpun saat tidak lagi diperlukan. Ketika infrastruktur sudah siap digunakan, penelitian dilanjutkan ke tahap pemasangan perangkat lunak, seperti Hadoop, Spark, dan HiBench. Selanjutnya dilakukan eksperimen pada beberapa beban kerja, yaitu \textit{Micro Benchmarks} dan \textit{SQL Benchmarks}. Akhirnya, hasil dari eksperimen akan digunakan untuk proses analisis dan evaluasi.
 
-\section{Rancangan Solusi}
-\blindtext
+\section{Penjabaran Langkah Penelitian}
+Adapun untuk lebih memperjelas lagi dari setiap langkah yang ada pada Gambar \ref{fig:diagram alir}, dijabarkan secara rinci tahapan-tahapan yang dilakukan pada penelitian ini.
+
+\subsection{Identifikasi Masalah dan Studi Literatur}
+Langkah awal penelitian ini adalah identifikasi masalah dan studi literatur. Identifikasi masalah dapat dipahami sebagai tahapan mendefinisikan masalah sehingga masalah tersebut dapat terukur dan jelas untuk dijadikan landasan dalam latar belakang penelitian. Setelah masalah berhasil diidentifikasi, langkah selanjutnya adalah studi literatur yang mana dalam proses ini dilakukan pengumpulan berbagai macam informasi, referensi, dan konsep dasar yang menjadi landasan dasar dari penelitian. Langkah ini dapat dilakukan melalui membaca artikel ilmiah pendukung, buku-buku yang ditulis oleh para ahli, dan jika berkaitan dengan pemrograman dapat melihat dari dokumentasi resmi. Pada tahap ini juga dilakukan analisis terhadap penelitian terdahulu dan dibandingkan dengan identifikasi masalah yang didapatkan untuk membuka celah penelitian baru sehingga penelitian ini dapat bermanfaat. 
+
+\subsection{Membangun Virtual Machine di DigitalOcean}
+Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja aplikasi \textit{big data} berbasis Hadoop dan Spark. DigitalOcean, sebagai penyedia layanan infrastruktur sebagai layanan (IaaS), memberikan pengguna kebebasan penuh untuk membuat, mengonfigurasi, dan mengelola berbagai infrastruktur yang telah disediakan. Dalam konteks penelitian ini, diperlukan penggunaan mesin virtual, yang dalam DigitalOcean dikenal sebagai "Droplets," yang memungkinkan untuk menyesuaikan berbagai aspek seperti sistem operasi, kapasitas penyimpanan, jumlah prosesor, dan parameter lainnya sesuai dengan kebutuhan spesifik penelitian.
+
+Penelitian ini mengadopsi mode \textit{pseudo-distributed} yang memungkinkan penggunaan hanya satu \textit{virtual machine} dalam konfigurasi \textit{single node}. Walaupun hanya menggunakan satu \textit{virtual machine}, mode \textit{pseudo-distributed} memungkinkan setiap proses dalam klaster beroperasi secara independen, menciptakan lingkungan di mana semua proses berjalan mandiri satu sama lain. Hal ini memungkinkan penulis untuk lebih berfokus pada pengumpulan data dan analisis, tanpa perlu melakukan konfigurasi yang rumit terkait dengan pengaturan klaster. Spesifikasi perangkat keras yang digunakan untuk \textit{virtual machine} dalam mode \textit{pseudo-distributed} seperti yang dijelaskan pada Tabel \ref{table:conf-hardware}.
+
+\begin{table}
+	\centering
+	\caption{Konfigurasi Perangkat Keras}
+	\begin{tabular}{|ll|}
+		\hline
+		\multicolumn{1}{|c|}{\textbf{Nama Parameter}}    & \multicolumn{1}{c|}{\textbf{Nilai Parameter}} \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Lokasi Pusat Data}} & Singapore - Datacenter 1 - SGP1               \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Sistem Operasi}}    & Ubuntu 20.04 (LTS) x64                        \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Jenis Droplet}}     & Basic                                         \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Prosesor}}          & Premium AMD - 4 Core                          \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Memori}}            & 8 GB                                          \\ \hline
+		\multicolumn{1}{|l|}{\textbf{Penyimpanan}}       & 160 GB NVMe SSD                               \\ \hline
+	\end{tabular}
+	\label{table:conf-hardware}
+\end{table}
+
+Penjelasan lengkap tentang pembuatan \textit{virtual machine} (VM) pada \textit{platform} DigitalOcean dan cara mengakses VM tersebut disajikan pada Lampiran A.
+%TODO: kerjakan Lampiran A - Konfigurasi Perangkat Keras
+
+\subsection{Pemasangan dan Konfigurasi Perangkat Lunak}
+Pemasangan dan konfigurasi perangkat lunak merupakan hal yang krusial dalam penelitian ini. Perangkat lunak yang diperlukan ditunjukkan pada Tabel \ref{table:software-needs}.
+
+\begin{table}[h!]
+	\centering
+	\caption{Perangkat Lunak yang Dibutuhkan}
+		\begin{tabular}{|c|p{9cm}|}
+		\hline
+			\textbf{Perangkat Lunak} & \multicolumn{1}{c|}{\textbf{Deskripsi}}                                                                                \\ \hline
+			Ubuntu 20.04 LTS x64     & Sistem operasi Linux berbasis Ubuntu versi 20.04 LTS x64, yang digunakan sebagai platform penelitian dan pengembangan. \\ \hline
+			Git                      & Sistem kontrol versi untuk mengelola perubahan dalam kode sumber perangkat lunak                                       \\ \hline
+			Maven                    & Perangkat lunak manajemen proyek Java untuk otomatisasi tugas pengembangan perangkat lunak                             \\ \hline
+			Java 8                   & \multirow{3}{*}{Bahasa pemrograman dasar}                                 \\ \cline{1-1}
+			Python 3.7               &                                                                                                                        \\ \cline{1-1}
+			Scala 2.12               &                                                                                                                        \\ \hline
+			Hadoop 2.7               & Perangkat lunak pengolahan data terdistribusi untuk penyimpanan dan manajemen data besar                               \\ \hline
+			Spark 3.0.3              & Kerangka kerja pemrosesan data terdistribusi yang berjalan di atas Hadoop                                              \\ \hline
+			Hive 2.3.9               & Infrastruktur pengolahan data yang memungkinkan query SQL terhadap data di Hadoop HDFS                                 \\ \hline
+			Hibench Benchmark Suite  & Alat yang digunakan untuk mengukur kinerja Hadoop dan Spark                                                            \\ \hline
+		\end{tabular}
+	\label{table:software-needs}
+\end{table}
+
+Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gambar \ref{fig:alurkerja-soft}. Pada gambar, terdapat tiga bagian utama, yaitu \textit{prerequisites} (perangkat lunak prasyarat) ditandai dengan warna biru, alat penyimpanan dan pemrosesan \textit{Big Data} ditandai dengan warna oren, dan alat untuk mengukur kinerja \textit{big data} ditandai dengan warna hijau. Semua perangkat lunak dijalankan pada sistem operasi Ubuntu 20.04 LTS x64.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/ch03/alurkerja_soft.png}
+    \caption{Alur Kerja Perangkat Lunak}
+    \label{fig:alurkerja-soft}
+\end{figure}
+
+\subsubsection{Instalasi Perangkat Lunak Prasyarat}
+Ada beberapa perangkat lunak yang perlu diimplementasikan sebelum memasang Hadoop, Spark, Hive, dan HiBench, yaitu:
+\begin{enumerate}
+	\item Ubuntu 20.04 LTS x64
+	\item Git
+	\item Java 8 dan Maven
+	\item Python 3.7
+	\item Scala 2.12
+\end{enumerate}
+Penjelasan lengkap mengenai instalasi perangkat lunak prasyarat ini disajikan pada Lampiran B.
+%TODO: kerjakan Lampiran B - Instalasi Perangkat Lunak Prasyarat
+
+\subsubsection{Instalasi dan Konfigurasi Hadoop}
+Hadoop adalah perangkat lunak \textit{open source} yang efektif dalam menyimpan dan memproses data dalam skala besar. Daripada menggunakan satu komputer besar untuk menyimpan dan memproses data, Hadoop memungkinkan pengklasteran beberapa komputer untuk menganalisis set data besar secara paralel dengan lebih cepat. Ada beberapa perangkat lunak prasyarat yang perlu dipasang sebelum menggunakan Hadoop. Penjelasan lengkap mengenai instalasi perangkat lunak prasyarat ini disajikan pada Lampiran B. Setelah perangkat lunak prasyarat berhasil dipasang, Hadoop dapat dipasang juga mengikuti panduan lengkap pada Lampiran C.
+%TODO: kerjakan Lampiran C - Instalasi Hadoop
+
+\subsubsection{Instalasi dan Konfigurasi Spark}
+Apache Spark adalah sebuah kerangka kerja pengolahan data terdistribusi yang sangat cepat dan efisien. Spark dan Hadoop memiliki hubungan yang erat. Spark dapat berjalan di atas \textit{Hadoop Distributed File System} (HDFS) dan dapat menggunakan Hadoop YARN sebagai manajer sumber daya. Oleh karena itu, instalasi Spark membutuhkan Hadoop sudah terpasang lebih dahulu seperti pada lampiran C. Apabila Hadoop sudah berhasil terpasang, langkah selanjutnya adalah memasang Spark seperti pada Lampiran D.
+%TODO: kerjakan Lampiran D - Instalasi dan Konfigurasi Spark
+
+\subsubsection{Instalasi dan Konfigurasi Hive}
+Apache Hive adalah sebuah sistem manajemen basis data yang memungkinkan pengolahan dan analisis data terdistribusi dalam lingkungan Hadoop. Sama seperti Spark, Hive membutuhkan Hadoop sudah terpasang dengan baik. Selanjutnya, untuk memasang Hive dapat mengikuti panduang lengkap pada Lampiran E. 
+%TODO: kerjakan Lampiran E - Instalasi dan Konfigurasi Hive
+
+\subsubsection{Instalasi HiBench}
+Sebelum melakukan eksperimen, diperlukan suatu perangkat lunak pengukuran kinerja sistem \textit{Big Data}, yaitu HiBench. Instalasi HiBench membutuhkan semua perangkat lunak yang sudah disebutkan sebelumnya. HiBench dapat dipasang dengan cara mengikut panduan pada Lampiran F.
+%TODO: kerjakan Lampiran F - Instalasi HiBench
+
+\subsection{Eksperimen}
+Eksperimen merupakan tahapan yang dilakukan setelah perangkat keras dan perangkat lunak sudah berhasil terpasang. Pada tahapan ini, dilakukan berbagai percobaan untuk menjawab pertanyaan pada masalah yang sebelumnya sudah didefinisikan. 
+
+
+\subsection{Proses Analisis dan Evaluasi Hasil Eksperimen}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
