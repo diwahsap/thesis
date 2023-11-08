@@ -115,6 +115,15 @@
 	\renewcommand{\listtablename}{DAFTAR TABEL}%
 }
 
+%appendix
+\newcommand\listappendixname{DAFTAR LAMPIRAN}
+\newcommand\appcaption[1]{%
+  \addcontentsline{app}{chapter}{#1}}
+\makeatletter
+\newcommand\listofappendices{%
+  \chapter*{\listappendixname}\@starttoc{app}}
+\makeatother
+
 % english title
 \providecommand\titleEN[1]{\providecommand\thetitleEN{#1}}
 

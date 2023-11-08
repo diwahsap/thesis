@@ -102,17 +102,29 @@ Sebelum melakukan eksperimen, diperlukan suatu perangkat lunak pengukuran kinerj
 %TODO: kerjakan Lampiran F - Instalasi HiBench
 
 \subsection{Eksperimen}
-Eksperimen merupakan tahapan yang dilakukan setelah perangkat keras dan perangkat lunak sudah berhasil terpasang. Pada tahapan ini, dilakukan berbagai percobaan untuk menjawab pertanyaan pada masalah yang sebelumnya sudah didefinisikan. 
+Eksperimen merupakan tahapan yang dilakukan setelah perangkat keras dan perangkat lunak sudah berhasil terpasang. Pada tahapan ini, dilakukan berbagai percobaan untuk menjawab pertanyaan pada masalah yang sebelumnya sudah didefinisikan. Beberapa beban kerja yang akan diuji coba pada tahapan ini dapat dilihat pada Tabel \ref{table:workload}. 
 
+\begin{table}[h!]
+\centering
+\caption{Beban Kerja yang Akan Diuji Coba}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{\textbf{Beban Kerja}} & \multicolumn{1}{c|}{\textbf{Tipe Beban Kerja}} & \multicolumn{1}{c|}{\textbf{Sumber Data}} & \multicolumn{1}{c|}{\textbf{Perangkat Lunak}} \\ \hline
+Sort & Micro Benchmarks & RandomTextWriter & Hadoop, Spark \\ \hline
+WordCount & Micro Benchmarks & RandomTextWriter & Hadoop, Spark \\ \hline
+TeraSort & Micro Benchmarks & Hadoop TeraGen & Hadoop, Spark \\ \hline
+Scan & SQL & \cite{pavloComparisonApproachesLargescale2009} & Hadoop, Spark \\ \hline
+Join & SQL & \cite{pavloComparisonApproachesLargescale2009}  & Hadoop, Spark \\ \hline
+Aggregate & SQL & \cite{pavloComparisonApproachesLargescale2009}  & Hadoop, Spark \\ \hline
+\end{tabular}
+\label{table:workload}
+\end{table}
+
+Pengujian dimulai dengan mengeksekusi \textit{Micro Benchmarks}, yang terdiri dari \textit{WordCount, Sort, dan TeraSort}, pada DigitalOcean menggunakan parameter data yang divariasikan, yaitu {1GB; 5 GB; 10GB; 25 GB; dan 50 GB}. Selanjutnya, pengujian dilakukan pada beban kerja SQL. Ada tiga beban kerja yang dilakukan, yaitu \textit{Scan, Join,} dan \textit{Aggregate}. Panduan untuk menjalankan pengujian dapat dilihat pada Lampiran G. Hasil yang diukur berupa lama waktu eksekusi (\textit{execution time}) dan \textit{throughput}. Uji coba yang dijalankan pada HiBench dilakukan sebanyak masing-masing satu uji coba. Hasil dari setiap pengujian dapat diakses melalui file \textit{report}.
+%TODO: kerjakan Lampiran G - Menjalankan Eksperimen
 
 \subsection{Proses Analisis dan Evaluasi Hasil Eksperimen}
-
-
-
-
-
-
-
+Proses analisis pada penelitian ini meliputi semua proses eksperimen yang telah dilalui, baik dari \textit{micro benchmarks} dan \textit{SQL Benchmark}. Analisis dilakukan dengan membandingkan hasil setiap eksperimen. Selanjutnya, tahapan ini ditutup dengan evaluasi terhadap hasil dari analisis yang diperoleh.
 
 
 
