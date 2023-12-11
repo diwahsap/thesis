@@ -1,10 +1,29 @@
 \chapter{Tinjauan Pustaka}
 
-%\section{Studi Terkait}
-%\blindtext
+\section{Studi Terkait}
+
+Penelitian terdahulu yang relevan seperti yang ditunjukkan oleh Tabel \ref{table:penelitian-terdahulu} menghasilkan temuan penting mengenai performa sistem pemrosesan data besar. Penelitian oleh Ahmed et al. \cite{ahmedComprehensivePerformanceAnalysis2020} dan Yasir Samadi et al. \cite{samadiPerformanceComparisonHadoop2018} menyoroti perbandingan performa antara Hadoop dan Spark dalam kondisi dan beban kerja yang berbeda. Pada penelitian tersebut, ditunjukkan bahwa meskipun Hadoop dan Spark beroperasi pada prinsip MapReduce, ada perbedaan signifikan dalam cara kedua \textit{software} menangani dan memproses data, terutama dalam hal efisiensi dan penggunaan sumber daya. 
+
+\begin{table}[!htbp]
+\centering
+\caption{Tabel Perbandingan Referensi}
+\label{table:penelitian-terdahulu}
+\begin{tabular}{|p{1.5cm}|p{1.25cm}|p{2.75cm}|p{3cm}|p{4cm}|}
+\hline
+\textbf{Penulis} & \textbf{Tahun} & \textbf{Beban Kerja yang Diuji} & \textbf{Spesifikasi Perangkat Keras} & \textbf{Hasil} \\
+\hline
+Ahmed et al. \cite{ahmedComprehensivePerformanceAnalysis2020} & 2020 & WordCount and TeraSort (50--600 GB) & SNCC, Production Cluster CPU cores -- 80 Total Storage -- 60 TB Master node -- 1 Slaves nodes -- 9 & Spark memiliki performa yang lebih baik hingga dua kali lipat dalam beban kerja WordCount dan hingga 14 kali lipat dalam beban kerja TeraSort. \\
+\hline
+Yasir Samadi et al. \cite{samadiPerformanceComparisonHadoop2018} & 2018 & Micro Benchmarks Web Search SQL Machine Learning (1 GB, 5 GB and 8 GB) & VM, Disk(SDD) -- 40 GB & Spark lebih efisien daripada Hadoop untuk menangani data dalam jumlah besar dalam kasus-kasus besar. Namun, Spark membutuhkan alokasi memori yang lebih tinggi. \\
+\hline
+Satish dan Rohan \cite{gopalaniComparingApacheSpark2015} & 2015 & K-means (62--1240 MB) & VM 2 nodes, 4 GB RAM, 500 GB & Kecepatan Spark hingga tiga kali lebih tinggi dari MapReduce. \\
+\hline
+\end{tabular}
+\end{table}
 
 \section{Dasar Teori}
 Penelitian ini menggunakan beberapa teori dasar pendukung agar dapat memperjelas proses penelitian dan memberikan pemahaman lebih lanjut. Teori-teori dasar yang berhubungan dan digunakan dalam penelitian ini adalah sebagai berikut.
+
 \subsection{MapReduce}
 MapReduce adalah model pemrograman dan implementasi teknik pemrosesan data berukuran besar yang pertama kali dipopulerkan oleh Google pada tahun 2004\cite{kaliaAnalysisHadoopMapReduce2021}. MapReduce menawarkan pemrosesan data yang dapat diandalkan serta \textit{fault-tolerant manner} (tahan terhadap kesalahan).  MapReduce berjalan secara paralel dan berada pada lingkungan komputasi terdistribusi \cite{cTaskFailureResilience2020}. Model ini mengadopsi arsitektur tersentraliasi, yaitu satu \textit{node} berperan sebagai \textit{master} dan \textit{node} yang lain berperan sebagai \textit{workers} atau \textit{slave} \cite{herodotouHadoopPerformanceModels2011, bakratsasHadoopMapReducePerformance2018}. \textit{Master node} bertanggung jawab untuk melakukan penjadwalan kerja, dan \textit{slave node} berperan untuk menjalankan eksekusi kerja. 
 

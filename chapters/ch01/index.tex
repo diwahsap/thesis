@@ -6,7 +6,7 @@
 
 Pengolahan dan analisis data telah menjadi bagian penting dalam berbagai aspek kehidupan modern \cite{vermaBigDataManagement2016}. Organisasi, perusahaan, dan lembaga pemerintah mengandalkan data untuk pengambilan keputusan yang lebih baik, inovasi produk, pengembangan layanan pelanggan, dan banyak aspek lainnya. Seiring dengan meningkatnya volume data yang dihasilkan setiap hari, tantangan utama yang dihadapi adalah bagaimana mengelola dan menganalisis data ini dengan efisien dan cepat \cite{ahmadvandGapproxUsingGallup2019}. Beberapa solusi telah tersedia untuk mengatasi masalah ini. Salah satu solusi yang paling efisien adalah komputasi terdistribusi. 
 
-Komputasi terdistribusi adalah cara untuk mencapai paralelisme dengan menggabungkan beberapa mesin independen yang berbeda \cite{bhattacharyaEvaluatingDistributedComputing2021}. Dalam komputasi terdistribusi, data besar dibagi ke dalam sejumlah \textit{node} atau server yang bekerja bersama-sama untuk mengolahnya. Dua teknologi yang umum digunakan dalam komputasi terdistribusi ini adalah Apache Hadoop dan Apache Spark. Hadoop dan Spark adalah dua platform komputasi \textit{big data} yang paling populer dan banyak digunakan di seluruh dunia. \textit{Platform} ini menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. Kedua \textit{platform} ini menyediakan berbagai fungsi menggunakan \textit{application programming interface} (API) yang sederhana sehingga dapat memudahkan dalam penggunaan.
+Komputasi terdistribusi adalah cara untuk mencapai paralelisme dengan menggabungkan beberapa mesin independen yang berbeda \cite{bhattacharyaEvaluatingDistributedComputing2021}. Dalam komputasi terdistribusi, data besar dibagi ke dalam sejumlah \textit{node} atau server yang bekerja bersama-sama untuk mengolahnya. Dua teknologi yang umum digunakan dalam komputasi terdistribusi ini adalah Apache Hadoop dan Apache Spark. Hadoop dan Spark adalah dua platform komputasi \textit{big data} yang paling populer dan banyak digunakan di seluruh dunia. \textit{Platform} ini menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. 
 
 MapReduce adalah alat yang digunakan untuk komputasi terdistribusi, dirancang khusus untuk menulis, membaca, dan memproses jumlah data yang besar \cite{deanMapReduceSimplifiedData2004}. Pemrosesan data dalam MapReduce ini terdiri dari tiga tahap: fase \textit{Map}, fase \textit{Shuffle}, dan fase \textit{Reduce}. Dalam teknik ini, berkas-berkas besar dibagi menjadi beberapa blok kecil dengan ukuran yang sama dan didistribusikan ke seluruh klaster untuk penyimpanan. MapReduce dan sistem file terdistribusi (HDFS) adalah bagian inti dari sistem Hadoop, sehingga komputasi dan penyimpanan bekerja bersama-sama di seluruh \textit{node} yang membentuk klaster komputer \cite{samadiComparativeStudyHadoop2016}. Hadoop MapReduce memerlukan akses ke penyimpanan untuk membaca dan menulis data, sehingga dapat memperlambat proses komputasi, sehingga hadirlah Spark.
 
@@ -38,9 +38,11 @@ Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
 Penelitian ini memiliki tujuan, yaitu:
 	\begin{enumerate}
 		\item
-		Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan berbagai beban kerja (workloads) yang disediakan oleh HiBench, seperti \textit{Micro Benchmarks} dan SQL.
+		Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench
+		\item
+		Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja SQL yang disediakan oleh HiBench
 		\item 
-		Untuk membandingkan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi saat memproses data dalam skala besar dengan menggunakan tolok ukur HiBench.
+		Untuk membandingkan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi saat memproses data dalam skala besar dengan menggunakan tolok ukur HiBench
 	\end{enumerate}
 
 \section{Manfaat}
