@@ -53,3 +53,4 @@ titling
 uniquecounter
 url
 xcolor
+listings

@@ -1,1 +1,74 @@
-\chapter{Instalasi HiBench}
+\chapter{Instalasi dan Konfigurasi HiBench}
+\label{appendix:E}
+
+Langkah-langkah pemasangan dan konfigurasi HiBench akan dijelaskan sebagai berikut,
+
+\begin{enumerate}
+  \item Unduh berkas HiBench
+  \begin{enumerate}
+    \item Pastikan perangkat lunak prasyarat dan perangkat lunak \textit{Big Data} sebelumnya sudah berhasil dipasang dan dilakukan konfigurasi. Tahap selanjutnya adalah mengunduh berkas HiBench dengan perintah \verb|git clone https://github.com/Intel-bigdata/HiBench.git|. Pastikan berada pada folder \textit{/home/hdfsuser}.
+    \item Selanjutnya, berikan perizinan ke folder HiBench dengan cara \verb|sudo chmod 755 HiBench|.
+  \end{enumerate}
+  \item Membangun \textit{framework benchmark}
+  \begin{enumerate}
+    \item Sebelum HiBench dapat digunakan, diperlukan pembangunan beberapa modul yang dibutuhkan, misalnya modul \textit{data generation}, modul \textit{hadoopbench}, dan modul \textit{sparkbench}. Langkah awal yang diperlukan adalah masuk ke folder HiBench dengan perintah \verb|cd HiBench|.
+    \item Selanjutnya, pastikan versi Hadoop, Spark, dan Scala sudah sesuai. Jalankan perintah \verb|mvn -Phadoopbench -Psparkbench -Dhadoop=2.7 -Dspark=3.0| \newline \verb|-Dmodules -Pmicro clean package|. Perintah ini akan membangun modul yang dibutuhkan menggunakan Maven. Tidak semua modul akan dipasang. Modul yang akan dipasang salah satunya adalah modul untuk \textit{micro benchmark}. 
+    \item Jika ingin pembangunan modul yang lebih luas cakupannya dapat menggunakan perintah \verb|mvn -Phadoopbench -Psparkbench -Dspark=2.4 -Dscala=2.11| \newline \verb|clean package|.
+  \end{enumerate}
+  \item Jalankan perintah \verb |sudo apt install bc| supaya berkas Hibench \textit{Report} dapat muncul. 
+  \item Lakukan konfigurasi pada berkas \textit{hibench.conf}. Buka berkas tersebut dengan perintah \verb|sudo nano conf/hibench.conf|.
+  \item Lakukan beberapa perubahan pada baris sesuai dengan contoh di bawah ini.
+    \begin{lstlisting}[language=bash]
+	  hibench.masters.hostnames       hdfs://localhost:9000
+	  hibench.slaves.hostnames        localhost
+    \end{lstlisting}
+  \item Menjalankan \textit{Benchmark} Hadoop
+  \begin{enumerate}
+    \item Lakukan konfigurasi pada berkas \textit{hadoop.conf}. Sebelum itu, salin \textit{template} konfigurasinya dengan perintah \verb|cp conf/hadoop.conf.template conf/hadoop.conf|.
+    \item Buka berkas \textit{hadoop.conf} dengan perintah \verb|sudo nano conf/hadoop.conf|. Selanjutnya, lakukan beberapa perubahan seperti pada contoh di bawah.
+      \begin{lstlisting}[language=bash]
+		# Hadoop home
+		hibench.hadoop.home     /usr/local/hadoop
+		
+		# The path of hadoop executable
+		hibench.hadoop.executable     ${hibench.hadoop.home}/bin/hadoop
+		
+		# Hadoop configraution directory
+		hibench.hadoop.configure.dir  ${hibench.hadoop.home}/etc/hadoop
+		
+		# The root HDFS path to store HiBench data
+		hibench.hdfs.master       hdfs://localhost:9000
+		
+		# Hadoop release provider. Supported value: apache
+		hibench.hadoop.release    apache
+      \end{lstlisting}
+    \item Simpan perubahan yang sudah dilakukan.
+    \item Untuk menjalankan beban kerja yang sudah dirancang sebelumnya, perintah yang digunakan sebagai berikut. Jalankan baris per baris.
+      \begin{lstlisting}[language=bash]
+	    bin/workloads/micro/<nama-beban-kerja>/prepare/prepare.sh
+	    bin/workloads/micro/<nama-beban-kerja>/hadoop/run.sh
+      \end{lstlisting}
+    \item Untuk melihat hasil dari \textit{benchmark} dapat mengakses berkas pada \verb|<HiBench_Root>/report/hibench.report|
+  \end{enumerate}
+  \item Menjalankan \textit{Benchmark} Spark
+  \begin{enumerate}
+    \item Lakukan konfigurasi pada berkas \textit{spark.conf}. Sebelum itu, salin \textit{template} konfigurasinya dengan perintah \verb|cp conf/spark.conf.template conf/spark.conf|.
+    \item Buka berkas \textit{spark.conf} dengan perintah \verb|sudo nano conf/spark.conf|. Selanjutnya, lakukan beberapa perubahan seperti pada contoh di bawah.
+      \begin{lstlisting}[language=bash]
+		# Spark home
+		hibench.spark.home      /usr/local/spark
+		
+		# Spark master
+		#   standalone mode: spark://xxx:7077
+		#   YARN mode: yarn-client
+		hibench.spark.master    yarn
+      \end{lstlisting}
+    \item Simpan perubahan yang sudah dilakukan.
+    \item Untuk menjalankan beban kerja yang sudah dirancang sebelumnya, perintah yang digunakan sebagai berikut. Jalankan baris per baris.
+      \begin{lstlisting}[language=bash]
+	    bin/workloads/micro/<nama-beban-kerja>/prepare/prepare.sh
+	    bin/workloads/micro/<nama-beban-kerja>/spark/run.sh
+      \end{lstlisting}
+    \item Untuk melihat hasil dari \textit{benchmark} dapat mengakses berkas pada \verb|<HiBench_Root>/report/hibench.report|
+  \end{enumerate}
+\end{enumerate}

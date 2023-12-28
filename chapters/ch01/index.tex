@@ -12,37 +12,26 @@ MapReduce adalah alat yang digunakan untuk komputasi terdistribusi, dirancang kh
 
 Spark, di sisi lain, menawarkan teknologi \textit{Resilient Distributed Datasets} (RDDs) untuk mendukung proses \textit{Map} dan \textit{Reducing} secara lebih efektif dan cepat \cite{ahmadvandGapproxUsingGallup2019}. Spark bukan hanya alternatif Hadoop, tetapi juga menyediakan berbagai fungsi, misalnya mendukung \textit{MLib}, \textit{GraphX}, dan \textit{Spark streaming} untuk analisis data besar \cite{zahariaSparkClusterComputing2010}. Spark menggunakan memori untuk menyimpan data sehingga dapat mengurangi siklus baca dan tulis. Perbedaan mendasar ini mengakibatkan menarik untuk melihat perbandingan performa antara keduanya. Salah satu cara untuk membandingkan performa keduanya adalah menggunakan tolok ukur Hibench.
 
-Tolok ukur HiBench adalah salah satu tolok ukur kinerja yang paling sering digunakan. HiBench mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuite}. Oleh karena itu, HiBench adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara Hadoop dan Spark dalam berbagai skenario penggunaan.
+Tolok ukur HiBench adalah salah satu tolok ukur kinerja yang paling sering digunakan. HiBench mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuitea}. Oleh karena itu, HiBench adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara Hadoop dan Spark dalam berbagai skenario penggunaan.
 
 Penelitian tentang evaluasi performa Hadoop dan Spark menggunakan HiBench telah beberapa kali dilakukan. Shi et al. \cite{shiClashTitansMapReduce2015} melakukan penelitian dengan dua alat yang dirancang untuk mengukur kinerja MapReduce dan Spark dalam berbagai skenario beban kerja. Penelitian ini mengevaluasi kinerja dalam pekerjaan \textit{batch} dan iteratif, dengan fokus pada komponen-komponen penting seperti \textit{shuffle}, dan \textit{caching}. Hasil penelitian mereka menunjukkan bahwa Spark lebih cepat daripada Hadoop dalam beberapa kasus, terutama ketika menangani tugas-tugas pemrosesan data yang lebih kecil. Namun, ketika ukuran data meningkat, Hadoop terbukti lebih efisien. Selanjutnya, perbandingan kinerja antara Hadoop dan Spark juga disorot oleh penelitian Samadi et al. \cite{samadiComparativeStudyHadoop2016}, yang menggunakan delapan tolok ukur dari HiBench. Penelitian ini menunjukkan bahwa Spark cenderung lebih efisien ketika menangani data dalam jumlah kecil atau saat memproses tugas dalam memori, sementara Hadoop lebih sukses ketika beban kerja melibatkan operasi I/O penyimpanan yang intensif. Selain itu, penelitian oleh Satish dan Rohan \cite{gopalaniComparingApacheSpark2015} menyoroti perbandingan kinerja antara Hadoop dan Spark khususnya dalam konteks algoritma \textit{K-means}. Penelitian itu menemukan bahwa Spark dapat mencapai kecepatan hingga tiga kali lipat dibandingkan Hadoop, dengan catatan bahwa performa Spark sangat bergantung pada ukuran memori yang memadai.
 
-%TODO: Penelitian terdahulu yang berkaitan dengan topik penelitian, 4 minimal
-%Jelaskan isi penelitian terdahulu yang mencakup permasalahan yang diselesaikan (dapat terkait dataset ), metode yang digunakan, dan hasil penelitian.
-
 Berdasarkan penelitian sebelumnya, penelitian ini bertujuan untuk menyelidiki perbandingan kinerja antara Hadoop dan Spark dengan menggunakan tolok ukur HiBench dengan studi kasus tertentu. Dengan pemahaman mendalam mengenai kekuatan dan kelemahan masing-masing \textit{platform} dalam berbagai konteks pemrosesan data, organisasi atau peneliti dapat membuat keputusan yang lebih informasional saat memilih \textit{platform} yang paling sesuai dengan kebutuhan mereka. Selain itu, penelitian ini akan dilakukan dengan memanfaatkan Infrastruktur sebagai Layanan (IaaS) yang disediakan oleh \textit{DigitalOcean}, memungkinkan penggunaan sumber daya komputasi dalam skala yang fleksibel dan efisien. Dengan demikian, penelitian ini akan memberikan kontribusi berharga dalam membantu pemangku kepentingan dalam mengoptimalkan pemrosesan data dalam lingkungan komputasi terdistribusi.
-
-%TODO: jelaskan secara singkat terkait cara pendekatan dan metode penelitian yang akan dilakukan. Dapat menjelaskan dataset dan keterbaharuan dalam hal metode yang digunakan.
 
 \section{Rumusan Masalah}
 Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
 \begin{enumerate}
-	\item
-	Bagaimana kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench?
-	\item 
-	Bagaimana kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja SQL yang disediakan oleh HiBench?
-	\item 
-	Bagaimana perbandingan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi dalam konteks pemrosesan data dalam skala besar dengan menggunakan tolok ukur HiBench?
+	\item Bagaimana implementasi HiBench pada Hadoop dan Spark di DigitalOcean?
+	\item Bagaimana kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench?
+	\item Bagaimana perbandingan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi dalam konteks pemrosesan data dalam skala besar dengan menggunakan tolok ukur HiBench?
 \end{enumerate}
 
 \section{Tujuan}
 Penelitian ini memiliki tujuan, yaitu:
 	\begin{enumerate}
-		\item
-		Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench
-		\item
-		Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja SQL yang disediakan oleh HiBench
-		\item 
-		Untuk membandingkan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi saat memproses data dalam skala besar dengan menggunakan tolok ukur HiBench
+		\item Untuk mengetahui implementasi HiBench pada Hadoop dan Spark di DigitalOcean
+		\item Untuk mengukur kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench
+		\item Untuk membandingkan kinerja antara Hadoop dan Spark dalam mode pseudo-distribusi saat memproses data dalam skala besar dengan menggunakan tolok ukur HiBench
 	\end{enumerate}
 
 \section{Manfaat}

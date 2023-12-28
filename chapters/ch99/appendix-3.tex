@@ -1,1 +1,146 @@
-\chapter{Instalasi Hadoop}
+\chapter{Instalasi dan Konfigurasi Hadoop}
+\label{appendix:C}
+
+Langkah-langkah pemasangan dan konfigurasi Hadoop akan dijelaskan sebagai berikut,
+
+\begin{enumerate}
+  \item Unduh Hadoop
+  \begin{enumerate}
+    \item Pastikan perangkat lunak prasyarat sudah berhasil dipasang dan dilakukan konfigurasi. Sebelum dilakukan pemasangan Hadoop, diperlukan untuk mengunduh berkas Hadoop terlebih dahulu dengan perintah \verb|cd /usr/local|, dilanjutkan dengan \verb|sudo wget https://archive.apache.org/dist/hadoop/|
+    \newline \verb|common/hadoop-2.7.7/hadoop-2.7.7.tar.gz|.
+    \item Ekstrak berkas Hadoop yang sudah diunduh tadi dengan perintah \verb|sudo tar xvzf hadoop-2.7.7.tar.gz|. Hasil ekstrak berkas Hadoop akan disimpan pada direktori yang sama.
+    \item Selanjutnya, untuk memudahkan kedepannya, ganti nama folder Hadoop dengan perintah \verb|sudo mv hadoop-2.7.7 hadoop|.
+  \end{enumerate}
+  \item Mengubah Kepemilikan Berkas Hadoop
+  \begin{enumerate}
+    \item Setelah berkas Hadoop sudah berhasil terunduh, selanjutnya ubah kepemilikan berkas Hadoop ke \textit{hdfsuser} yang sebelumnya sudah kita buat dengan perintah \verb|sudo chown -R hdfsuser:hadoop /usr/local/hadoop|.
+    \item Tambahkan kekuasaaan untuk membaca, menulis, dan mengeksekusi pada foler Hadoop dengan perintah \verb|sudo chmod -R 777 /usr/local/hadoop|.
+  \end{enumerate}
+  \item Mematikan \textit{IPv6 Networks}
+  \begin{enumerate}
+    \item Saat ini Hadoop belum mendukung penggunaan \textit{IPv6 Networks}. Hadoop hanya dibangun dan diuji coba pada \textit{IPv4 Networks}. Untuk mematikan IPv6, dapat dimulai deengan menjalankan perintah \verb|cat /proc/sys/net/ipv6/conf/all/disable_ipv6|.
+    \item Jika hasil yang diberikan bukan angka 1, maka beberapa langkah tambahan harus dijalankan. Jalankan perintah \verb|sudo nano /etc/sysctl.conf|, kemudian tambahkan beberapa baris potongan kode berikut pada akhir berkas,
+      \begin{lstlisting}[language=bash]
+    	# Disable ipv6
+		net.ipv6.conf.all.disable_ipv6=1
+		net.ipv6.conf.default_ipv6=1
+		net.ipv6.conf.lo.disable_ipv6=1
+      \end{lstlisting}
+    \item Simpan berkas. Kemudian jalankan perintah \verb|sudo sysctl -p| untuk mengaktifkan perubahan.
+  \end{enumerate}
+  \item Menambahkan Hadoop pada \textit{Environments Variables}
+  \begin{enumerate}
+    \item Hadoop perlu ditambahkan pada \textit{Environments Variabels} untuk memudahkan dalam melakukan eksekusi. Untuk menambahkannya, jalankan perintah \verb|sudo nano ~/.bashrc|.
+    \item Tambahkan beberapa baris kode berikut pada akhir berkas \textit{bashrc}.
+      \begin{lstlisting}[language=bash]
+		# HADOOP ENVIRONMENT
+		export HADOOP_HOME=/usr/local/hadoop
+		export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+		export HADOOP_MAPRED_HOME=/usr/local/hadoop
+		export HADOOP_COMMON_HOME=/usr/local/hadoop
+		export HADOOP_HDFS_HOME=/usr/local/hadoop
+		export YARN_HOME=/usr/local/hadoop
+		export PATH=$PATH:/usr/local/hadoop/bin
+		export PATH=$PATH:/usr/local/hadoop/sbin
+		
+		# HADOOP NATIVE PATH
+		export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+		export HADOOP_OPTS=-Djava.library.path=$HADOOP_PREFIX/lib
+      \end{lstlisting}
+    \item Untuk mendapatkan perubahan dapat dilakukan dengan perintah \verb|source ~/.bashrc|.
+  \end{enumerate}
+  \item Konfigurasi Hadoop
+  \begin{enumerate}
+    \item Hadoop mengunakan berkas .xml untuk melakukan konfigurasi pada semua prosesnya. Biasanya, letak direktori untuk melakukan konfigurasi terletak pada \verb|$HADOOP_HOME/etc/hadoop|. Oleh karena itu, jalankan perintah \verb|cd /usr/local/hadoop/etc/hadoop/|.
+    \item Konfigurasi berkas \textit{hadoop-env.sh} dapat dilakukan dengan perintah \verb|sudo nano hadoop-env.sh|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
+       \begin{lstlisting}[language=bash]
+		export HADOOP_OPTS=-Djava.net.preferIPv4Stack=true
+		export JAVA_HOME=/usr
+		export HADOOP_HOME_WARN_SUPPRESS="TRUE"
+		export HADOOP_ROOT_LOGGER="WARN,DRFA"
+		export HDFS_NAMENODE_USER="hdfsuser"
+		export HDFS_DATANODE_USER="hdfsuser"
+		export HDFS_SECONDARYNAMENODE_USER="hdfsuser"
+		export YARN_RESOURCEMANAGER_USER="hdfsuser"
+		export YARN_NODEMANAGER_USER="hdfsuser"
+      \end{lstlisting}
+    \item Konfigurasi berkas \textit{yarn-site.xml} dapat dilakukan dengan perintah \verb|sudo nano yarn-site.xml|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
+       \begin{lstlisting}[language=XML]
+		<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+		</property>
+		<property>
+		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+		</property>
+      \end{lstlisting}
+    \item Konfigurasi berkas \textit{hdfs-site.xml} dapat dilakukan dengan perintah \verb|sudo nano hdfs-site.xml|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
+       \begin{lstlisting}[language=XML]
+		<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+		</property>
+		<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>/usr/local/hadoop/yarn_data/hdfs/namenode</value>
+		</property>
+		<property>
+		<name>dfs.datanode.data.dir</name>
+		<value>/usr/local/hadoop/yarn_data/hdfs/datanode</value>
+		</property>
+		<property>
+		<name>dfs.namenode.http-address</name>
+		<value>localhost:50070</value>
+		</property>
+      \end{lstlisting}
+    \item Konfigurasi berkas \textit{core-site.xml} dapat dilakukan dengan perintah \verb|sudo nano core-site.xml|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
+       \begin{lstlisting}[language=XML]
+		<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/bigdata/hadoop/tmp</value>
+		</property>
+		<property>
+		<name>fs.default.name</name>
+		<value>hdfs://localhost:9000</value>
+		</property>
+      \end{lstlisting}
+    \item Konfigurasi berkas \textit{mapred-site.xml} dapat dilakukan dengan perintah \verb|sudo nano mapred-site.xml|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
+       \begin{lstlisting}[language=XML]
+		<property>
+		<name>mapred.framework.name</name>
+		<value>yarn</value>
+		</property>
+		<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>localhost:10020</value>
+		</property>
+      \end{lstlisting}
+  \end{enumerate}
+  \item Membuat Direktori Hadoop untuk Menyimpan Data
+  \begin{enumerate}
+    \item Sesuai dengan apa yang ditulis pada \textit{core-site.xml}, langkah pertama yang harus dilakukan adalah membuat direktori sementara untuk dfs menyimpan berkas dengan menjalankan perintah di bawah. Jalankan perintah berikut baris per baris.
+       \begin{lstlisting}[language=bash]
+		sudo mkdir -p /bigdata/hadoop/tmp
+		sudo chown -R hdfsuser:hadoop /bigdata/hadoop/tmp
+		sudo chmod -R 777 /bigdata/hadoop/tmp
+      \end{lstlisting}
+    \item Selanjutnya, jalankan perintah berikut untuk membuat direktori untuk menyimpan berkas data sekaligus mengganti kepemilikan berkas. Jalankan perintah berikut baris per baris.
+       \begin{lstlisting}[language=bash]
+		sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/namenode
+		sudo mkdir -p /usr/local/hadoop/yarn_data/hdfs/datanode
+		sudo chmod -R 777 /usr/local/hadoop/yarn_data/hdfs/namenode
+		sudo chmod -R 777 /usr/local/hadoop/yarn_data/hdfs/datanode
+		sudo chown -R hdfsuser:hadoop /usr/local/hadoop/yarn_data/hdfs/namenode
+		sudo chown -R hdfsuser:hadoop /usr/local/hadoop/yarn_data/hdfs/datanode
+      \end{lstlisting}
+    \item Konfigurasi untuk Hadoop sudah selesai dan dapat dilanjutkan untuk menjalankan \textit{Resource Manager} dan \textit{Node Manager}
+  \end{enumerate}
+  \item Menjalankan Hadoop
+  \begin{enumerate}
+    \item Sebelum menjalankan \textit{Hadoop Core Services}, klaster harus dibersihkan dengan cara melakukan \textit{format} pada \textit{namenode}. Jalankan perintah \verb|hdfs namenode -format|.
+    \item Untuk menjalankan layanan Hadoop, dapat dilakukan dengan perintah \verb|start-all.sh|.
+    \item Perintah \verb|jps| dapat dilakukan untuk mengecek apakah layanan Hadoop sudah berjalan.
+    \item Untuk memberhentikan layanan Hadoop, dapat dilakukan dengan perintah \verb|stop-all.sh| pada terminal.
+  \end{enumerate}
+\end{enumerate}
