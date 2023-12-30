@@ -1,15 +1,14 @@
 \chapter{Metode Penelitian}
-\section{Rancangan Jadwal Penelitian}
-Dalam melaksanakan sebuah penelitian, perencanaan waktu merupakan komponen kritis yang memastikan alur penelitian dapat berjalan dengan terstruktur dan sistematis. Jadwal penelitian yang dirancang tidak hanya berfungsi sebagai panduan bagi peneliti untuk mengalokasikan waktu yang ada secara efisien, tetapi juga memungkinkan pengawasan dan penyesuaian jalannya penelitian sesuai dengan perkembangan yang terjadi.
+\section{Tempat dan Jadwal Kegiatan Penelitian}
+Dalam melaksanakan sebuah penelitian, perencanaan waktu merupakan komponen kritis yang memastikan alur penelitian dapat berjalan dengan terstruktur dan sistematis. Gambar \ref{fig:jadwal-penelitian} menyajikan jadwal penelitian yang telah dirancang untuk penelitian ini. Jadwal tersebut mencakup rentang waktu mulai dari September 2023 hingga April 2024 dan menguraikan berbagai kegiatan yang akan dilakukan selama periode tersebut. Selanjutnya, penelitian ini akan dilaksanakan di Laboratorium Komputer, Institut Teknologi Sumatera.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/ch03/Timeline.png}
+    \includegraphics[width=1\textwidth]{figures/ch03/Timeline-2.png}
     \caption{Jadwal Penelitian}
     \label{fig:jadwal-penelitian}
 \end{figure}
 
-Gambar \ref{fig:jadwal-penelitian} di atas menyajikan jadwal penelitian yang telah dirancang untuk penelitian ini. Jadwal tersebut mencakup rentang waktu mulai dari September 2023 hingga Maret 2024 dan menguraikan berbagai kegiatan yang akan dilakukan selama periode tersebut. Setiap kegiatan diplot dalam kalender berdasarkan minggu, memberikan visualisasi yang jelas tentang kapan setiap kegiatan dimulai dan berakhir. 
 
 \section{Alur Penelitian}
 Adapun diagram alir penelitian ini ditunjukkan pada Gambar \ref{fig:diagram alir} terdapat enam tahapan. Langkah awal yang dilakukan pada penelitian ini adalah melakukan identifikasi masalah, yaitu proses mencari, menghimpun, serta menemukan permasalahan yang nantinya akan diselesaikan. Setelah melakukan identifikasi masalah, langkah selanjutnya adalah studi literatur. Studi literatur adalah tahapan untuk mencari solusi dari permasalahan yang sebelumnya sudah kita definisikan. Pencarian solusi ini dapat melalui membaca referensi ilmiah terdahulu, baik melalui jurnal, buku, dokumentasi resmi, tesis, dan lain-lain. Tahapan ini akan memberikan pemahaman mendasar mengenai permasalahan yang sudah didapatkan sebelumnya. 
@@ -21,7 +20,7 @@ Adapun diagram alir penelitian ini ditunjukkan pada Gambar \ref{fig:diagram alir
     \label{fig:diagram alir}
 \end{figure}
 
-Kemudian, penelitian ini akan dilanjutkan pada tahap membangun \textit{virtual machine} di DigitalOcean. DigitalOcean adalah perusahaan penyedia layanan awan \textit{Infrastructure as a Service} (IaaS) yang memberikan banyak pilihan kepada pengguna untuk menggunakan berbagai jenis layanan sesuai dengan kebutuhan, salah satunya yaitu \textit{virtual machine}. \textit{Virtual Machine} tersebut dapat dihentikan atau dihapus kapanpun saat tidak lagi diperlukan. Ketika infrastruktur sudah siap digunakan, penelitian dilanjutkan ke tahap pemasangan perangkat lunak, seperti Hadoop, Spark, dan HiBench. Selanjutnya dilakukan eksperimen pada beberapa beban kerja, yaitu \textit{Micro Benchmarks} dan \textit{SQL Benchmarks}. Akhirnya, hasil dari eksperimen akan digunakan untuk proses analisis dan evaluasi.
+Kemudian, penelitian ini akan dilanjutkan pada tahap membangun \textit{virtual machine} di DigitalOcean. DigitalOcean adalah perusahaan penyedia layanan awan \textit{Infrastructure as a Service} (IaaS) yang memberikan banyak pilihan kepada pengguna untuk menggunakan berbagai jenis layanan sesuai dengan kebutuhan, salah satunya yaitu \textit{virtual machine}. \textit{Virtual Machine} tersebut dapat dihentikan atau dihapus kapanpun saat tidak lagi diperlukan. Ketika infrastruktur sudah siap digunakan, penelitian dilanjutkan ke tahap pemasangan perangkat lunak, seperti Hadoop, Spark, dan HiBench. Selanjutnya dilakukan eksperimen pada beban kerja \textit{Micro Benchmarks}. Akhirnya, hasil dari eksperimen akan digunakan untuk proses analisis dan evaluasi.
 
 \section{Penjabaran Langkah Penelitian}
 Adapun untuk lebih memperjelas lagi dari setiap langkah yang ada pada Gambar \ref{fig:diagram alir}, dijabarkan secara rinci tahapan-tahapan yang dilakukan pada penelitian ini.
@@ -76,7 +75,7 @@ Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gam
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{figures/ch03/alurkerja_soft.png}
+    \includegraphics[width=1\textwidth]{figures/ch03/alurkerja-soft.png}
     \caption{Alur Kerja Perangkat Lunak}
     \label{fig:alurkerja-soft}
 \end{figure}
@@ -122,29 +121,58 @@ Apache Spark adalah sebuah kerangka kerja pengolahan data terdistribusi yang san
     \label{fig:spark-flow}
 \end{figure}
 
-\subsubsection{Instalasi HiBench}
-Sebelum melakukan eksperimen, diperlukan suatu perangkat lunak pengukuran kinerja sistem \textit{Big Data}, yaitu HiBench. Instalasi HiBench membutuhkan semua perangkat lunak yang sudah disebutkan sebelumnya. HiBench dapat dipasang dengan cara mengikut panduan pada Lampiran F.
+\subsubsection{Instalasi dan Konfigurasi HiBench}
+Sebelum melakukan eksperimen, diperlukan suatu perangkat lunak pengukuran kinerja sistem \textit{Big Data}, yaitu HiBench. HiBench tidak dapat digunakan secara langsung ketika sudah berhasil diunduh, melainkan harus dilakukan pembangunan beberapa modul yang dibutuhkan dengan Maven dan konfigurasi beberapa parameter. Secara umum, alur instalasi dan konfigurasi HiBench sesuai dengan \ref{fig:hibench-flow}. Berkas HiBench diunduh dari repositori, dilanjutkan dengan pembangunan beberapa modul yang nantinya dibutuhkan. Selanjutnya, dilakukan konfigurasi beberapa berkas seperti \textit{hibench.conf, hadoop.conf, dan spark.conf}. Jika telah dilakukan konfigurasi, dapat dilanjutkan dengan menjalankan beban kerja atau eksperimen. Lebih lanjut, pemasangan dan konfigurasi HiBench dijelaskan pada Lampiran \ref{appendix:E}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch03/hibench-flow.png}
+    \caption{Alur Instalasi dan Konfigurasi HiBench}
+    \label{fig:hibench-flow}
+\end{figure}
 
 \subsection{Eksperimen}
 Eksperimen merupakan tahapan yang dilakukan setelah perangkat keras dan perangkat lunak sudah berhasil terpasang. Pada tahapan ini, dilakukan berbagai percobaan untuk menjawab pertanyaan pada masalah yang sebelumnya sudah didefinisikan. Beberapa beban kerja yang akan diuji coba pada tahapan ini dapat dilihat pada Tabel \ref{table:workload}. 
 
 \begin{table}[h!]
-\centering
-\caption{Beban Kerja yang Akan Diuji Coba}
+\caption{Beban Kerja yang Digunakan}
+\label{table:workload}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|}
 \hline
-\multicolumn{1}{|c|}{\textbf{Beban Kerja}} & \multicolumn{1}{c|}{\textbf{Tipe Beban Kerja}} & \multicolumn{1}{c|}{\textbf{Sumber Data}} & \multicolumn{1}{c|}{\textbf{Perangkat Lunak}} \\ \hline
-Sort & Micro Benchmarks & RandomTextWriter & Hadoop, Spark \\ \hline
-WordCount & Micro Benchmarks & RandomTextWriter & Hadoop, Spark \\ \hline
-TeraSort & Micro Benchmarks & Hadoop TeraGen & Hadoop, Spark \\ \hline
-\end{tabular}
-\label{table:workload}
+\multicolumn{1}{|c|}{\begin{tabular}[c]{@{}c@{}}Tipe Beban \\ Kerja\end{tabular}} & \multicolumn{1}{c|}{Nama Beban Kerja} & \multicolumn{1}{c|}{Sumber Data} & \multicolumn{1}{c|}{Perangkat Lunak} \\ \hline
+\multirow{3}{*}{\begin{tabular}[c]{@{}l@{}}Micro \\ Benchmarks\end{tabular}} & Sort & RandomTextWriter & \multirow{3}{*}{Hadoop, Spark} \\ \cline{2-3}
+ & WordCount & RandomTextWriter &  \\ \cline{2-3}
+ & TeraSort & Hadoop TeraGen &  \\ \hline
+\end{tabular}%
+}
 \end{table}
 
-Pengujian dimulai dengan mengeksekusi \textit{Micro Benchmarks}, yang terdiri dari \textit{WordCount, Sort, dan TeraSort}, pada DigitalOcean menggunakan parameter data yang divariasikan, yaitu {1GB; 5 GB; 10GB; 25 GB; dan 50 GB}. Panduan untuk menjalankan pengujian dapat dilihat pada Lampiran G. Hasil yang diukur berupa lama waktu eksekusi (\textit{execution time}) dan \textit{throughput}. Uji coba yang dijalankan pada HiBench dilakukan sebanyak masing-masing satu uji coba. Hasil dari setiap pengujian dapat diakses melalui file \textit{report}.
+Pengujian dimulai dengan mengeksekusi beban kerja \textit{Micro Benchmarks}, yang terdiri dari \textit{WordCount, Sort, dan TeraSort}, pada DigitalOcean menggunakan parameter data yang divariasikan, yaitu {1GB; 5 GB; 10GB; 25 GB; dan 50 GB}. Parameter input data dapat disesuaikan pada berkas \textit{hibench.conf}. Hasil yang diukur berupa lama waktu eksekusi (\textit{execution time}) dan \textit{throughput per node}. Uji coba yang dijalankan pada HiBench dilakukan sebanyak masing-masing satu uji coba. Pengujian secara lengkap sesuai pada Tabel \ref{table:eksperimen}. Hasil dan konfigurasi dari setiap pengujian dapat diakses melalui berkas \textit{HiBench Report} yang nantinya akan diproses lebih lanjut pada tahap analisis dan evaluasi.
+
+\begin{table}[h!]
+\caption{Eksperimen yang Akan diuji Coba}
+\label{table:eksperimen}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|c|}
+\hline
+\multicolumn{1}{|c|}{Beban Kerja} & \multicolumn{1}{c|}{Input Data} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Perangkat \\ Lunak\end{tabular}} & Hasil yang Diukur \\ \hline
+Sort, TeraSort, WordCount & 1 GB & Hadoop & \multirow{10}{*}{\textit{\begin{tabular}[c]{@{}c@{}}Execution time, \\ throughput per node\end{tabular}}} \\ \cline{1-3}
+Sort, TeraSort, WordCount & 5 GB & Hadoop &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 10 GB & Hadoop &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 25 GB & Hadoop &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 50 GB & Hadoop &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 1 GB & Spark &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 5 GB & Spark &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 10 GB & Spark &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 25 GB & Spark &  \\ \cline{1-3}
+Sort, TeraSort, WordCount & 50 GB & Spark &  \\ \hline
+\end{tabular}%
+}
+\end{table}
 
 \subsection{Proses Analisis dan Evaluasi Hasil Eksperimen}
-Proses analisis pada penelitian ini meliputi semua proses eksperimen yang telah dilalui, baik dari \textit{micro benchmarks}. Analisis dilakukan dengan membandingkan hasil setiap eksperimen. Selanjutnya, tahapan ini ditutup dengan evaluasi terhadap hasil dari analisis yang diperoleh.
+Analisis pada penelitian ini dilakukan dengan membandingkan hasil setiap eksperimen yang sebelumnya sudah dilakukan. Data yang akan dianalisis didapatkan melalui data eksperimen sebelumnya pada berkas \textit{hibench.report}. Selanjutnya, tahapan ini ditutup dengan evaluasi terhadap hasil dari analisis yang diperoleh.
 
 
 

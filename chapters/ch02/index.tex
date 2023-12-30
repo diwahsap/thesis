@@ -87,7 +87,7 @@ Dengan desain terdistribusi, HDFS sangat populer digunakan bersama framework Had
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch02/yarn-arch}
+    \includegraphics[width=0.8\textwidth]{figures/ch02/yarn-arch}
     \caption{Arsitektur YARN \cite{ApacheHadoopApache}}
     \label{fig:yarn_arch}
 \end{figure}
@@ -95,19 +95,55 @@ Dengan desain terdistribusi, HDFS sangat populer digunakan bersama framework Had
 Struktur utama YARN terdiri dari ResourceManager yang bertugas mengkoordinasikan alokasi sumber daya di seluruh kluster, dan NodeManager yang berjalan di setiap \textit{node} untuk mengawasi penggunaan sumber daya dan mengelola \textit{container} tempat aplikasi dijalankan. \textit{ApplicationMaster} adalah komponen khusus untuk setiap aplikasi yang bertanggung jawab untuk negosiasi sumber daya dengan ResourceManager dan bekerja dengan NodeManager untuk menjalankan dan memantau \textit{tasks} seperti pada Gambar \ref{fig:yarn_arch}.
 
 \subsection{Apache Spark}
-Apache Spark pertama kali diperkenalkan oleh Apache Software Foundation pada tahun 2014 sebagai \textit{framework} pemrosesan data paralel \textit{open-source} yang dirancang untuk mempercepat pemrosesan \textit{big data} dibandingkan dengan  Hadoop MapReduce \cite{ApacheSparkUnified}. Meskipun sama-sama menggunakan model pemrosesan MapReduce, Spark bukanlah hasil modifikasi dari Hadoop MapReduce\cite{KOMPARASIKECEPATANHADOOP}. Hal ini dikarenakan Spark menggunakan teknologi tersendiri yaitu \textit{Resilient Distributed Datasets} (RDDs) yang memungkinkan Spark memproses data secara \textit{in-memory} sehingga lebih cepat. Menurut laporan resmi, Spark mampu memproses data 10-100 kali lebih cepat dibandingkan MapReduce Hadoop. Selain itu, Spark memiliki klaster pengolahan data tersendiri sehingga dapat berjalan independen tanpa Hadoop. Dengan performa tinggi serta dukungan untuk pemrosesan data secara interaktif, Spark banyak digunakan untuk pemrosesan data skala besar.
+Apache Spark diperkenalkan oleh Apache Software Foundation sebagai \textit{framework} pemrosesan data paralel \textit{open-source} yang dirancang untuk mempercepat pemrosesan \textit{big data} dibandingkan dengan  Hadoop MapReduce \cite{ApacheSparkUnified}. Meskipun sama-sama menggunakan model pemrosesan MapReduce, Spark bukanlah hasil modifikasi dari Hadoop MapReduce\cite{KOMPARASIKECEPATANHADOOP}. Hal ini dikarenakan Spark menggunakan teknologi tersendiri yaitu \textit{Resilient Distributed Datasets} (RDDs) yang memungkinkan Spark memproses data secara \textit{in-memory} sehingga lebih cepat. Selain itu, Spark memiliki klaster pengolahan data tersendiri sehingga dapat berjalan independen tanpa Hadoop. Dengan performa tinggi serta dukungan untuk pemrosesan data secara interaktif, Spark banyak digunakan untuk pemrosesan data skala besar. Komponen yang terdapat pada Spark dapat dilihat pada Gambar \ref{fig:spark-component}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch02/spark-contain}
+    \caption{Komponen Spark}
+    \label{fig:spark-component}
+\end{figure}
+
+%TODO: SUBSECTION: SPARK RDD DAG
+
+\subsection{Integrasi Hadoop dan Spark}
+Integrasi Spark dengan Hadoop dapat dilakukan melalui tiga metode berbeda seperti pada Gambar \ref{fig:spark-x-hadoop}  \cite{ApacheSparkIntroduction}. Pertama, metode \textit{Standalone} mengharuskan Spark menempati tempat di atas HDFS (\textit{Hadoop Distributed File System}). Dalam skenario ini, Spark dan MapReduce berjalan berdampingan untuk menangani semua pekerjaan Spark pada kluster. Kedua, metode Hadoop Yarn memungkinkan Spark berjalan pada Yarn tanpa memerlukan instalasi sebelumnya atau akses \textit{root}. Hal ini memfasilitasi integrasi Spark ke dalam ekosistem Hadoop, atau memungkinkan komponen lain berjalan di atas integrasi Hadoop dan Spark. Terakhir, metode \textit{Spark in MapReduce} (SIMR). Dengan SIMR, pengguna dapat memulai Spark dan menggunakan \textit{shell}-nya tanpa memerlukan akses administratif. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch02/sparkxhadoop}
+    \caption{Integrasi Spark dan Hadoop}
+    \label{fig:spark-x-hadoop}
+\end{figure}
 
 \subsection{HiBench}
+HiBench memudahkan dalam eksekusi pengukuran berbagai beban kerja karena HiBench sudah membungkus sekumpulan perintah dalam bentuk \textit{shell script}\cite{samadiPerformanceComparisonHadoop2018}. Pengguna hanya perlu menjalankan perintah untuk HiBench melakukan persiapan data. Selanjutnya, pengguna bisa langsung melakukan pengukuran beban kerja. Hasilnya dapat terlihat langsung pada laporan HiBench. Secara umum, alur kerja HiBench terlihat seperti pada Gambar \ref{fig:hibench-process-flow}.
 
-\subsubsection{Cara Kerja HiBench}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/hibench-flow}
+    \caption{Proses yang Terjadi di HiBench \cite{barosenAnalysisComparisonInterfacing2018}}
+    \label{fig:hibench-process-flow}
+\end{figure}
 
-\subsubsection{Sumber Data pada HiBench}
+HiBench terdiri dari 3 proses utama. Proses pertama, pengguna melakukan konfigurasi parameter \textit{Data Generation}. Selanjutnya, \textit{Data Generation} akan melakukan pembentukan data yang nantinya akan disimpan pada \textit{Distributed File System} (DFS). Data ini yang akan digunakan pada proses selanjutnya. Proses kedua adalah proses eksekusi. Pengguna akan memicu salah satu beban kerja pada HiBench. Selanjutnya, HiBench akan memberi perintah kepada perangkat lunak (Hadoop/Spark) untuk menjalankan beban kerja tersebut. Setiap melakukan pengukuran, data yang digunakan adalah data dari \textit{Distributed File System} yang sebelumnya sudah dibentuk. Hasil dari eksekusi ini akan disimpan kembali di DFS. Proses terakhir adalah proses pembentukan laporan. Hasil dari proses sebelumnya akan diambil serta akan dibuatkan laporan secara otomatis.
+Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Metriks ini dihitung dalam skala detik. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam byte/detik.
 
-\subsubsection{Beban Kerja pada HiBench}
+\subsection{Beban Kerja \textit{Micro Benchmark} dan Sumber Data pada HiBench}
+HiBench versi 7.1 memiliki 29 beban kerja (\textit{workload}) yang dapat diuji \cite{IntelbigdataHiBench2023}. Beban kerja ini dikategorikan menjadi 7 kategori, yaitu \textit{micro, ml (machine learning), sql, graph, websearch and streaming}. Tabel \ref{table:workload-list-hibench} menunjukkan macam-macam beban kerja yang dapat diuji. \textit{Workload name} mengindikasikan algoritma utama atau operasi apa yang dilakukan. \textit{Workload type} merepresentasikan kategori dari beban kerja. \textit{Operation types} menunjukkan klasifikasi jenis operasi yang dilakukan. \textit{Workload Submission Policy} berguna untuk mengetahui bagaimana cara pengguna untuk mengatur atau mengonfigurasikan beban kerja.
 
+\begin{table}[h]
+  \centering
+  \caption{Beban Kerja pada HiBench \cite{barosenAnalysisComparisonInterfacing2018}}
+  \includegraphics[width=1\textwidth]{figures/ch02/workload-hibench}
+  \label{table:workload-list-hibench}
+\end{table}
+
+Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang untuk menguji kemampuan \textit{raw processing power} \cite{barosenAnalysisComparisonInterfacing2018}. Dalam kategori ini, terdapat tiga beban kerja populer, yaitu Sort, WordCount, dan TeraSort \cite{huangHiBenchBenchmarkSuitea}. Beban kerja Sort dan WordCount merepresentasikan pekerjaan MapReduce \cite{deanMapReduceSimplifiedData2004}. Beban kerja Sort akan mengurutkan setiap kata dalam berkas input. Beban kerja WordCount akan melakukan tugas pemetaan (\textit{map task}) dan mengeluarkan output (kata, 1) untuk setiap kata dalam inputnya.  
+
+Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomWriter dan RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. Sementara itu, beban kerja TeraSort akan mengurutkan data input yang dihasilkan oleh TeraGen.
 
 \section{Penelitian Terkait}
-
+%TODO: PENELITIAN TERKAIT: CEK ITERA
 Penelitian terdahulu yang relevan seperti yang ditunjukkan oleh Tabel \ref{table:penelitian-terdahulu} menghasilkan temuan penting mengenai performa sistem pemrosesan data besar. Penelitian oleh Ahmed et al. \cite{ahmedComprehensivePerformanceAnalysis2020} dan Yasir Samadi et al. \cite{samadiPerformanceComparisonHadoop2018} menyoroti perbandingan performa antara Hadoop dan Spark dalam kondisi dan beban kerja yang berbeda. Pada penelitian tersebut, ditunjukkan bahwa meskipun Hadoop dan Spark beroperasi pada prinsip MapReduce, ada perbedaan signifikan dalam cara kedua \textit{software} menangani dan memproses data, terutama dalam hal efisiensi dan penggunaan sumber daya. 
 
 \begin{table}[!htbp]
