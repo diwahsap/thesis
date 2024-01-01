@@ -49,6 +49,10 @@
 \usepackage{caption} 		% Caption gambar & tabel
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{tabularray}
+\usepackage{array}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -143,14 +147,12 @@
 	\renewcommand{\listtablename}{DAFTAR TABEL}%
 }
 
-%appendix
-\newcommand\listappendixname{DAFTAR LAMPIRAN}
-\newcommand\appcaption[1]{%
-  \addcontentsline{app}{chapter}{#1}}
-\makeatletter
-\newcommand\listofappendices{%
-  \chapter*{\listappendixname}\@starttoc{app}}
-\makeatother
+\usepackage{etoolbox}
+\appto\appendix{\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}}
+
+% reinstate the correct level for list of tables and figures
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
 
 % english title
 \providecommand\titleEN[1]{\providecommand\thetitleEN{#1}}

@@ -142,23 +142,12 @@ Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang u
 
 Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomWriter dan RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. Sementara itu, beban kerja TeraSort akan mengurutkan data input yang dihasilkan oleh TeraGen.
 
-\section{Penelitian Terkait}
-%TODO: PENELITIAN TERKAIT: CEK ITERA
-Penelitian terdahulu yang relevan seperti yang ditunjukkan oleh Tabel \ref{table:penelitian-terdahulu} menghasilkan temuan penting mengenai performa sistem pemrosesan data besar. Penelitian oleh Ahmed et al. \cite{ahmedComprehensivePerformanceAnalysis2020} dan Yasir Samadi et al. \cite{samadiPerformanceComparisonHadoop2018} menyoroti perbandingan performa antara Hadoop dan Spark dalam kondisi dan beban kerja yang berbeda. Pada penelitian tersebut, ditunjukkan bahwa meskipun Hadoop dan Spark beroperasi pada prinsip MapReduce, ada perbedaan signifikan dalam cara kedua \textit{software} menangani dan memproses data, terutama dalam hal efisiensi dan penggunaan sumber daya. 
+\section{Penelitian Terdahulu}
+Peneltian terdahulu mengenai evaluasi performa Hadoop dan Spark dapat ditampilkan pada Tabel \ref{table:penelitian-dulu}.
 
-\begin{table}[!htbp]
-\centering
-\caption{Tabel Perbandingan Referensi}
-\label{table:penelitian-terdahulu}
-\begin{tabular}{|p{1.5cm}|p{1.25cm}|p{2.75cm}|p{3cm}|p{4cm}|}
-\hline
-\textbf{Penulis} & \textbf{Tahun} & \textbf{Beban Kerja yang Diuji} & \textbf{Spesifikasi Perangkat Keras} & \textbf{Hasil} \\
-\hline
-Ahmed et al. \cite{ahmedComprehensivePerformanceAnalysis2020} & 2020 & WordCount and TeraSort (50--600 GB) & SNCC, Production Cluster CPU cores -- 80 Total Storage -- 60 TB Master node -- 1 Slaves nodes -- 9 & Spark memiliki performa yang lebih baik hingga dua kali lipat dalam beban kerja WordCount dan hingga 14 kali lipat dalam beban kerja TeraSort. \\
-\hline
-Yasir Samadi et al. \cite{samadiPerformanceComparisonHadoop2018} & 2018 & Micro Benchmarks Web Search SQL Machine Learning (1 GB, 5 GB and 8 GB) & VM, Disk(SDD) -- 40 GB & Spark lebih efisien daripada Hadoop untuk menangani data dalam jumlah besar dalam kasus-kasus besar. Namun, Spark membutuhkan alokasi memori yang lebih tinggi. \\
-\hline
-Satish dan Rohan \cite{gopalaniComparingApacheSpark2015} & 2015 & K-means (62--1240 MB) & VM 2 nodes, 4 GB RAM, 500 GB & Kecepatan Spark hingga tiga kali lebih tinggi dari MapReduce. \\
-\hline
-\end{tabular}
+\begin{table}[h]
+  \centering
+  \caption{Penelitian Terdahulu}
+  \includegraphics[width=1\textwidth]{figures/ch02/comparison-thesis}
+  \label{table:penelitian-dulu}
 \end{table}
