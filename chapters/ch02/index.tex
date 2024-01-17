@@ -1,4 +1,4 @@
-\chapter{Landasan Teori}
+\chapter{LANDASAN TEORI}
 
 \section{Tinjauan Pustaka}
 Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses penelitian dan memberikan pemahaman lebih lanjut. Teori-teori dasar yang berhubungan dan digunakan dalam penelitian adalah sebagai berikut.
@@ -126,9 +126,9 @@ HiBench memudahkan dalam eksekusi pengukuran berbagai beban kerja karena HiBench
 \end{figure}
 
 HiBench terdiri dari 3 proses utama. Proses pertama, pengguna melakukan konfigurasi parameter \textit{Data Generation}. Selanjutnya, \textit{Data Generation} akan melakukan pembentukan data yang nantinya akan disimpan pada \textit{Distributed File System} (DFS). Data ini yang akan digunakan pada proses selanjutnya. Proses kedua adalah proses eksekusi. Pengguna akan memicu salah satu beban kerja pada HiBench. Selanjutnya, HiBench akan memberi perintah kepada perangkat lunak (Hadoop/Spark) untuk menjalankan beban kerja tersebut. Setiap melakukan pengukuran, data yang digunakan adalah data dari \textit{Distributed File System} yang sebelumnya sudah dibentuk. Hasil dari eksekusi ini akan disimpan kembali di DFS. Proses terakhir adalah proses pembentukan laporan. Hasil dari proses sebelumnya akan diambil serta akan dibuatkan laporan secara otomatis.
-Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Metriks ini dihitung dalam skala detik. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam byte/detik.
+Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Metriks ini dihitung dalam skala detik. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam \textit{byte}/detik.
 
-\subsection{Beban Kerja \textit{Micro Benchmark} dan Sumber Data pada HiBench}
+\subsection{Beban Kerja \textit{Micro Benchmark} dan Sumber Data}
 HiBench versi 7.1 memiliki 29 beban kerja (\textit{workload}) yang dapat diuji \cite{IntelbigdataHiBench2023}. Beban kerja ini dikategorikan menjadi 7 kategori, yaitu \textit{micro, ml (machine learning), sql, graph, websearch and streaming}. Tabel \ref{table:workload-list-hibench} menunjukkan macam-macam beban kerja yang dapat diuji. \textit{Workload name} mengindikasikan algoritma utama atau operasi apa yang dilakukan. \textit{Workload type} merepresentasikan kategori dari beban kerja. \textit{Operation types} menunjukkan klasifikasi jenis operasi yang dilakukan. \textit{Workload Submission Policy} berguna untuk mengetahui bagaimana cara pengguna untuk mengatur atau mengonfigurasikan beban kerja.
 
 \begin{table}[h]
@@ -143,7 +143,7 @@ Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang u
 Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomWriter dan RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. Sementara itu, beban kerja TeraSort akan mengurutkan data input yang dihasilkan oleh TeraGen.
 
 \section{Penelitian Terdahulu}
-Peneltian terdahulu mengenai evaluasi performa Hadoop dan Spark dapat ditampilkan pada Tabel \ref{table:penelitian-dulu}.
+Peneltian terdahulu mengenai evaluasi performa Hadoop dan Spark dapat dilihat pada Tabel \ref{table:penelitian-dulu}.
 
 \begin{table}[h]
   \centering

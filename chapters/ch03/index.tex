@@ -1,4 +1,4 @@
-\chapter{Metode Penelitian}
+\chapter{METODOLOGI PENELITIAN}
 \section{Tempat dan Jadwal Kegiatan Penelitian}
 Dalam melaksanakan sebuah penelitian, perencanaan waktu merupakan komponen kritis yang memastikan alur penelitian dapat berjalan dengan terstruktur dan sistematis. Gambar \ref{fig:jadwal-penelitian} menyajikan jadwal penelitian yang telah dirancang untuk penelitian ini. Jadwal tersebut mencakup rentang waktu mulai dari September 2023 hingga April 2024 dan menguraikan berbagai kegiatan yang akan dilakukan selama periode tersebut. Selanjutnya, penelitian ini akan dilaksanakan di Laboratorium Komputer, Institut Teknologi Sumatera.
 
@@ -28,7 +28,7 @@ Adapun untuk lebih memperjelas lagi dari setiap langkah yang ada pada Gambar \re
 \subsection{Identifikasi Masalah dan Studi Literatur}
 Langkah awal penelitian ini adalah identifikasi masalah dan studi literatur. Identifikasi masalah dapat dipahami sebagai tahapan mendefinisikan masalah sehingga masalah tersebut dapat terukur dan jelas untuk dijadikan landasan dalam latar belakang penelitian. Setelah masalah berhasil diidentifikasi, langkah selanjutnya adalah studi literatur yang mana dalam proses ini dilakukan pengumpulan berbagai macam informasi, referensi, dan konsep dasar yang menjadi landasan dasar dari penelitian. Langkah ini dapat dilakukan melalui membaca artikel ilmiah pendukung, buku-buku yang ditulis oleh para ahli, dan jika berkaitan dengan pemrograman dapat melihat dari dokumentasi resmi. Pada tahap ini juga dilakukan analisis terhadap penelitian terdahulu dan dibandingkan dengan identifikasi masalah yang didapatkan untuk membuka celah penelitian baru sehingga penelitian ini dapat bermanfaat. 
 
-\subsection{Membangun Virtual Machine di DigitalOcean}
+\subsection{Membangun \textit{Virtual Machine} di DigitalOcean}
 Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja aplikasi \textit{big data} berbasis Hadoop dan Spark. DigitalOcean, sebagai penyedia layanan infrastruktur sebagai layanan (IaaS), memberikan pengguna kebebasan penuh untuk membuat, mengonfigurasi, dan mengelola berbagai infrastruktur yang telah disediakan. Dalam konteks penelitian ini, diperlukan penggunaan mesin virtual, yang dalam DigitalOcean dikenal sebagai "Droplets," yang memungkinkan untuk menyesuaikan berbagai aspek seperti sistem operasi, kapasitas penyimpanan, jumlah prosesor, dan parameter lainnya sesuai dengan kebutuhan spesifik penelitian.
 
 \begin{table}[h!]
@@ -63,9 +63,9 @@ Pemasangan dan konfigurasi perangkat lunak merupakan hal yang krusial dalam pene
 			Maven                    & Perangkat lunak manajemen proyek Java                            \\ \hline
 			Java 8                   & \multirow{3}{*}{Bahasa pemrograman dasar}                                 \\ \cline{1-1}
 			Python 3.7               &                                                                                                                        \\ \cline{1-1}
-			Scala 2.12               &                                                                                                                        \\ \hline
-			Hadoop 2.7               & Perangkat lunak pengolahan data terdistribusi untuk penyimpanan dan manajemen data besar                               \\ \hline
-			Spark 3.0.3              & Kerangka kerja pemrosesan data terdistribusi yang berjalan di atas Hadoop                                              \\ \hline
+			Scala 2.x               &                                                                                                                        \\ \hline
+			Hadoop                & Perangkat lunak pengolahan data terdistribusi untuk penyimpanan dan manajemen data besar                               \\ \hline
+			Spark               & Kerangka kerja pemrosesan data terdistribusi yang berjalan di atas Hadoop                                              \\ \hline
 			Hibench   & Alat yang digunakan untuk mengukur kinerja Hadoop dan Spark                                                            \\ \hline
 		\end{tabular}
 	\label{table:software-needs}
@@ -76,7 +76,7 @@ Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gam
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{figures/ch03/alurkerja-soft.png}
-    \caption{Alur Kerja Perangkat Lunak}
+    \caption{Alur Instalasi Perangkat Lunak}
     \label{fig:alurkerja-soft}
 \end{figure}
 
@@ -87,7 +87,7 @@ Ada beberapa perangkat lunak yang perlu diimplementasikan sebelum memasang Hadoo
 	\item Git
 	\item Java 8 dan Maven
 	\item Python 3.7
-	\item Scala 2.12
+	\item Scala 2.x
 \end{enumerate}
 
 Pemasangan dan konfigurasi perangkat lunak pada tahapan ini tidak membutuhkan urutan. Akan tetapi, pada penelitian ini dibuatkan alur untuk pemasangan dan konfigurasi perangkat lunak prasyarat seperti pada Gambar \ref{fig:prasyarat-flow}. Penjelasan lengkap mengenai tata cara instalasi dan konfigurasi perangkat lunak prasyarat ini disajikan pada Lampiran \ref{appendix:B}. 

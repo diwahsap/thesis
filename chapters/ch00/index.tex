@@ -1,11 +1,11 @@
 %Basic configuration
-\title{Evaluasi Performa Hadoop dan Spark pada DigitalOcean menggunakan Hibench dalam Konfigurasi \textit{Pseudo Distributed}} 	% Judul Tugas Akhir
+\title{Evaluasi Performa Hadoop dan Spark pada DigitalOcean menggunakan HiBench dalam Konfigurasi \textit{Pseudo Distributed}} 	% Judul Tugas Akhir
 \titleEN{Thesis Title}                  % Thesis Title
 \author{Dimas Wahyu Saputro}		% Nama Mahasiswa
 \nim{120450081}				% NIM Mahasiswa
 \dosbingB%
-    {Nama dan Gelar Pembimbing I}%	% Nama Dosen Pembimbing 1
-    {NIP. 123456789}				% NIP Dosen Pembimbing 1
+    {Riksa Meidy Karim, S.Kom., M.Si., M.Sc.}%	% Nama Dosen Pembimbing 1
+    {}				% NIP Dosen Pembimbing 1
 \dosbingA%
     {Tirta Setiawan, S.Pd., M.Si.}%	% Nama Dosen Pembimbing 2
     {NIP. 199008222022031003}				% NIP Dosen Pembimbing 2
@@ -15,7 +15,7 @@
 
 \input{chapters/ch00/cover-hard} % Hardcover
 %\input{chapters/ch00/cover-soft} % Softcover
-%\input{chapters/ch00/approval}
+\input{chapters/ch00/approval}
 %\input{chapters/ch00/statement}
 %\input{chapters/ch00/publication}
 %
@@ -27,14 +27,21 @@
 
 \addcontentsline{toc}{chapter}{DAFTAR ISI}
 \tableofcontents
+\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+{%
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\figurename~\oldnumberline}%
+    \listoffigures%
+}
+\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+{%
+    \let\oldnumberline\numberline%
+    \renewcommand{\numberline}{\tablename~\oldnumberline}%
+    \listoftables%
+}
+
 
 \cleardoublepage
-\addcontentsline{toc}{chapter}{\listfigurename}
-\listoffigures
-
-\cleardoublepage
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
 
 % Index
 %\cleardoublepage
