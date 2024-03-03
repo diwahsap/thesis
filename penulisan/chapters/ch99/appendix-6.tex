@@ -12,8 +12,8 @@ Langkah-langkah pemasangan dan konfigurasi HiBench akan dijelaskan sebagai berik
   \item Membangun \textit{framework benchmark}
   \begin{enumerate}
     \item Sebelum HiBench dapat digunakan, diperlukan pembangunan beberapa modul yang dibutuhkan, misalnya modul \textit{data generation}, modul \textit{hadoopbench}, dan modul \textit{sparkbench}. Langkah awal yang diperlukan adalah masuk ke folder HiBench dengan perintah \verb|cd HiBench|.
-    \item Selanjutnya, pastikan versi Hadoop, Spark, dan Scala sudah sesuai. Jalankan perintah \verb|mvn -Phadoopbench -Psparkbench -Dhadoop=2.7 -Dspark=3.0| \newline \verb|-Dmodules -Pmicro clean package|. Perintah ini akan membangun modul yang dibutuhkan menggunakan Maven. Tidak semua modul akan dipasang. Modul yang akan dipasang salah satunya adalah modul untuk \textit{micro benchmark}. 
-    \item Jika ingin pembangunan modul yang lebih luas cakupannya dapat menggunakan perintah \verb|mvn -Phadoopbench -Psparkbench -Dspark=2.4 -Dscala=2.11| \newline \verb|clean package|.
+    \item Selanjutnya, pastikan versi Hadoop, Spark, dan Scala sudah sesuai. Jalankan perintah \verb|mvn -Phadoopbench -Psparkbench -Dhadoop=2.6 -Dspark=1.5| \newline \verb|-Dmodules -Pmicro clean package|. Perintah ini akan membangun modul yang dibutuhkan menggunakan Maven. Tidak semua modul akan dipasang. Modul yang akan dipasang salah satunya adalah modul untuk \textit{micro benchmark}. 
+    \item Jika ingin pembangunan modul yang lebih luas cakupannya dapat menggunakan perintah \verb|mvn -Phadoopbench -Psparkbench -Dspark=1.5 -Dscala=2.11| \newline \verb|clean package|.
   \end{enumerate}
   \item Jalankan perintah \verb |sudo apt install bc| supaya berkas Hibench \textit{Report} dapat muncul. 
   \item Lakukan konfigurasi pada berkas \textit{hibench.conf}. Buka berkas tersebut dengan perintah \verb|sudo nano conf/hibench.conf|.

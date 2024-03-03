@@ -1,7 +1,7 @@
 \chapter{Instalasi dan Konfigurasi Perangkat Lunak Prasyarat}
 \label{appendix:B}
 
-Pemasangan dan konfigurasi perangkat lunak adalah hal yang krusial. Sebelum dilakukan pemasangan perangkat lunak penyimpanan dan pemrosesan \textit{big data}, tentunya perlu disiapkan perangkat lunak prasyarat. Perangkat lunak prasyarat yang dibutuhkan meliputi Git, Java 8 dan Maven, Python 3.7, serta Scala 2.12. Langkah-langkah pemasangan dan konfigurasi perangkat lunak akan dijelaskan sebagai berikut,
+Pemasangan dan konfigurasi perangkat lunak adalah hal yang krusial. Sebelum dilakukan pemasangan perangkat lunak penyimpanan dan pemrosesan \textit{big data}, tentunya perlu disiapkan perangkat lunak prasyarat. Perangkat lunak prasyarat yang dibutuhkan meliputi Git, Java dan Maven, Python, serta Scala. Langkah-langkah pemasangan dan konfigurasi perangkat lunak akan dijelaskan sebagai berikut,
 
 \begin{enumerate}
   \item Pastikan Droplets pada DigitalOcean sudah dibuat. Masuk ke \textit{Virtual Machine} (VM) yang sebelumnya sudah dibuat melalui \textit{Console} yang berada pada laman konfigurasi Droplets DigitalOcean.
@@ -28,22 +28,26 @@ Pemasangan dan konfigurasi perangkat lunak adalah hal yang krusial. Sebelum dila
     \item Git dapat dipasang menggunakan perintah \verb|sudo apt install git|. Pengguna akan diminta konfirmasi untuk menginstall. Ketik \verb|y| kemudian tekan enter.
     \item Untuk mengecek versi Git, dapat menggunakan perintah \verb|git --version|.
   \end{enumerate}
-  \item Instalasi Python 3.7
+  \item Instalasi Python
   \begin{enumerate}
-    \item Python dapat dipasang menggunakan perintah \verb|sudo apt install python3.7|. Pengguna akan diminta konfirmasi untuk menginstall. Ketik \verb|y| kemudian tekan enter.
+    \item Python dapat dipasang menggunakan perintah \verb|sudo apt-get install python2 && sudo apt install python3.7|. Pengguna akan diminta konfirmasi untuk menginstall. Ketik \verb|y| kemudian tekan enter.
     \item Untuk mengecek versi Python, dapat menggunakan perintah \verb|python --version|.
   \end{enumerate}
-  \item Instalasi Java 8 dan Maven
+  \item Instalasi Java dan Maven
   \begin{enumerate}
-    \item Java 8 dapat dipasang menggunakan perintah \verb|sudo apt install openjdk-8-jre-headless openjdk-8-jdk|. Pengguna akan diminta konfirmasi untuk menginstall. Ketik \verb|y| kemudian tekan enter.
+    \item Java yang digunakan pada penelitian ini adalah Java 7. Pemasangan Java 7 harus dilakukan secara manual dengan cara membuat folder terlebih dahulu dengan perintah \verb|sudo mkdir -p /opt/java|. 
+    \item Selanjutnya, pindah ke direktori \verb|/opt/java| dengan perintah \verb|cd /opt/java|.
+    \item Jalankan perintah \verb|sudo apt-get -y install wget && sudo wget https://repo.huaweicloud.com/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz| untuk mengunduh Java 7.
+    \item Berkas yang diunduh berupa berkas .tar perlu diekstrak. Untuk mengekstrak berkas tersebut dapat dilakukan menggunakan perintah \verb|sudo tar zxvf jdk-7u80-linux-x64.tar.gz|.
+    \item Selanjutnya, instalasi Java dapat menggunakan \textit{update-alternatives} dengan perintah \verb|sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.7.0_80/bin/java 0| dan \verb|sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.7.0_80/bin/javac 0|.
     \item Versi dari Java dapat dilihat menggunakan perintah \verb|java -version|.
     \item Selanjutnya, instalasi Maven dapat dilakukan menggunakan perintah \verb| sudo apt-get -y install maven|.
     \item Informasi dari Maven beserta Java yang digunakan dapat dilihat menggunakan perintah \verb|mvn -version|.
   \end{enumerate}
-  \item Instalasi Scala 2.12
+  \item Instalasi Scala
   \begin{enumerate}
-    \item Scala yang akan dipasang adalah versi 2.12. Jika menggunakan manajer paket, versi yang akan dipasang adalah versi terbaru. Untuk mengunduh versi spesifik dari Scala, dapat menggunakan perintah \verb|sudo apt install wget|, dilanjutkan dengan \verb|sudo wget  https://downloads.lightbend.com/scala/| \verb|2.12.18/scala-2.12.18.deb|.
-    \item Scala dapat dipasang menggunakan perintah \verb|sudo dpkg -i scala-2.12.18.deb|.
+    \item Scala yang akan dipasang adalah versi 2.12. Jika menggunakan manajer paket, versi yang akan dipasang adalah versi terbaru. Untuk mengunduh versi spesifik dari Scala, dapat menggunakan perintah \verb|sudo wget  https://downloads.lightbend.com/scala/| \verb|2.11.0/scala-2.11.0.deb|.
+    \item Scala dapat dipasang menggunakan perintah \verb|sudo dpkg -i scala-2.11.0.deb|.
     \item Versi Scala dapat dilihat melalui perintah \verb|scala -version|.
   \end{enumerate}
 \end{enumerate}
