@@ -1,5 +1,4 @@
 *.log
-*.pdf
 .DS_Store
 .texpadtmp
 *.csv
@@ -7,3 +6,9 @@
 *.xls
 
 ../data/*
+
+# terraofrm
+src/terraform/.terraform
+.terraform.lock.hcl
+terraform.tfstate
+
