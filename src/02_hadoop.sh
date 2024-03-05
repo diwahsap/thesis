@@ -22,7 +22,10 @@ sudo chmod -R 777 /usr/local/hadoop
 # Langkah 3: Mematikan IPv6 Networks
 show_step "3" "Mematikan IPv6 Networks"
 echo "cat /proc/sys/net/ipv6/conf/all/disable_ipv6"
-sudo nano /etc/sysctl.conf
+echo "# Disable ipv6
+net.ipv6.conf.all.disable_ipv6=1
+net.ipv6.conf.default_ipv6=1
+net.ipv6.conf.lo.disable_ipv6=1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
 # Langkah 4: Menambahkan Hadoop pada Environments Variables
@@ -45,11 +48,11 @@ source ~/.bashrc
 # Langkah 5: Konfigurasi Hadoop
 show_step "5" "Konfigurasi Hadoop"
 cd /usr/local/hadoop/etc/hadoop/
-sudo cp ~/hadoop/core-site.xml .
-sudo cp ~/hadoop/hadoop-env.sh .
-sudo cp ~/hadoop/hdfs-site.xml .
-sudo cp ~/hadoop/mapred-site.xml .
-sudo cp ~/hadoop/yarn-site.xml .
+sudo cp ~/tugas-akhir/src/hadoop/core-site.xml .
+sudo cp ~/tugas-akhir/src/hadoop/hadoop-env.sh .
+sudo cp ~/tugas-akhir/src/hadoop/hdfs-site.xml .
+sudo cp ~/tugas-akhir/src/hadoop/mapred-site.xml .
+sudo cp ~/tugas-akhir/src/hadoop/yarn-site.xml .
 
 # Langkah 6: Membuat Direktori Hadoop untuk Menyimpan Data
 show_step "6" "Membuat Direktori Hadoop untuk Menyimpan Data"
