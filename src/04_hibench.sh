@@ -16,7 +16,7 @@ sudo chmod 755 HiBench
 # Langkah 2: Membangun framework benchmark
 show_step "2" "Membangun framework benchmark"
 cd HiBench
-mvn -Phadoopbench -Psparkbench -Dhadoop=3.2 -Dspark=3.0 -Dmodules -Pmicro clean package
+mvn -Phadoopbench -Psparkbench -Dhadoop=2.4 -Dspark=2.1 -Dmodules -Pmicro clean package
 
 # Langkah 3: Installasi bc
 show_step "3" "Installasi bc"

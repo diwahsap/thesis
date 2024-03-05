@@ -10,9 +10,9 @@ show_step() {
 # Langkah 1: Unduh Berkas Spark
 show_step "1" "Unduh Berkas Spark"
 cd /usr/local
-sudo wget https://archive.apache.org/dist/spark/spark-3.0.0/spark-3.0.0-bin-hadoop3.2.tgz
-sudo tar xvf spark-3.0.0-bin-hadoop3.2.tgz
-sudo mv spark-3.0.0-bin-hadoop3.2 spark
+sudo wget https://archive.apache.org/dist/spark/spark-2.1.0/spark-2.1.0-bin-hadoop2.4.tgz
+sudo tar xvf spark-2.1.0-bin-hadoop2.4.tgz
+sudo mv spark-2.1.0-bin-hadoop2.4 spark
 
 # Langkah 2: Menambahkan Spark pada Environments Variables
 show_step "2" "Menambahkan Spark pada Environments Variables"

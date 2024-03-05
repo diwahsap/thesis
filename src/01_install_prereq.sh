@@ -21,9 +21,15 @@ sudo apt-get install -y python2
 sudo apt-get install -y python3.7
 python --version
 echo "Langkah 7: Instalasi Java 8 dan Maven."
-sudo apt install -y openjdk-8-jre-headless openjdk-8-jdk
+sudo mkdir -p /opt/java
+cd /opt/java || exit
+sudo apt-get -y install wget
+sudo wget https://repo.huaweicloud.com/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz
+sudo tar zxvf jdk-7u80-linux-x64.tar.gz
+sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.7.0_80/bin/java 0
+sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.7.0_80/bin/javac 0
 java -version
-sudo apt-get install -y maven
+sudo apt-get -y install maven
 mvn -version
 echo "Langkah 8: Instalasi Scala."
 sudo wget https://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.deb

@@ -10,9 +10,9 @@ show_step() {
 # Langkah 1: Unduh Hadoop
 show_step "1" "Unduh Hadoop"
 cd /usr/local
-sudo wget https://archive.apache.org/dist/hadoop/common/hadoop-3.2.0/hadoop-3.2.0.tar.gz
-sudo tar xvzf hadoop-3.2.0.tar.gz
-sudo mv hadoop-3.2.0 hadoop
+sudo wget https://archive.apache.org/dist/hadoop/common/hadoop-2.4.0/hadoop-2.4.0.tar.gz
+sudo tar xvzf hadoop-2.4.0.tar.gz
+sudo mv hadoop-2.4.0 hadoop
 
 # Langkah 2: Mengubah Kepemilikan Berkas Hadoop
 show_step "2" "Mengubah Kepemilikan Berkas Hadoop"
