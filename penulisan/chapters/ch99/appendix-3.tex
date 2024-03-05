@@ -107,7 +107,14 @@ Langkah-langkah pemasangan dan konfigurasi Hadoop akan dijelaskan sebagai beriku
       \end{lstlisting}
     \item Konfigurasi berkas \textit{mapred-site.xml} dapat dilakukan dengan perintah \verb|sudo nano mapred-site.xml|, dilanjutkan dengan menambahkan beberapa baris kode seperti di bawah ini,
        \begin{lstlisting}[language=XML]
-cd
+		<property>
+		<name>mapred.framework.name</name>
+		<value>yarn</value>
+		</property>
+		<property>
+		<name>mapreduce.jobhistory.address</name>
+		<value>localhost:10020</value>
+		</property>
       \end{lstlisting}
   \end{enumerate}
   \item Membuat Direktori Hadoop untuk Menyimpan Data

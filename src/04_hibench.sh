@@ -21,7 +21,3 @@ mvn -Phadoopbench -Psparkbench -Dhadoop=3.2 -Dspark=3.0 -Dmodules -Pmicro clean 
 # Langkah 3: Installasi bc
 show_step "3" "Installasi bc"
 sudo apt install bc
-
-# Langkah 4: Konfigurasi hibench.conf
-show_step "4" "Konfigurasi hibench.conf"
-sudo nano conf/hibench.conf

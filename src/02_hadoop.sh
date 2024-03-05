@@ -69,6 +69,9 @@ sudo chown -R hdfsuser:hadoop /usr/local/hadoop/yarn_data/hdfs/datanode
 
 # Langkah 7: Menjalankan Hadoop
 show_step "7" "Menjalankan Hadoop"
+source ~/.bashrc
 hdfs namenode -format
+
+show_step "8" "Pastikan sudah melakukan konfigurasi SSH keys"
 start-all.sh
 jps

@@ -8,12 +8,11 @@ sudo addgroup hadoop
 sudo adduser --ingroup hadoop hdfsuser
 echo "hdfsuser ALL=(ALL:ALL) ALL" | sudo tee -a /etc/sudoers
 echo "Langkah 4: Pengaturan SSH keys untuk Hadoop."
-sudo apt-get install -y ssh
-sudo apt-get install -y sshd
-ssh-keygen -t rsa
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod og-wx ~/.ssh/authorized_keys
-ssh localhost
+# sudo apt-get install -y ssh
+# sudo apt-get install -y sshd
+# ssh-keygen -t rsa
+# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+# chmod og-wx ~/.ssh/authorized_keys
 echo "Langkah 5: Instalasi Git."
 sudo apt install -y git
 git --version

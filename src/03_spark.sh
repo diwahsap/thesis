@@ -17,13 +17,12 @@ sudo mv spark-3.0.0-bin-hadoop3.2 spark
 # Langkah 2: Menambahkan Spark pada Environments Variables
 show_step "2" "Menambahkan Spark pada Environments Variables"
 echo "# SPARK ENVIRONMENT
-export PATH=\$PATH:/usr/local/spark/bin
+export PATH=\$PATH:/usr/local/spark/
 export YARN_CONF_DIR=\$HADOOP_HOME/etc/hadoop
-export SPARK_HOME=/usr/local/spark/bin" | sudo tee -a ~/.bashrc
+export SPARK_HOME=/usr/local/spark/" | sudo tee -a ~/.bashrc
 source ~/.bashrc
 
 # Langkah 3: Menjalankan Spark Shell
 show_step "3" "Menjalankan Spark Shell"
 spark-submit --version
-start-all.sh
 spark-shell --master yarn
