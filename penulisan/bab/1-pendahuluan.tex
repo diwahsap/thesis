@@ -1,0 +1,75 @@
+\chapter{PENDAHULUAN}
+
+\section{Latar Belakang}
+
+% TODO: (P1) Bahas mengenai Kemampuan mengolah dan menganalisis data dalam skala besar. Jabar-jabarkan aja.
+% TAMBAHKAN DATAAA, tambahkan referensi
+Perusahaan dan organisasi menghasilkan dan menyimpan data dalam skala besar setiap hari dengan tingkat pertumbuhannya yang dinamis \cite{samadiPerformanceComparisonHadoop2018}. Pertumbuhan jumlah data diperkirakan akan meningkat hingga 5x lipat pada tahun 2025 dengan \textit{Global Datasphere} diproyeksikan tumbuh dari 33 \textit{Zettabytes} (ZB) pada tahun 2018 menjadi 175 ZB \cite{reinselDigitizationWorldEdge2018} pada tahun 2025. Jumlah data tersebut membutuhkan pengolahan dengan kecepatan tinggi sehingga dapat dimanfaatkan untuk keperluan bisnis dan pengambilan keputusan \cite{adrianExpertReviewBig2018}. Analisis data transaksi nasabah pada perbankan dapat digunakan untuk mendeteksi \textit{fraud} dan meningkatkan keamanan \cite{syahputraPendeteksianFraudPeran2020}. Data pasien pada bidang kesehatan dapat memantau wabah penyakit dan menemukan pola pengobatan yang optimal \cite{sulaimanLITERATUREREVIEWPENERAPAN2023}. Sementara itu, data interaksi pengguna pada \textit{e-commerce} diolah untuk memberikan rekomendasi produk personal dan merancang strategi peningkatan penjualan \cite{fernandoUtilizationBigData2020}. Semakin besar data yang bisa ditangani, semakin banyak peluang analisis dan \textit{value} yang bisa dihasilkan. Namun, semakin besar volume data yang harus diolah, semakin kompleks pula tantangan yang dihadapi dalam mengelolanya secara efisien dan efektif \cite{KOMPARASIKECEPATANHADOOP}.
+
+% TODO: (P2) Volume data terus meningkat menjadi tantangan utama. Kasih data. Ksih penyebabnya. Kasih dampaknya.
+
+Tantangan utama dalam mengelola volume data yang besar adalah memastikan ketersediaan sumber daya komputasi yang memadai \cite{KOMPARASIKECEPATANHADOOP}. Pendekatan konvensional pemrosesan data besar seperti memperbanyak jumlah \textit{storage} secara vertikal, dan penggunaan sistem basis data NoSQL dapat memungkinkan pengolahan data yang skalabel dan fleksibel. Namun, ketika skala dan kompleksitas data semakin meningkat, komputasi terdistribusi menjadi pilihan yang lebih tepat karena memiliki sifat \textit{fault-tolerant}\cite{saadoonFaultToleranceBig2022}. 
+
+% TODO: Pentingnya evaluasi apa? Belum disebutkan!
+
+Komputasi terdistribusi adalah cara untuk mencapai paralelisme dengan menggabungkan beberapa mesin independen yang berbeda \cite{bhattacharyaEvaluatingDistributedComputing2021}. Dalam komputasi terdistribusi, data besar dibagi ke dalam sejumlah \textit{node} atau server yang bekerja bersama-sama untuk mengolahnya \cite{ahmedComprehensivePerformanceAnalysis2020}. Dua teknologi yang umum digunakan dalam komputasi terdistribusi ini adalah Apache Hadoop dan Apache Spark \cite{saputroPerbandinganKinerjaKomputasi2020}. Hadoop dan Spark adalah dua platform komputasi \textit{big data} yang paling populer dan banyak digunakan di seluruh dunia. Teknologi ini menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. 
+
+% TODO: Lebih baik 1-1 antara mapreduce dan spark saja. Bridging ke pentingnya evaluasi.
+MapReduce adalah alat yang digunakan untuk komputasi terdistribusi, dirancang khusus untuk menulis, membaca, dan memproses jumlah data yang besar \cite{deanMapReduceSimplifiedData2004}. Pemrosesan data dalam MapReduce ini terdiri dari tiga tahap: fase \textit{Map}, fase \textit{Shuffle}, dan fase \textit{Reduce}. Dalam teknik ini, berkas-berkas besar dibagi menjadi beberapa blok kecil dengan ukuran yang sama dan didistribusikan ke seluruh klaster untuk penyimpanan. MapReduce dan sistem file terdistribusi (HDFS) adalah bagian inti dari sistem Hadoop, sehingga komputasi dan penyimpanan bekerja bersama-sama di seluruh \textit{node} yang membentuk klaster komputer \cite{samadiComparativeStudyHadoop2016}. Hadoop MapReduce memerlukan akses ke penyimpanan untuk membaca dan menulis data, sehingga dapat memperlambat proses komputasi, sehingga hadirlah Spark.
+
+Spark, di sisi lain, menawarkan teknologi \textit{Resilient Distributed Datasets} (RDDs) untuk mendukung proses \textit{Map} dan \textit{Reducing} secara lebih efektif dan cepat \cite{ahmadvandGapproxUsingGallup2019}. Spark bukan hanya alternatif Hadoop, tetapi juga menyediakan berbagai fungsi, misalnya mendukung \textit{MLib}, \textit{GraphX}, dan \textit{Spark streaming} untuk analisis data besar \cite{zahariaSparkClusterComputing2010}. Spark menggunakan memori untuk menyimpan data sehingga dapat mengurangi siklus baca dan tulis. Perbedaan mendasar ini mengakibatkan menarik untuk melihat perbandingan performa antara keduanya. Salah satu cara untuk membandingkan performa keduanya adalah menggunakan tolok ukur Hibench.
+
+% TODO: perbaiki, terlalu umum. Umum -> umum tidak bagus.
+Tolok ukur HiBench adalah salah satu tolok ukur kinerja yang paling sering digunakan. HiBench mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuitea}. Oleh karena itu, HiBench adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara Hadoop dan Spark dalam berbagai skenario penggunaan.
+
+Penelitian tentang evaluasi performa Hadoop dan Spark menggunakan HiBench telah beberapa kali dilakukan. Shi et al. \cite{shiClashTitansMapReduce2015} melakukan penelitian dengan dua alat yang dirancang untuk mengukur kinerja MapReduce dan Spark dalam berbagai skenario beban kerja. Penelitian tersebut mengevaluasi kinerja dalam pekerjaan \textit{batch} dan iteratif, dengan fokus pada komponen-komponen penting seperti \textit{shuffle}, dan \textit{caching}. Hasil penelitian menunjukkan bahwa Spark lebih cepat daripada Hadoop dalam beberapa kasus, terutama ketika menangani tugas-tugas pemrosesan data yang lebih kecil. Namun, ketika ukuran data meningkat, Hadoop terbukti lebih efisien. Selanjutnya, perbandingan kinerja antara Hadoop dan Spark juga disorot oleh penelitian Samadi et al. \cite{samadiComparativeStudyHadoop2016}, yang menggunakan delapan tolok ukur dari HiBench. Penelitian ini menunjukkan bahwa Spark cenderung lebih efisien ketika menangani data dalam jumlah kecil atau saat memproses tugas dalam memori, sementara Hadoop lebih sukses ketika beban kerja melibatkan operasi I/O penyimpanan yang intensif. Selain itu, penelitian oleh Satish dan Rohan \cite{gopalaniComparingApacheSpark2015} menyoroti perbandingan kinerja antara Hadoop dan Spark khususnya dalam konteks algoritma \textit{K-means}. Penelitian itu menemukan bahwa Spark dapat mencapai kecepatan hingga tiga kali lipat dibandingkan Hadoop, dengan catatan bahwa performa Spark sangat bergantung pada ukuran memori yang memadai.
+
+Berdasarkan penelitian sebelumnya, penelitian ini bertujuan untuk menyelidiki perbandingan kinerja antara Hadoop dan Spark dengan menggunakan tolok ukur HiBench dengan studi kasus tertentu. Pemahaman mendalam mengenai kekuatan dan kelemahan masing-masing teknologi dalam berbagai konteks pemrosesan data akan membuat organisasi atau peneliti dapat dengan mudah membuat keputusan yang lebih informasional. Selain itu, penelitian ini akan dilakukan dengan memanfaatkan Infrastruktur sebagai Layanan (IaaS) yang disediakan oleh DigitalOcean, memungkinkan penggunaan sumber daya komputasi dalam skala yang fleksibel dan efisien. Dengan demikian, penelitian ini akan memberikan kontribusi berharga dalam membantu pemangku kepentingan dalam pemilihan teknologi pemrosesan data dalam lingkungan komputasi terdistribusi .
+
+\section{Rumusan Masalah}
+Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Bagaimana implementasi Hadoop, Spark, dan HiBench di DigitalOcean?
+	\item Bagaimana kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench?
+	\item Bagaimana perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo distributed} dalam konteks pemrosesan data dalam skala besar dengan menggunakan tolok ukur HiBench?
+\end{enumerate}
+
+\section{Tujuan}
+Penelitian ini memiliki tujuan, yaitu:
+	\begin{enumerate}
+		\item Untuk mengetahui implementasi Hadoop, Spark, dan HiBench di DigitalOcean.
+		\item Untuk mengetahui kinerja Hadoop dan Spark ketika diuji menggunakan  beban kerja \textit{Micro Benchmarks} yang disediakan oleh HiBench.
+		\item Untuk mengetahui perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo distributed} saat memproses data dalam skala besar dengan menggunakan tolok ukur HiBench.
+	\end{enumerate}
+
+\section{Manfaat}
+Hasil dari penelitian ini diharapkan akan memberikan manfaat sebagai berikut:
+\begin{enumerate}
+	\item 
+	Penelitian ini akan memberikan informasi yang berguna bagi organisasi yang sedang mempertimbangkan pemilihan platform \textit{Big Data}, sehingga \textit{stakeholder} dapat membuat keputusan yang lebih terinformasi.	
+	\item
+	Penelitian ini akan membantu dalam memahami lebih dalam kinerja Hadoop dan Spark dalam berbagai skenario pemrosesan data.
+	\item
+	Hasil dari penelitian ini dapat menjadi dasar untuk penelitian lebih lanjut dalam pengembangan dan peningkatan platform \textit{Big Data.}
+\end{enumerate}
+
+\section{Batasan Masalah}
+Penelitian ini memiliki beberapa batasan yang perlu diperhatikan sebagai berikut:
+	\begin{enumerate}
+		\item 
+		Penelitian ini akan fokus pada perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo-distributed.}
+		\item
+		Pengujian kinerja akan menggunakan HiBench, sebuah tolok ukur kinerja yang umum digunakan dalam penelitian \textit{Big Data.}
+		\item
+		Implementasi Hadoop dan Spark akan menggunakan salah satu penyedia layanan awan, yaitu \textit{DigitalOcean}.
+		\item
+		Penelitian ini akan berfokus pada aspek kinerja. Aspek lain seperti keamanan dan administrasi tidak akan dibahas secara rinci.
+	\end{enumerate}
+
+%\section{Metodologi}
+%
+%Tuliskan semua tahapan yang akan dilalui selama pelaksanaan tugas akhir. Tahapan ini spesifik untuk menyelesaikan persoalan tugas akhir. Tahapan studi literatur tidak perlu dituliskan karena ini adalah pekerjaan yang harus Anda lakukan selama proses pelaksanaan tugas akhir.
+%
+%\section{Sistematika Pembahasan}
+%
+%Subbab ini berisi penjelasan ringkas isi per bab. Penjelasan ditulis satu paragraf per bab buku.

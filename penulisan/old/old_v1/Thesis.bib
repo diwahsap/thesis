@@ -1,0 +1,411 @@
+@article{ahmadvandGapproxUsingGallup2019,
+  title = {Gapprox: Using {{Gallup}} Approach for Approximation in {{Big Data}} Processing},
+  shorttitle = {Gapprox},
+  author = {Ahmadvand, Hossein and Goudarzi, Maziar and Foroutan, Fouzhan},
+  date = {2019-02-26},
+  journaltitle = {Journal of Big Data},
+  shortjournal = {Journal of Big Data},
+  volume = {6},
+  number = {1},
+  pages = {20},
+  issn = {2196-1115},
+  doi = {10.1186/s40537-019-0185-4},
+  abstract = {As Big Data processing often takes a long time and needs a lot of resources, sampling and approximate computing techniques may be used to generate a desired Quality of Result. On the other hand, due to not considering data variety, available sample-based approximation approaches suffer from poor accuracy. Data variety is one of the key features of Big Data which causes various parts of data to have different impact on the final result. To address this problem, we develop a data variety aware approximation approach called Gapprox. Our idea is to use a kind of cluster sampling to improve the accuracy of estimation. Our approach can decrease the amount of data to be processed to achieve the desired Quality of Result with acceptable error bound and confidence interval. We divide the input data into some blocks considering the intra/inter cluster variance. The size of the block and the sample size are determined in such a way that by processing small amount of input data, an acceptable confidence interval and error bound is achieved. We compared our work with two well-known state of the art. The experimental results show that our result surpasses the state of the art and improve processing time up to 17× compared to ApproxHadoop and 8× compared to Sapprox when the user can tolerate an error of 5\% with 95\% confidence.},
+  keywords = {Approximation,Cluster sampling,Data variety,Quality of Result},
+  file = {/Users/dimasws/Zotero/storage/XEUXFUIQ/Ahmadvand et al. - 2019 - Gapprox using Gallup approach for approximation i.pdf;/Users/dimasws/Zotero/storage/J5W3YNWV/s40537-019-0185-4.html}
+}
+
+@article{ahmedComprehensivePerformanceAnalysis,
+  title = {A {{Comprehensive Performance Analysis}} of {{Apache Hadoop}} and {{Apache Spark}} for {{Large Scale Data Sets Using HiBench}}},
+  author = {Ahmed, N and Barczak, Andre L C and Susnjak, Teo and Rashid, Mohammed A},
+  abstract = {Big Data analytics for storing, processing, and analyzing large-scale datasets has become an essential tool for the industry. The advent of distributed computing frameworks such as Hadoop and Spark offers efficient solutions to analyze vast amounts of data. Due to the application programming interface (API) availability and its performance, Spark becomes very popular, even more popular than the MapReduce framework. Both these frameworks have more than 150 parameters, and the combination of these parameters has a massive impact on cluster performance. The default system parameters help the system administrator deploy their system applications without much effort, and they can measure their specific cluster performance with factory-set parameters. However, an open question remains: can new parameter selection improve cluster performance for large datasets? In this regard, this study investigates the most impacting parameters, under resource utilization, input splits, and shuffle, to compare the performance between Hadoop and Spark, using an implemented cluster in our laboratory. We used a trial-and-error approach for tuning these parameters based on a large number of experiments. In order to evaluate the frameworks of comparative analysis, we select two workloads: WordCount and TeraSort. The performance metrics are carried out based on three criteria: execution time, throughput, and speedup. Our experimental results revealed that both system performances heavily depends on input data size and correct parameter selection. The analysis of the results shows that Spark has better performance as compared to Hadoop when data sets are small, achieving up to 2 times speedup in WordCount workloads and up to 14 times in TeraSort workloads when default parameter values are reconfigured.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/HVRJVSHR/Ahmed et al. - A Comprehensive Performance Analysis of Apache Had.pdf}
+}
+
+@article{ahnPerformanceStudySpark2018,
+  title = {Performance {{Study}} of {{Spark}} on {{YARN Cluster Using HiBench}}},
+  author = {Ahn, HooYoung and Kim, Hyunjae and You, Woongshik},
+  date = {2018},
+  journaltitle = {IEEE International Conference on Consumer Electronics},
+  abstract = {Recently, various kinds of Internet-of-Things (IoT) solutions and services are provided such as smart industry, smart city, smart factory, smart agriculture and etc. Those solutions and services generate large amount of data from various devices which are connected through networks while they communicate with each other. However, it is a difficult problem to process the fast and massively produced data efficiently. To solve the problems in the framework level, there are many open-source big data processing and analysis frameworks. To process large-scale data in a fast manner, those frameworks use a cluster consisting of multiple computing machines. However, to set the framework running on large-scale cluster properly is not simple and it is difficult to verify its performance in the distributed environment. In this paper, we evaluate the performance of Apache Spark which is one of the most popular big data processing and analysis frameworks. Especially, we conduct experiments by using a representative benchmark tool, called HiBench, and large-scale data in the cluster environment. From the experimental results, we can conclude that Spark is highly scalable for distributed machine learning as well as big data processing.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/LPBF89UW/Ahn et al. - 2018 - Performance Study of Spark on YARN Cluster Using H.pdf}
+}
+
+@article{aminudinPengukuranPerformaApache2019,
+  title = {Pengukuran Performa Apache Spark dengan Library H2O Menggunakan Benchmark Hibench Berbasis Cloud Computing},
+  author = {Aminudin, Aminudin and Cahyono, Eko Budi},
+  date = {2019-10-08},
+  journaltitle = {Jurnal Teknologi Informasi dan Ilmu Komputer},
+  volume = {6},
+  number = {5},
+  pages = {519--526},
+  issn = {2528-6579},
+  doi = {10.25126/jtiik.2019651520},
+  abstract = {Apache Spark merupakan platform yang dapat digunakan untuk memproses data dengan ukuran data yang relatif~ besar (big data) dengan kemampuan untuk membagi data tersebut ke masing-masing cluster yang telah ditentukan konsep ini disebut dengan parallel komputing. Apache Spark mempunyai kelebihan dibandingkan dengan framework lain yang serupa misalnya Apache Hadoop dll, di mana Apache Spark mampu memproses data secara streaming artinya data yang masuk ke dalam lingkungan Apache Spark dapat langsung diproses tanpa menunggu data lain terkumpul. Agar di dalam Apache Spark mampu melakukan proses machine learning, maka di dalam paper ini akan dilakukan eksperimen yaitu dengan mengintegrasikan Apache Spark yang bertindak sebagai lingkungan pemrosesan data yang besar dan konsep parallel komputing akan dikombinasikan dengan library H2O yang khusus untuk menangani pemrosesan data menggunakan algoritme machine learning. Berdasarkan hasil pengujian Apache Spark di dalam lingkungan cloud computing, Apache Spark mampu memproses data cuaca yang didapatkan dari arsip data cuaca terbesar yaitu yaitu data NCDC dengan ukuran data sampai dengan 6GB. Data tersebut diproses menggunakan salah satu model machine learning yaitu deep learning dengan membagi beberapa node yang telah terbentuk di lingkungan cloud computing dengan memanfaatkan library H2O. Keberhasilan tersebut dapat dilihat dari parameter pengujian yang telah diujikan meliputi nilai running time, throughput, Avarege Memory dan Average CPU yang didapatkan dari Benchmark Hibench. Semua nilai tersebut ~dipengaruhi oleh banyaknya data dan jumlah node.~AbstractApache Spark is a platform that can be used to process data with relatively large data sizes (big data) with the ability to divide the data into each cluster that has been determined. This concept is called parallel computing. Apache Spark has advantages compared to other similar frameworks such as Apache Hadoop, etc., where Apache Spark is able to process data in streaming, meaning that the data entered into the Apache Spark environment can be directly processed without waiting for other data to be collected. In order for Apache Spark to be able to do machine learning processes, in this paper an experiment will be conducted that integrates Apache Spark which acts as a large data processing environment and the concept of parallel computing will be combined with H2O libraries specifically for handling data processing using machine learning algorithms . Based on the results of testing Apache Spark in a cloud computing environment, Apache Spark is able to process weather data obtained from the largest weather data archive, namely NCDC data with data sizes up to 6GB. The data is processed using one of the machine learning models namely deep learning by dividing several nodes that have been formed in the cloud computing environment by utilizing the H2O library. The success can be seen from the test parameters that have been tested including the value of running time, throughput, Avarege Memory and CPU Average obtained from the Hibench Benchmark. All these values are influenced by the amount of data and number of nodes.},
+  issue = {5},
+  langid = {indonesian},
+  file = {/Users/dimasws/Zotero/storage/WJ5EJWQA/Aminudin and Cahyono - 2019 - Pengukuran Performa Apache Spark dengan Library H2.pdf}
+}
+
+@article{azhirPerformanceEvaluationQuery2022,
+  title = {Performance {{Evaluation}} of {{Query Plan Recommendation}} with {{Apache Hadoop}} and {{Apache Spark}}},
+  author = {Azhir, Elham and Hosseinzadeh, Mehdi and Khan, Faheem and Mosavi, Amir},
+  date = {2022-01},
+  journaltitle = {Mathematics},
+  volume = {10},
+  number = {19},
+  pages = {3517},
+  publisher = {{Multidisciplinary Digital Publishing Institute}},
+  issn = {2227-7390},
+  doi = {10.3390/math10193517},
+  abstract = {Access plan recommendation is a query optimization approach that executes new queries using prior created query execution plans (QEPs). The query optimizer divides the query space into clusters in the mentioned method. However, traditional clustering algorithms take a significant amount of execution time for clustering such large datasets. The MapReduce distributed computing model provides efficient solutions for storing and processing vast quantities of data. Apache Spark and Apache Hadoop frameworks are used in the present investigation to cluster different sizes of query datasets in the MapReduce-based access plan recommendation method. The performance evaluation is performed based on execution time. The results of the experiments demonstrated the effectiveness of parallel query clustering in achieving high scalability. Furthermore, Apache Spark achieved better performance than Apache Hadoop, reaching an average speedup of 2x.},
+  issue = {19},
+  langid = {english},
+  keywords = {access plan recommendation,Apache Hadoop,Apache Spark,artificial intelligence,big data,cloud computing,data science,MapReduce,parallel processing,soft computing},
+  file = {/Users/dimasws/Zotero/storage/Q5UZ7XLP/Azhir et al. - 2022 - Performance Evaluation of Query Plan Recommendatio.pdf}
+}
+
+@article{bhattacharyaEvaluatingDistributedComputing2021,
+  title = {Evaluating {{Distributed Computing Infrastructures}}: {{An Empirical Study Comparing Hadoop Deployments}} on {{Cloud}} and {{Local Systems}}},
+  shorttitle = {Evaluating {{Distributed Computing Infrastructures}}},
+  author = {Bhattacharya, Devipsita and Currim, Faiz and Ram, Sudha},
+  date = {2021-07},
+  journaltitle = {IEEE Transactions on Cloud Computing},
+  volume = {9},
+  number = {3},
+  pages = {1075--1088},
+  issn = {2168-7161},
+  doi = {10.1109/TCC.2019.2902377},
+  abstract = {The popularity of distributed computing platforms (e.g., Hadoop) is largely due to their ability to address scalability issues that arise from data storage and processing limitations of standard computing systems. However, the decision to dedicate organizational resources and capital for such systems needs a careful consideration of several factors including evaluation of cloud-based distributed computing options. We propose a framework of metrics which we used to conduct an in-depth performance and cost benefit analysis of two standard Hadoop infrastructural choices, i.e., a Platform as a Service (PaaS) on-demand cloud setup and a local organizational setup. We evaluated the framework by means of an exploratory data analysis use-case for a large-scale graph processing research problem. Our analysis considered highly granular aspects of distributed computing performance and studied how utilization rates and infrastructure amortization times affect break-even times. We identified that virtual memory management adversely affects the performance of a cloud cluster during the reduce phase with the magnitude of degradation dependent on the type of MapReduce operation. Our study is intended not only as an evaluation of infrastructural choices but also a development of a metric framework that can serve as a baseline for researchers examining distributed infrastructures.},
+  eventtitle = {{{IEEE Transactions}} on {{Cloud Computing}}},
+  file = {/Users/dimasws/Zotero/storage/HJ98ZIFQ/Bhattacharya et al. - 2021 - Evaluating Distributed Computing Infrastructures .pdf;/Users/dimasws/Zotero/storage/HT9ID6T6/8656524.html}
+}
+
+@inproceedings{ceesayPlugPlayBench2017,
+  title = {Plug and Play Bench: {{Simplifying}} Big Data Benchmarking Using Containers},
+  shorttitle = {Plug and Play Bench},
+  booktitle = {2017 {{IEEE International Conference}} on {{Big Data}} ({{Big Data}})},
+  author = {Ceesay, Sheriffo and Barker, Adam and Varghese, Blesson},
+  date = {2017-12},
+  pages = {2821--2828},
+  publisher = {{IEEE}},
+  location = {{Boston, MA}},
+  doi = {10.1109/BigData.2017.8258249},
+  abstract = {The recent boom of big data, coupled with the challenges of its processing and storage gave rise to the development of distributed data processing and storage paradigms like MapReduce, Spark, and NoSQL databases. With the advent of cloud computing, processing and storing such massive datasets on clusters of machines is now feasible with ease. However, there are limited tools and approaches, which users can rely on to gauge and comprehend the performance of their big data applications deployed locally on clusters, or in the cloud. Researchers have started exploring this area by providing benchmarking suites suitable for big data applications. However, many of these tools are fragmented, complex to deploy and manage, and do not provide transparency with respect to the monetary cost of benchmarking an application.},
+  eventtitle = {2017 {{IEEE International Conference}} on {{Big Data}} ({{Big Data}})},
+  isbn = {978-1-5386-2715-0},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/8GQ8E9P2/Ceesay et al. - 2017 - Plug and play bench Simplifying big data benchmar.pdf}
+}
+
+@online{ComprehensivePerformanceAnalysis,
+  title = {A Comprehensive Performance Analysis of {{Apache Hadoop}} and {{Apache Spark}} for Large Scale Data Sets Using {{HiBench}} | {{Journal}} of {{Big Data}} | {{Full Text}}},
+  url = {https://journalofbigdata.springeropen.com/articles/10.1186/s40537-020-00388-5#Sec9},
+  urldate = {2023-09-21},
+  keywords = {perbandingan},
+  file = {/Users/dimasws/Zotero/storage/JP28856C/A comprehensive performance analysis of Apache Had.pdf;/Users/dimasws/Zotero/storage/GXRZ28AG/s40537-020-00388-5.html}
+}
+
+@inproceedings{deanMapReduceSimplifiedData2004,
+  title = {{{MapReduce}}: Simplified Data Processing on Large Clusters},
+  shorttitle = {{{MapReduce}}},
+  booktitle = {Proceedings of the 6th Conference on {{Symposium}} on {{Operating Systems Design}} \& {{Implementation}} - {{Volume}} 6},
+  author = {Dean, Jeffrey and Ghemawat, Sanjay},
+  date = {2004-12-06},
+  series = {{{OSDI}}'04},
+  pages = {10},
+  publisher = {{USENIX Association}},
+  location = {{USA}},
+  abstract = {MapReduce is a programming model and an associated implementation for processing and generating large data sets. Users specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key. Many real world tasks are expressible in this model, as shown in the paper. Programs written in this functional style are automatically parallelized and executed on a large cluster of commodity machines. The run-time system takes care of the details of partitioning the input data, scheduling the program's execution across a set of machines, handling machine failures, and managing the required inter-machine communication. This allows programmers without any experience with parallel and distributed systems to easily utilize the resources of a large distributed system. Our implementation of MapReduce runs on a large cluster of commodity machines and is highly scalable: a typical MapReduce computation processes many terabytes of data on thousands of machines. Programmers find the system easy to use: hundreds of MapReduce programs have been implemented and upwards of one thousand MapReduce jobs are executed on Google's clusters every day.}
+}
+
+@article{enesBigDataOrientedPaaS2018,
+  title = {Big {{Data-Oriented PaaS Architecture}} with {{Disk-as-a-Resource Capability}} and {{Container-Based Virtualization}}},
+  author = {Enes, Jonatan and Cacheiro, Javier López and Expósito, Roberto R. and Touriño, Juan},
+  date = {2018-12},
+  journaltitle = {Journal of Grid Computing},
+  shortjournal = {J Grid Computing},
+  volume = {16},
+  number = {4},
+  pages = {587--605},
+  issn = {1570-7873, 1572-9184},
+  doi = {10.1007/s10723-018-9460-4},
+  langid = {english},
+  file = {/Users/dimasws/Downloads/enes2018.pdf}
+}
+
+@article{gaoBigDataBenchBigData2013,
+  title = {{{BigDataBench}}: A {{Big Data Benchmark Suite}} from {{Web Search Engines}}},
+  shorttitle = {{{BigDataBench}}},
+  author = {Gao, Wanling and Zhu, Yuqing and Jia, Zhen and Luo, Chunjie and Wang, Lei and Li, Zhiguo and Zhan, Jianfeng and Qi, Yong and He, Yongqiang and Gong, Shiming and Li, Xiaona and Zhang, Shujie and Qiu, Bizhu},
+  date = {2013-07-01},
+  abstract = {This paper presents our joint research efforts on big data benchmarking with several industrial partners. Considering the complexity, diversity, workload churns, and rapid evolution of big data systems, we take an incremental approach in big data benchmarking. For the first step, we pay attention to search engines, which are the most important domain in Internet services in terms of the number of page views and daily visitors. However, search engine service providers treat data, applications, and web access logs as business confidentiality, which prevents us from building benchmarks. To overcome those difficulties, with several industry partners, we widely investigated the open source solutions in search engines, and obtained the permission of using anonymous Web access logs. Moreover, with two years' great efforts, we created a sematic search engine named ProfSearch (available from http://prof.ict.ac.cn). These efforts pave the path for our big data benchmark suite from search engines---BigDataBench, which is released on the web page (http://prof.ict.ac.cn/BigDataBench). We report our detailed analysis of search engine workloads, and present our benchmarking methodology. An innovative data generation methodology and tool are proposed to generate scalable volumes of big data from a small seed of real data, preserving semantics and locality of data. Also, we preliminarily report two case studies using BigDataBench for both system and architecture researches.},
+  file = {/Users/dimasws/Zotero/storage/765S9IN3/Gao et al. - 2013 - BigDataBench a Big Data Benchmark Suite from Web .pdf}
+}
+
+@article{gopalaniComparingApacheSpark2015,
+  title = {Comparing {{Apache Spark}} and {{Map Reduce}} with {{Performance Analysis}} Using {{K-Means}}},
+  author = {Gopalani, Satish and Arora, Rohan},
+  date = {2015-03-18},
+  journaltitle = {International Journal of Computer Applications},
+  shortjournal = {IJCA},
+  volume = {113},
+  number = {1},
+  pages = {8--11},
+  issn = {09758887},
+  doi = {10.5120/19788-0531},
+  abstract = {Data has long been the topic of fascination for Computer Science enthusiasts around the world, and has gained even more prominence in the recent times with the continuous explosion of data resulting from the likes of social media and the quest for tech giants to gain access to deeper analysis of their data. This paper discusses two of the comparison of - Hadoop Map Reduce and the recently introduced Apache Spark - both of which provide a processing model for analyzing big data. Although both of these options are based on the concept of Big Data, their performance varies significantly based on the use case under implementation. This is what makes these two options worthy of analysis with respect to their variability and variety in the dynamic field of Big Data. In this paper we compare these two frameworks along with providing the performance analysis using a standard machine learning algorithm for clustering (K- Means).},
+  file = {/Users/dimasws/Zotero/storage/PVDDSTVN/Gopalani and Arora - 2015 - Comparing Apache Spark and Map Reduce with Perform.pdf}
+}
+
+@article{huangHiBenchBenchmarkSuite,
+  title = {The {{HiBench Benchmark Suite}}: {{Characterization}} of the {{MapReduce-Based Data Analysis}}},
+  author = {Huang, Shengsheng and Huang, Jie and Dai, Jinquan and Xie, Tao and Huang, Bo},
+  abstract = {The MapReduce model is becoming prominent for the large-scale data analysis in the cloud. In this paper, we present the benchmarking, evaluation and characterization of Hadoop, an open-source implementation of MapReduce. We first introduce HiBench, a new benchmark suite for Hadoop. It consists of a set of Hadoop programs, including both synthetic micro-benchmarks and real-world Hadoop applications. We then evaluate and characterize the Hadoop framework using HiBench, in terms of speed (i.e., job running time), throughput (i.e., the number of tasks completed per minute), HDFS bandwidth, system resource (e.g., CPU, memory and I/O) utilizations, and data access patterns.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/PVZNPQJD/Huang et al. - The HiBench Benchmark Suite Characterization of t.pdf}
+}
+
+@article{kimDesignImplementationCloud2022,
+  title = {Design and {{Implementation}} of {{Cloud Docker Application Architecture Based}} on {{Machine Learning}} in {{Container Management}} for {{Smart Manufacturing}}},
+  author = {Kim, Byoung Soo and Lee, Sang Hyeop and Lee, Ye Rim and Park, Yong Hyun and Jeong, Jongpil},
+  date = {2022-01},
+  journaltitle = {Applied Sciences},
+  volume = {12},
+  number = {13},
+  pages = {6737},
+  publisher = {{Multidisciplinary Digital Publishing Institute}},
+  issn = {2076-3417},
+  doi = {10.3390/app12136737},
+  abstract = {Manufacturers are expanding their business-process innovation and customized manufacturing to reduce their information technology costs and increase their operational efficiency. Large companies are building enterprise-wide hybrid cloud platforms to further accelerate their digital transformation. Many companies are also introducing container virtualization technology to maximize their cloud transition and cloud benefits. However, small- and mid-sized manufacturers are struggling with their digital transformation owing to technological barriers. Herein, for small- and medium-sized manufacturing enterprises transitioning onto the cloud, we introduce a Docker Container application architecture, a customized container-based defect inspection machine-learning model for the AWS cloud environment developed for use in small manufacturing plants. By linking with open-source software, the development was improved and a datadog-based container monitoring system, built to enable real-time anomaly detection, was implemented.},
+  issue = {13},
+  langid = {english},
+  keywords = {cloud docker,container management,docker container,machine learning,monitoring,smart manufacturing},
+  file = {/Users/dimasws/Zotero/storage/3U7ES6WF/Kim et al. - 2022 - Design and Implementation of Cloud Docker Applicat.pdf}
+}
+
+@online{KOMPARASIKECEPATANHADOOP,
+  title = {{{KOMPARASI KECEPATAN HADOOP MAPREDUCE DAN APACHE SPARK DALAM MENGOLAH DATA TEKS}} | {{Jurnal Ilmiah Matrik}}},
+  url = {https://journal.binadarma.ac.id/index.php/jurnalmatrik/article/view/1649},
+  urldate = {2023-09-21},
+  file = {/Users/dimasws/Zotero/storage/VRYVYL6K/KOMPARASI KECEPATAN HADOOP MAPREDUCE DAN APACHE SP.pdf;/Users/dimasws/Zotero/storage/IZYFSQ25/1649.html}
+}
+
+@article{kozlovRealtimeDataStream,
+  title = {Real-Time {{Data Stream Processing System}}},
+  author = {Kozlov, Vitalij},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/KUFJH34Q/Kozlov - Real-time Data Stream Processing System.pdf}
+}
+
+@inproceedings{linLargescaleDataSet2020,
+  title = {A {{Large-scale Data Set}} and an {{Empirical Study}} of {{Docker Images Hosted}} on {{Docker Hub}}},
+  booktitle = {2020 {{IEEE International Conference}} on {{Software Maintenance}} and {{Evolution}} ({{ICSME}})},
+  author = {Lin, Changyuan and Nadi, Sarah and Khazaei, Hamzeh},
+  date = {2020-09},
+  pages = {371--381},
+  publisher = {{IEEE}},
+  location = {{Adelaide, SA,  Australia}},
+  doi = {10.1109/ICSME46990.2020.00043},
+  abstract = {Docker is currently one of the most popular containerization solutions. Previous work investigated various characteristics of the Docker ecosystem, but has mainly focused on Dockerfiles from GitHub, limiting the type of questions that can be asked, and did not investigate evolution aspects. In this paper, we create a recent and more comprehensive data set by collecting data from Docker Hub, GitHub, and Bitbucket. Our data set contains information about 3,364,529 Docker images and 378,615 git repositories behind them. Using this data set, we conduct a large-scale empirical study with four research questions where we reproduce previously explored characteristics (e.g., popular languages and base images), investigate new characteristics such as image tagging practices, and study evolution trends. Our results demonstrate the maturity of the Docker ecosystem: we find more reliance on ready-to-use language and application base images as opposed to yet-to-be-configured OS images, a downward trend of Docker image sizes demonstrating the adoption of best practices of keeping images small, and a declining trend in the number of smells in Dockerfiles suggesting a general improvement in quality. On the downside, we find an upward trend in using obsolete OS base images, posing security risks, and find problematic usages of the latest tag, including version lagging. Overall, our results bring good news such as more developers following best practices, but they also indicate the need to build tools and infrastructure embracing new trends and addressing potential issues.},
+  eventtitle = {2020 {{IEEE International Conference}} on {{Software Maintenance}} and {{Evolution}} ({{ICSME}})},
+  isbn = {978-1-72815-619-4},
+  langid = {english},
+  file = {/Users/dimasws/Downloads/lin2020.pdf}
+}
+
+@inproceedings{moravcikOverviewDockerContainer2020,
+  title = {Overview of {{Docker}} Container Orchestration Tools},
+  booktitle = {2020 18th {{International Conference}} on {{Emerging eLearning Technologies}} and {{Applications}} ({{ICETA}})},
+  author = {Moravcik, Marek and Kontsek, Martin},
+  date = {2020-11-12},
+  pages = {475--480},
+  publisher = {{IEEE}},
+  location = {{Košice, Slovenia}},
+  doi = {10.1109/ICETA51985.2020.9379236},
+  abstract = {The main goal of this paper is to analyze current options of Docker container orchestration. Currently, there are three widely used orchestrators - Docker Swarm, Kubernetes and OpenShift. In the paper, we analyzed all three of them, we highlighted their advantages and disadvantages and compared them.},
+  eventtitle = {2020 18th {{International Conference}} on {{Emerging eLearning Technologies}} and {{Applications}} ({{ICETA}})},
+  isbn = {978-1-66542-226-0},
+  langid = {english},
+  file = {/Users/dimasws/Downloads/moravcik2020.pdf}
+}
+
+@article{mousaviScalableStreamProcessing,
+  title = {Scalable {{Stream Processing}} and {{Management}} for {{Time Series Data}}},
+  author = {Mousavi, Bamdad},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/6CHBA5HA/Mousavi - Scalable Stream Processing and Management for Time.pdf}
+}
+
+@article{muthiahPerformanceEvaluationHadoopa,
+  title = {Performance {{Evaluation}} of {{Hadoop}} Based {{Big Data Applications}} with {{HiBench Benchmarking}} Tool on {{IaaS Cloud Platforms}}},
+  author = {Muthiah, Karthika},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/XIUJADB4/Muthiah - Performance Evaluation of Hadoop based Big Data Ap.pdf}
+}
+
+@article{muthiahPerformanceEvaluationHadoopb,
+  title = {Performance {{Evaluation}} of {{Hadoop}} Based {{Big Data Applications}} with {{HiBench Benchmarking}} Tool on {{IaaS Cloud Platforms}}},
+  author = {Muthiah, Karthika},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/XAKHHG4D/Muthiah - Performance Evaluation of Hadoop based Big Data Ap.pdf}
+}
+
+@inproceedings{naikDockerContainerbasedBig2017a,
+  title = {Docker Container-Based Big Data Processing System in Multiple Clouds for Everyone},
+  booktitle = {2017 {{IEEE International Systems Engineering Symposium}} ({{ISSE}})},
+  author = {Naik, Nitin},
+  date = {2017-10},
+  pages = {1--7},
+  publisher = {{IEEE}},
+  location = {{Vienna, Austria}},
+  doi = {10.1109/SysEng.2017.8088294},
+  abstract = {Big data processing is progressively becoming essential for everyone to extract the meaningful information from their large volume of data irrespective of types of users and their application areas. Big data processing is a broad term and includes several operations such as the storage, cleaning, organization, modelling, analysis and presentation of data at a scale and efficiency. For ordinary users, the significant challenges are the requirement of the powerful data processing system and its provisioning, installation of complex big data analytics and difficulty in their usage. Docker is a container-based virtualization technology and it has recently introduced Docker Swarm for the development of various types of multi-cloud distributed systems, which can be helpful in solving all above problems for ordinary users. However, Docker is predominantly used in the software development industry, and less focus is given to the data processing aspect of this container-based technology. Therefore, this paper proposes the Docker container-based big data processing system in multiple clouds for everyone, which explores another potential dimension of Docker for big data analysis. This Docker container-based system is an inexpensive and user-friendly framework for everyone who has the knowledge of basic IT skills. Additionally, it can be easily developed on a single machine, multiple machines or multiple clouds. This paper demonstrates the architectural design and simulated development of the proposed Docker container-based big data processing system in multiple clouds. Subsequently, it illustrates the automated provisioning of big data clusters using two popular big data analytics, Hadoop and Pachyderm (without Hadoop) including the Web-based GUI interface Hue for easy data processing in Hadoop.},
+  eventtitle = {2017 {{IEEE International Systems Engineering Symposium}} ({{ISSE}})},
+  isbn = {978-1-5386-3403-5},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/6XLSEFN6/Naik - 2017 - Docker container-based big data processing system .pdf}
+}
+
+@online{ozdilExperimentalComparativeBenchmark2021,
+  title = {An {{Experimental}} and {{Comparative Benchmark Study Examining Resource Utilization}} in {{Managed Hadoop Context}}},
+  author = {Ozdil, Uluer Emre and Ayvaz, Serkan},
+  date = {2021-12-19},
+  eprint = {2112.10134},
+  eprinttype = {arxiv},
+  eprintclass = {cs},
+  url = {http://arxiv.org/abs/2112.10134},
+  urldate = {2023-10-27},
+  abstract = {Transitioning cloud-based Hadoop from IaaS to PaaS, which are commercially conceptualized as pay-as-you-go or pay-per-use, often reduces the associated system costs. However, managed Hadoop systems do present a black-box behavior to the end-users who cannot be clear on the inner performance dynamics, hence, on the benefits of leveraging them. In the study, we aimed to understand managed Hadoop context in terms of resource utilization. We utilized three experimental Hadoopon-PaaS proposals as they come out-of-the-box and conducted Hadoopspecific workloads of the HiBench Benchmark Suite. During the benchmark executions, we collected system resource utilization data on the worker nodes. The results indicated that the same property specifications among cloud services do not guarantee nearby performance outputs, nor consistent results within themselves. We assume that the managed systems’ architectures and pre-configurations play a significant role in the performance.},
+  langid = {english},
+  pubstate = {preprint},
+  keywords = {{Computer Science - Distributed, Parallel, and Cluster Computing}},
+  file = {/Users/dimasws/Zotero/storage/ZGH4JFBT/Ozdil and Ayvaz - 2021 - An Experimental and Comparative Benchmark Study Ex.pdf}
+}
+
+@online{ResilientDistributedComputing,
+  title = {Resilient Distributed Computing Platforms for Big Data Analysis Using {{Spark}} and {{Hadoop}} | {{IEEE Conference Publication}} | {{IEEE Xplore}}},
+  url = {https://xplorestaging.ieee.org/document/7539859/;jsessionid=PRAnIaN-qIUI9KFpsvdeQ4sQLkwBcXV9bFIxgU2qADV5InHStw-J!-1449844779},
+  urldate = {2023-10-13},
+  file = {/Users/dimasws/Zotero/storage/P78XIXB3/;jsessionid=PRAnIaN-qIUI9KFpsvdeQ4sQLkwBcXV9bFIxgU2qADV5InHStw-J!-1449844779.html}
+}
+
+@article{ruijunLightweightExperimentalPlatform2020,
+  title = {A {{Lightweight Experimental Platform}} for {{Big Data Based}} on {{Docker Containers}}},
+  author = {Ruijun, Gu},
+  date = {2020-01},
+  journaltitle = {Journal of Physics: Conference Series},
+  shortjournal = {J. Phys.: Conf. Ser.},
+  volume = {1437},
+  number = {1},
+  pages = {012104},
+  publisher = {{IOP Publishing}},
+  issn = {1742-6596},
+  doi = {10.1088/1742-6596/1437/1/012104},
+  abstract = {In recent years, many colleges and universities have set up the major of big data. The biggest problem in teaching is that there is no supporting basic experimental environment, and it is difficult to deploy and configure the big data environment at the same time. In addition, the lack of experimental data, experimental teaching plans and experimental manuals in the experimental process makes it difficult to carry out relevant teaching. In order to reduce the cost of laboratory construction and the difficulty of learning big data, a lightweight big data experimental platform was constructed based on virtualized container technology. Through this platform, we can create a big data cluster, provide various suitable experimental environments, focus on the technology itself, and greatly improve the learning efficiency.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/WLGIH7LQ/Ruijun - 2020 - A Lightweight Experimental Platform for Big Data B.pdf}
+}
+
+@inproceedings{samadiComparativeStudyHadoop2016,
+  title = {Comparative Study between {{Hadoop}} and {{Spark}} Based on {{Hibench}} Benchmarks},
+  booktitle = {2016 2nd {{International Conference}} on {{Cloud Computing Technologies}} and {{Applications}} ({{CloudTech}})},
+  author = {Samadi, Yassir and Zbakh, Mostapha and Tadonki, Claude},
+  date = {2016-05},
+  pages = {267--275},
+  publisher = {{IEEE}},
+  location = {{Marrakech, Morocco}},
+  doi = {10.1109/CloudTech.2016.7847709},
+  abstract = {Big Data is currently a hot topic for companies and scientists around the world, due to the emergence of new technologies, devices and communication means like social network sites, which led to a noticeable increase of the amount of data produced every year, even every day. In addition, traditional algorithms and technologies are inefficient to process, analyze and store this vast amount of data. So, to solve this problem, Big Data frameworks are needed. In this paper, we present and discuss a performance comparison between two popular Big Data frameworks. Hadoop and Spark, which are used to efficiently process vast amount of data in parallel and distributed mode on a large clusters. Hibench benchmark suite is used to compare the performance of these two frameworks based on the criteria as execution time, throughput and speedup. Our experimental results show that Spark is more efficient than Hadoop to deal with large amount of data. However, spark requires higher memory allocation, since it loads processes into memory and keeps them in caches for a while, just like standard databases. So the choice depends on performance level and memory constraints.},
+  eventtitle = {2016 2nd {{International Conference}} on {{Cloud Computing Technologies}} and {{Applications}} ({{CloudTech}})},
+  isbn = {978-1-4673-8894-8},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/VVTPYL4Z/Samadi et al. - 2016 - Comparative study between Hadoop and Spark based o.pdf}
+}
+
+@article{samadiPerformanceComparisonHadoop2018,
+  title = {Performance Comparison between {{Hadoop}} and {{Spark}} Frameworks Using {{HiBench}} Benchmarks},
+  author = {Samadi, Yassir and Zbakh, Mostapha and Tadonki, Claude},
+  date = {2018},
+  journaltitle = {Concurrency and Computation: Practice and Experience},
+  volume = {30},
+  number = {12},
+  pages = {e4367},
+  issn = {1532-0634},
+  doi = {10.1002/cpe.4367},
+  abstract = {Big Data has become one of the major areas of research for cloud service providers due to a large amount of data produced every day and the inefficiency of traditional algorithms and technologies to handle these large amounts of data. Big Data with its characteristics such as volume, variety, and veracity (3V) requires efficient technologies to process in real time. To solve this problem and to process and analyze this vast amount of data, there are many powerful tools like Hadoop and Spark, which are mainly used in the context of Big Data. They work following the principles of parallel computing. The challenge is to specify which Big Data's tool is better depending on the processing context. In this paper, we present and discuss a performance comparison between two popular Big Data frameworks deployed on virtual machines. Hadoop MapReduce and Apache Spark are used to efficiently process a vast amount of data in parallel and distributed mode on large clusters, and both of them suit for Big Data processing. We also present the execution results of Apache Hadoop in Amazon EC2, a major cloud computing environment. To compare the performance of these two frameworks, we use HiBench benchmark suite, which is an experimental approach for measuring the effectiveness of any computer system. The comparison is made based on three criteria: execution time, throughput, and speedup. We test Wordcount workload with different data sizes for more accurate results. Our experimental results show that the performance of these frameworks varies significantly based on the use case implementation. Furthermore, from our results we draw the conclusion that Spark is more efficient than Hadoop to deal with a large amount of data in major cases. However, Spark requires higher memory allocation, since it loads the data to be processed into memory and keeps them in caches for a while, just like standard databases. So the choice depends on performance level and memory constraints.},
+  langid = {english},
+  keywords = {Amazon EC2,Big Data,cloud computing,Hadoop,HiBench,parallel and distributed processing,Spark},
+  file = {/Users/dimasws/Zotero/storage/XGWSZMA2/Samadi et al. - 2018 - Performance comparison between Hadoop and Spark fr.pdf;/Users/dimasws/Zotero/storage/J7R8LXTP/cpe.html}
+}
+
+@article{saputroPerbandinganKinerjaKomputasi2020,
+  title = {Perbandingan {{Kinerja Komputasi Hadoop}} Dan {{Spark}} Untuk {{Memprediksi Cuaca}} ({{Studi Kasus}} : {{Storm Event Database}})},
+  shorttitle = {Perbandingan {{Kinerja Komputasi Hadoop}} Dan {{Spark}} Untuk {{Memprediksi Cuaca}} ({{Studi Kasus}}},
+  author = {Saputro, Rendiyono and Aminuddin, Aminuddin and Munarko, Yuda},
+  date = {2020-03-05},
+  journaltitle = {Jurnal Repositor},
+  shortjournal = {Jurnal Repositor},
+  volume = {2},
+  pages = {463},
+  doi = {10.22219/repositor.v2i4.93},
+  abstract = {Perkembangan teknologi telah mengakibatkan pertumbuhan data yang semakin cepat dan besar setiap waktunya. Hal tersebut disebabkan oleh banyaknya sumber data seperti mesin pencari, RFID, catatan transaksi digital, arsip video dan foto, user generated content, internet of things, penelitian ilmiah di berbagai bidang seperti genomika, meteorologi, astronomi, fisika, dll. Selain itu, data - data tersebut memiliki karakteristik yang unik antara satu dengan lainnya, hal ini yang menyebabkan tidak dapat diproses oleh teknologi basis data konvensional. Oleh karena itu, dikembangkan beragam framework komputasi terdistribusi seperti Apache Hadoop dan Apache Spark yang memungkinkan untuk memproses data secara terdistribusi dengan menggunakan gugus komputer.Adanya ragam framework komputasi terdistribusi, sehingga diperlukan sebuah pengujian untuk mengetahui kinerja komputasi keduanya. Pengujian dilakukan dengan memproses dataset dengan beragam ukuran dan dalam gugus komputer dengan jumlah node yang berbeda. Dari semua hasil pengujian, Apache Hadoop memerlukan waktu yang lebih sedikit dibandingkan dengan Apache Spark. Hal tersebut terjadi karena nilai throughput dan throughput/node Apache Hadoop lebih tinggi daripada Apache Spark.},
+  file = {/Users/dimasws/Zotero/storage/JYJE3NEW/Saputro et al. - 2020 - Perbandingan Kinerja Komputasi Hadoop dan Spark un.pdf}
+}
+
+@article{shiClashTitansMapReduce2015,
+  title = {Clash of the Titans: {{MapReduce}} vs. {{Spark}} for Large Scale Data Analytics},
+  shorttitle = {Clash of the Titans},
+  author = {Shi, Juwei and Qiu, Yunjie and Minhas, Umar Farooq and Jiao, Limei and Wang, Chen and Reinwald, Berthold and Özcan, Fatma},
+  date = {2015-09},
+  journaltitle = {Proceedings of the VLDB Endowment},
+  shortjournal = {Proc. VLDB Endow.},
+  volume = {8},
+  number = {13},
+  pages = {2110--2121},
+  issn = {2150-8097},
+  doi = {10.14778/2831360.2831365},
+  abstract = {MapReduce and Spark are two very popular open source cluster computing frameworks for large scale data analytics. These frameworks hide the complexity of task parallelism and fault-tolerance, by exposing a simple programming API to users. In this paper, we evaluate the major architectural components in MapReduce and Spark frameworks including: shuffle, execution model, and caching, by using a set of important analytic workloads. To conduct a detailed analysis, we developed two profiling tools: (1) We correlate the task execution plan with the resource utilization for both MapReduce and Spark, and visually present this correlation; (2) We provide a break-down of the task execution time for in-depth analysis. Through detailed experiments, we quantify the performance differences between MapReduce and Spark. Furthermore, we attribute these performance differences to different components which are architected differently in the two frameworks. We further expose the source of these performance differences by using a set of micro-benchmark experiments. Overall, our experiments show that Spark is about 2.5x, 5x, and 5x faster than MapReduce, for Word Count, k-means, and PageRank, respectively. The main causes of these speedups are the efficiency of the hash-based aggregation component for combine, as well as reduced CPU and disk overheads due to RDD caching in Spark. An exception to this is the Sort workload, for which MapReduce is 2x faster than Spark. We show that MapReduce’s execution model is more efficient for shuffling data than Spark, thus making Sort run faster on MapReduce.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/MALM7QFA/Shi et al. - 2015 - Clash of the titans MapReduce vs. Spark for large.pdf}
+}
+
+@inproceedings{vermaBigDataManagement2016,
+  title = {Big Data Management Processing with {{Hadoop MapReduce}} and Spark Technology: {{A}} Comparison},
+  shorttitle = {Big Data Management Processing with {{Hadoop MapReduce}} and Spark Technology},
+  booktitle = {2016 {{Symposium}} on {{Colossal Data Analysis}} and {{Networking}} ({{CDAN}})},
+  author = {Verma, Ankush and Mansuri, Ashik Hussain and Jain, Neelesh},
+  date = {2016-03},
+  pages = {1--4},
+  publisher = {{IEEE}},
+  location = {{Indore, Madhya Pradesh, India}},
+  doi = {10.1109/CDAN.2016.7570891},
+  abstract = {Hadoop MapReduce is processed for analysis large volume of data through multiple nodes in parallel. However MapReduce has two function Map and Reduce, large data is stored through HDFS. Lack of facility involve in MapReduce so Spark is designed to run for real time stream data and for fast queries. Spark jobs perform work on Resilient Distributed Datasets and directed acyclic graph execution engine. In this paper, we extend Hadoop MapReduce working and Spark architecture with supporting kind of operation to perform. We also show the differences between Hadoop MapReduce and Spark through Map and Reduce phase individually.},
+  eventtitle = {2016 {{Symposium}} on {{Colossal Data Analysis}} and {{Networking}} ({{CDAN}})},
+  isbn = {978-1-5090-0669-4},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/V9G87JKX/Verma et al. - 2016 - Big data management processing with Hadoop MapRedu.pdf}
+}
+
+@article{xuDeployingResearchingHadoop,
+  title = {Deploying and {{Researching Hadoop}} in {{Virtual Machines}}},
+  author = {Xu, Guanghui and Xu, Feng and Ma, Hongxu},
+  abstract = {Hadoop's emerging and the maturity of virtualization make it feasible to combine them together to process immense data set. To do research on Hadoop in virtual environment, an experimental environment is needed. This paper firstly introduces some technologies used such as CloudStack, MapReduce and Hadoop. Based on that, a method to deploy CloudStack is given. Then we discuss how to deploy Hadoop in virtual machines which can be obtained from CloudStack by some means, then an algorithm to solve the problem that all the virtual machines which are created by CloudStack using same template have a same hostname. After that we run some Hadoop programs under the virtual cluster, which shows that it is feasible to deploying Hadoop in this way. Then some methods to optimize Hadoop in virtual machines are discussed. From this paper, readers can follow it to set up their own Hadoop experimental environment and capture the current status and trend of optimizing Hadoop in virtual environment.},
+  langid = {english},
+  file = {/Users/dimasws/Zotero/storage/6EBEWYQQ/Xu et al. - Deploying and Researching Hadoop in Virtual Machin.pdf}
+}
+
+@inproceedings{zahariaSparkClusterComputing2010,
+  title = {Spark: Cluster Computing with Working Sets},
+  shorttitle = {Spark},
+  booktitle = {Proceedings of the 2nd {{USENIX}} Conference on {{Hot}} Topics in Cloud Computing},
+  author = {Zaharia, Matei and Chowdhury, Mosharaf and Franklin, Michael J. and Shenker, Scott and Stoica, Ion},
+  date = {2010-06-22},
+  series = {{{HotCloud}}'10},
+  pages = {10},
+  publisher = {{USENIX Association}},
+  location = {{USA}},
+  abstract = {MapReduce and its variants have been highly successful in implementing large-scale data-intensive applications on commodity clusters. However, most of these systems are built around an acyclic data flow model that is not suitable for other popular applications. This paper focuses on one such class of applications: those that reuse a working set of data across multiple parallel operations. This includes many iterative machine learning algorithms, as well as interactive data analysis tools. We propose a new framework called Spark that supports these applications while retaining the scalability and fault tolerance of MapReduce. To achieve these goals, Spark introduces an abstraction called resilient distributed datasets (RDDs). An RDD is a read-only collection of objects partitioned across a set of machines that can be rebuilt if a partition is lost. Spark can outperform Hadoop by 10x in iterative machine learning jobs, and can be used to interactively query a 39 GB dataset with sub-second response time.}
+}

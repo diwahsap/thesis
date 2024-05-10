@@ -1,0 +1,70 @@
+\clearpage
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\phantomsection% 
+\addcontentsline{toc}{chapter}{LEMBAR PENGESAHAN}
+
+\begin{center}
+
+%	\chapter*{\normalsize{Lembar Pengesahan}}
+	\large \bfseries \MakeUppercase{Lembar Pengesahan} \linebreak
+    
+    \normalsize \normalfont \onehalfspacing \justify{
+    Tugas Akhir Sarjana dengan judul \textbf{\thetitle} \ adalah benar dibuat oleh saya sendiri dan belum pernah dibuat dan diserahkan sebelumnya, baik sebagian ataupun seluruhnya, baik oleh saya ataupun orang lain, baik di Institut Teknologi Sumatera maupun di institusi pendidikan lainnya.}
+
+	Lampung Selatan, \today{} % TODO: automatic date
+
+	\setlength{\tabcolsep}{0pt}
+%	\begin{tabular}{l@{\hskip 0.5in}r}
+	\begin{tabular}{p{0.7\textwidth}p{0.3\textwidth}}
+		Penulis, & \multirow{6}{*}{
+			% Kotak pasfoto 3x4
+			\begin{tikzpicture}
+				\draw rectangle (3cm,4cm) node[pos=.5]{
+					{\begin{tabular}{l}
+					\includegraphics[width=.23\textwidth]{figures/pasfoto.jpg}
+					\end{tabular}}};
+			\end{tikzpicture}
+			}\\
+		& \\
+		& \\
+		& \\
+		& \\
+		\theauthor\\
+		NIM \printnim
+	\end{tabular}
+	\vfill
+
+	\centering Diperiksa dan disetujui oleh,
+	\vspace{2em} % add space
+	\justify
+    \setlength{\tabcolsep}{0pt}
+    \begin{tabular}{p{0.5\textwidth}p{0.5\textwidth}}
+        \multicolumn{1}{c}{Pembimbing I,} & \multicolumn{1}{c}{Pembimbing II,} \\
+        & \\
+        & \\
+        & \\
+        & \\
+		\multicolumn{1}{c}{\underline{\printnamadosbinga}} & \multicolumn{1}{c}{\underline{\printnamadosbingb}} \\
+		\multicolumn{1}{c}{\printnipdosbinga} & \multicolumn{1}{c}{\printnipdosbingb} \\
+    \end{tabular}
+	\vfill
+
+	\centering 
+	\begin{tabular}{c}
+		Disahkan oleh,\\
+		Koordinator Program Studi Sains Data\\
+		Fakultas Sains\\
+		Institut Teknologi Sumatera
+		\\
+		\\
+		\\
+		\\
+		\\
+		\underline{Tirta Setiawan, S.Pd., M.Si.} \\ % TODO: make automatic
+		NIP 199008222022031003 \\
+	\end{tabular}
+	
+\end{center}
+\clearpage

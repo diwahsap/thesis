@@ -26,14 +26,14 @@ cd /opt/java || exit
 sudo apt-get -y install wget
 sudo wget https://repo.huaweicloud.com/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz
 sudo tar zxvf jdk-7u80-linux-x64.tar.gz
-sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.7.0_80/bin/java 0
+sudo update-alternatives echo --install /usr/bin/java java /opt/java/jdk1.7.0_80/bin/java 0
 sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.7.0_80/bin/javac 0
 java -version
 sudo apt-get -y install maven
 mvn -version
 echo "Langkah 8: Instalasi Scala."
-sudo wget https://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.deb
-sudo dpkg -i scala-2.12.0.deb
+sudo wget https://downloads.lightbend.com/scala/2.11.0/scala-2.11.0.deb
+sudo dpkg -i scala-2.11.0.deb
 scala -version
 
 echo "Seluruh langkah selesai."

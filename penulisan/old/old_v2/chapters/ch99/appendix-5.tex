@@ -1,0 +1,23 @@
+\chapter{Instalasi dan Konfigurasi Hive}\appcaption{Instalasi dan Konfigurasi Hive}
+
+Langkah-langkah pemasangan dan konfigurasi Hive akan dijelaskan sebagai berikut,
+
+\begin{enumerate}
+  \item Pemasangan Hive
+  \begin{enumerate}
+    \item Pastikan perangkat lunak prasyarat sudah berhasil dipasang dan dilakukan konfigurasi. Sebelum dilakukan pemasangan Hive, diperlukan untuk mengunduh berkas Hive terlebih dahulu dengan perintah \verb|cd /usr/local|, dilanjutkan dengan \verb|sudo wget https://dlcdn.apache.org/hive/hive-2.3.9/|
+    \newline \verb|apache-hive-2.3.9-bin.tar.gz|.
+    \item Ekstrak berkas Hive yang sudah diunduh tadi dengan perintah \verb|sudo tar -xzvf apache-hive-2.3.9-bin.tar.gz|. Hasil ekstrak berkas Hive akan disimpan pada direktori yang sama.
+    \item Selanjutnya, untuk memudahkan kedepannya, ganti nama folder Hive dengan perintah \verb|sudo mv apache-hive-2.3.9-bin hive|.
+  \end{enumerate}
+  \item Menambahkan Hive pada \textit{Environments Variables}
+  \begin{enumerate}
+    \item Hive perlu ditambahkan pada \textit{Environments Variabels} untuk memudahkan dalam melakukan eksekusi. Untuk menambahkannya, jalankan perintah \verb|sudo nano ~/.bashrc|.
+    \item Tambahkan beberapa baris kode berikut pada akhir berkas \textit{bashrc}.
+      \begin{lstlisting}[language=bash]
+		# HIVE ENVIRONMENT
+		export PATH=$PATH:/usr/local/hive/bin
+      \end{lstlisting}
+    \item Untuk mendapatkan perubahan dapat dilakukan dengan perintah \verb|source ~/.bashrc|.
+  \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,281 @@
+\chapter{LANDASAN TEORI}
+
+\section{Tinjauan Pustaka}
+Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses penelitian dan memberikan pemahaman lebih lanjut. Teori-teori dasar yang berhubungan dan digunakan dalam penelitian adalah sebagai berikut.
+
+\subsection{Konsep \textit{Big Data}}
+\textit{Big Data} biasanya sering didefinisikan bersama dengan kompleksitas suatu data \cite{barosenAnalysisComparisonInterfacing2018}. Berbeda dengan tradisional data, \textit{Big Data} merujuk pada pertumbuhan data dalam berbagai format, baik dari struktur, semi-terstruktur, dan tidak terstruktur \cite{oussousBigDataTechnologies2018}. \textit{Big Data} memiliki banyak jenis sehingga membutuhkan teknologi yang lebih bertenaga serta algoritma yang lebih canggih. Pendekatan teknologi yang sering digunakan oleh \textit{Business Intelligence} biasanya tidak dapat lagi efisien jika digunakan.
+
+\textit{Big Data} biasanya didefinisikan menjadi tiga karakteristik (3V), yaitu \textit{Volume, Velocity}, dan \textit{Variety} \cite{furhtIntroductionBigData2016}. \textit{Volume} berkaitan dengan jumlah data yang terbentuk atau dibuat secara terus menerus oleh beragam  perangkat, seperti telepon genggam dan aplikasi (sosial media, sensor, IoT). Jumlah data diharapkan tumbuh 5x lipat pada tahun 2020 \cite{furhtIntroductionBigData2016}. Selanjutnya, \textit{Velocity} memberikan makna bahwa data bertumbuh secara cepat dan harus diproses secara cepat juga untuk memberikan informasi yang berguna \cite{sandhuBigDataCloud2022}. YouTube adalah ilustrasi yang tepat untuk menggambarkan bagaimana pertumbuhan data begitu cepat. Terakhir, \textit{Variety} berkaitan dengan variasi sumber dan format data. 
+
+Penerapan dari \textit{big data} tidak hanya terbatas pada pengumpulan dan penyimpanan data, tetapi juga meliputi analisis dan pengolahan data tersebut untuk menghasilkan wawasan yang berguna. Beberapa sektor yang telah menerapkan \textit{big data} secara luas meliputi kesehatan, keuangan, ritel, dan pemerintahan \cite{oussousBigDataTechnologies2018}. Dalam sektor kesehatan, \textit{big data} digunakan untuk menganalisis informasi pasien secara massal guna meningkatkan kualitas perawatan dan menemukan pola-pola penyakit. Sementara itu, di sektor keuangan, big data membantu dalam analisis risiko, deteksi penipuan, dan personalisasi layanan untuk pelanggan.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/ch02/data-stack.jpg}
+    \caption{Beberapa Alat di Dunia Data \cite{RedHot20212021}}
+    \label{fig:data-stacks}
+\end{figure}
+
+Perkembangan alat dalam \textit{big data} juga sangat pesat seperti pada Gambar \ref{fig:data-stacks}. Salah satu contoh signifikan adalah penggunaan teknologi \textit{machine learning} dan \textit{artificial intelligence} (AI) dalam pengolahan data. AI dan \textit{machine learning} memungkinkan analisis data yang lebih akurat dan cepat, bahkan dengan volume dan variasi data yang sangat besar. Alat seperti Hadoop dan Spark telah menjadi standar dalam industri untuk mengelola dan memproses data besar. Selain itu, penggunaan \textit{cloud computing} dalam \textit{big data} memungkinkan penyimpanan dan pengolahan data dalam skala yang lebih besar dan lebih fleksibel.
+
+\subsection{Text Processing dan Feature Extraction}
+\blindtext
+
+\subsection{MapReduce}
+MapReduce adalah model pemrograman dan implementasi teknik pemrosesan data berukuran besar yang pertama kali dipopulerkan oleh Google pada tahun 2004\cite{kaliaAnalysisHadoopMapReduce2021}. MapReduce menawarkan pemrosesan data yang dapat diandalkan serta \textit{fault-tolerant manner} (tahan terhadap kesalahan).  MapReduce berjalan secara paralel dan berada pada lingkungan komputasi terdistribusi \cite{cTaskFailureResilience2020}. Model ini mengadopsi arsitektur tersentraliasi, yaitu satu \textit{node} berperan sebagai \textit{master} dan \textit{node} yang lain berperan sebagai \textit{workers} atau \textit{slave} \cite{herodotouHadoopPerformanceModels2011, bakratsasHadoopMapReducePerformance2018}. \textit{Master node} bertanggung jawab untuk melakukan penjadwalan kerja, dan \textit{slave node} berperan untuk menjalankan eksekusi kerja. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/ch02/mapreduce-scheme.png}
+    \caption{Cara Kerja MapReduce}
+    \label{fig:mapreduce-flow}
+\end{figure}
+
+MapReduce terdiri dari fungsi \textit{Map} dan fungsi \textit{Reduce} \cite{gandomiHybSMRPHybridScheduling2019}. Kedua fungsi ini tersebar di seluruh \textit{slave node} yang terhubung dalam klaster dan berjalan secara paralel. Fungsi \textit{Map} berperan untuk membagi masalah besar menjadi masalah yang lebih kecil dan mendistribusikannya ke \textit{slave node}. Hasil pemrosesan dari \textit{slave node} akan dikumpulkan oleh \textit{master node} melalui fungsi \textit{Reduce}. Sesuai dengan Gambar \ref{fig:mapreduce-flow}, hasil dari proses \textit{Reduce} yang akan dikirimkan sebagai hasil akhir proses MapReduce.  
+
+Implementasi MapReduce pada \textit{Word Count}\cite{KOMPARASIKECEPATANHADOOP} dapat dilihat pada Gambar \ref{fig:mapreduce-wordcount}. Pada proses MapReduce, data masukan akan melalui beberapa tahapan pemrosesan. Pertama, data akan dipecah menjadi bagian-bagian yang lebih kecil pada proses pemecahan data masukan (\textit{splitting}). Dalam kasus Hadoop MapReduce, data idealnya akan dipecah menjadi beberapa blok berukuran maksimal 128MB.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/map-reduce-word-count-oreilly.png}
+    \caption{Implementasi MapReduce pada Word Count \cite{MapReduceDistributedComputing}}
+    \label{fig:mapreduce-wordcount}
+\end{figure}
+
+Kemudian, blok data tersebut akan diproses lebih lanjut pada tahap pemetaan (\textit{mapping}). Pemetaan merupakan salah satu tahapan terpenting dalam MapReduce. Pada tahap ini, blok data yang sudah dipecah akan diproses untuk menghasilkan pasangan kunci-nilai (\textit{key-value pairs}) sementara, seperti pada contoh kasus \textit{wordcount} yang menghasilkan pasangan kunci-nilai \textit{Dear:1, Bear:1, dan River:1}. Pemetaan dapat melibatkan satu atau beberapa mesin pekerja (\textit{worker}) yang memproses blok data secara paralel.
+
+Selanjutnya adalah tahap pengocokan (\textit{shuffling}) di mana pasangan kunci-nilai hasil pemetaan yang tersebar di beberapa mesin akan dikumpulkan berdasarkan kesamaan kuncinya agar bisa diproses lebih lanjut. Misalnya semua pasangan dengan kunci \textit{Bear} dikumpulkan dalam satu mesin.
+
+Pada tahap terakhir yaitu pengurangan (\textit{reducing}), dilakukan agregasi terhadap pasangan kunci-nilai dengan kunci yang sama untuk menghasilkan keluaran akhir. Seperti pada contoh kasus \textit{wordcount}, pasangan \textit{Bear:1} dan \textit{Bear:1} akan dijumlahkan menjadi \textit{Bear:2} oleh proses pengurangan.
+
+\subsection{Apache Hadoop}
+Apache Hadoop adalah perangkat lunak sumber terbuka yang ditulis dengan bahasa pemrograman Java untuk pemrosesan dan penyimpanan data menggunakan komputasi terdistribusi \cite{ApacheHadoop}. Hadoop dapat diinstalasi pada satu \textit{node} komputer, atau ratusan \textit{node} komputer yang digabungkan dalam sebuah klaster \cite{maneasEvolutionHadoopDistributed2018}. Berkaitan dengan pemrosesan data, Hadoop mengimplementasikan model MapReduce untuk pemrosesan data secara paralel dan cepat. Selain itu, Hadoop menyediakan sistem penyimpanan data terdistribusi yang dikenal sebagai Hadoop Distributed File System (HDFS) untuk akses data, pemrosesan, dan komputasi \cite{dabasAnalysisCommentsYoutube2019}. Arsitektur Hadoop secara umum dapat dilihat pada Gambar \ref{fig:hadoop-str}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/hadoop-str}
+    \caption{Arsitektur Hadoop}
+    \label{fig:hadoop-str}
+\end{figure}
+
+\subsection{Mode Kerja Hadoop}
+Hadoop dapat dijalankan dalam tiga mode operasi yang berbeda yaitu \textit{standalone, pseudo-distributed}, dan \textit{fully distributed} \cite{johnDataLakeEnterprises2017}. Dalam \textit{standalone mode}, semua proses Hadoop berjalan pada satu node tunggal menggunakan sistem berkas lokal tanpa memerlukan konfigurasi kustom pada Hadoop seperti pada Gambar \ref{fig:hadoop-modes}. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/hadoop-modes}
+    \caption{Mode Kerja Hadoop \cite{khataiImplementationTextMining2021}}
+    \label{fig:hadoop-modes}
+\end{figure}
+
+\textit{Pseudo-distributed mode} menjalankan semua komponen Hadoop pada satu node tunggal tetapi menyimulasikan kluster dengan komunikasi antar proses melalui socket jaringan, sehingga memerlukan konfigurasi pada berkas \textit{core-site, mapred-site}, dan \textit{hdfs-site}. Sedangkan \textit{fully distributed mode} menyebarkan proses Hadoop ke beberapa node dalam kluster sebenarnya yang biasanya digunakan untuk tahap produksi. \textit{Fully distributed mode} mendukung skalabilitas, ketersediaan tinggi, dan keamanan dengan memerlukan instalasi Hadoop dan konfigurasi kluster pada setiap node.
+
+\subsection{Hadoop Distributed File System (HDFS)}
+\textit{Hadoop Distributed File System} adalah sistem file terdistribusi yang dikembangkan sebagai bagian dari Hadoop \cite{abhishekIntegratedHadoopCloud2017}. HDFS dirancang khusus untuk menyimpan data dalam jumlah besar dan memungkinkan pemrosesan data secara paralel. Beberapa fitur utama dari HDFS antara lain skalabilitas, toleransi kesalahan, \textit{streaming access}, dan cocok untuk aplikasi \textit{batch} seperti MapReduce.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/hdfsarchitecture}
+    \caption{Arsitektur HDFS \cite{ApacheHadoopHDFS}}
+    \label{fig:hdfs-arch}
+\end{figure}
+
+Secara struktur, HDFS terdiri dari NameNode sebagai \textit{node master} yang mengelola \textit{metadata} dan \textit{namespace}, serta DataNode sebagai \textit{node slave} yang bertugas menyimpan data sebenarnya dalam bentuk blok seperti pada Gambar \ref{fig:hdfs-arch}. Berkas di HDFS dipartisi menjadi satu atau lebih blok berukuran 64MB atau 128MB, kemudian didistribusikan dan disimpan di beberapa DataNode. Setiap block direplikasi (biasanya 3x) di DataNode yang berbeda untuk toleransi kesalahan. Replikasi blok di \textit{node/rack} yang berbeda juga meningkatkan ketersediaan HDFS.
+
+Dengan desain terdistribusi, HDFS sangat populer digunakan bersama framework Hadoop untuk memproses \textit{big data} \cite{almansouriHadoopDistributedFile2019}. Namun, ketergantungan pada \textit{single} NameNode dan performa akses data acak yang kurang optimal menjadi kelemahan utama HDFS. Secara keseluruhan, HDFS telah terbukti menjadi pilihan matang untuk penyimpanan data massal secara terdistribusi.
+
+\subsection{Hadoop YARN}
+\textit{Hadoop YARN} (\textit{Yet Another Resource Negotiator}) adalah manajer sumber daya dan sistem penjadwalan untuk kluster Hadoop. Komponen ini diperkenalkan dalam Hadoop 2.x sebagai evolusi dari Hadoop MapReduce 1.x, yang mengintegrasikan manajemen sumber daya dan pemrosesan data dalam satu sistem. YARN memungkinkan kluster untuk menjalankan berbagai aplikasi secara bersamaan dengan efisiensi yang lebih baik.  YARN memisahkan fungsi manajemen sumber daya dari mekanisme pemrosesan data, yang sebelumnya keduanya tertanam dalam MapReduce. Dengan demikian, YARN dapat mendukung berbagai paradigma pemrosesan data di atas Hadoop, selain MapReduce, seperti \textit{real-time processing} dan \textit{graph processing}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch02/yarn-arch}
+    \caption{Arsitektur YARN \cite{ApacheHadoopApache}}
+    \label{fig:yarn_arch}
+\end{figure}
+
+Struktur utama YARN terdiri dari ResourceManager yang bertugas mengkoordinasikan alokasi sumber daya di seluruh kluster, dan NodeManager yang berjalan di setiap \textit{node} untuk mengawasi penggunaan sumber daya dan mengelola \textit{container} tempat aplikasi dijalankan. \textit{ApplicationMaster} adalah komponen khusus untuk setiap aplikasi yang bertanggung jawab untuk negosiasi sumber daya dengan ResourceManager dan bekerja dengan NodeManager untuk menjalankan dan memantau \textit{tasks} seperti pada Gambar \ref{fig:yarn_arch}.
+
+\subsection{Apache Spark}
+Apache Spark diperkenalkan oleh Apache Software Foundation sebagai \textit{framework} pemrosesan data paralel \textit{open-source} yang dirancang untuk mempercepat pemrosesan \textit{big data} dibandingkan dengan  Hadoop MapReduce \cite{ApacheSparkUnified}. Meskipun sama-sama menggunakan model pemrosesan MapReduce, Spark bukanlah hasil modifikasi dari Hadoop MapReduce\cite{KOMPARASIKECEPATANHADOOP}. Hal ini dikarenakan Spark menggunakan teknologi tersendiri yaitu \textit{Resilient Distributed Datasets} (RDDs) yang memungkinkan Spark memproses data secara \textit{in-memory} sehingga lebih cepat. Selain itu, Spark memiliki klaster pengolahan data tersendiri sehingga dapat berjalan independen tanpa Hadoop. Dengan performa tinggi serta dukungan untuk pemrosesan data secara interaktif, Spark banyak digunakan untuk pemrosesan data skala besar. Komponen yang terdapat pada Spark dapat dilihat pada Gambar \ref{fig:spark-component}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch02/spark-contain}
+    \caption{Komponen Spark}
+    \label{fig:spark-component}
+\end{figure}
+
+%TODO: SUBSECTION: SPARK RDD DAG
+
+\subsection{Integrasi Hadoop dan Spark}
+Integrasi Spark dengan Hadoop dapat dilakukan melalui tiga metode berbeda seperti pada Gambar \ref{fig:spark-x-hadoop}  \cite{ApacheSparkIntroduction}. Pertama, metode \textit{Standalone} mengharuskan Spark menempati tempat di atas HDFS (\textit{Hadoop Distributed File System}). Dalam skenario ini, Spark dan MapReduce berjalan berdampingan untuk menangani semua pekerjaan Spark pada kluster. Kedua, metode Hadoop Yarn memungkinkan Spark berjalan pada Yarn tanpa memerlukan instalasi sebelumnya atau akses \textit{root}. Hal ini memfasilitasi integrasi Spark ke dalam ekosistem Hadoop, atau memungkinkan komponen lain berjalan di atas integrasi Hadoop dan Spark. Terakhir, metode \textit{Spark in MapReduce} (SIMR). Dengan SIMR, pengguna dapat memulai Spark dan menggunakan \textit{shell}-nya tanpa memerlukan akses administratif. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch02/sparkxhadoop}
+    \caption{Integrasi Spark dan Hadoop}
+    \label{fig:spark-x-hadoop}
+\end{figure}
+
+\subsection{DigitalOcean}
+\blindtext
+%TODO: Kerjakan mengenai DigitalOcean
+
+%TODO: tambahkan mengenai bash script
+\subsection{Bash Script}
+\blindtext
+
+\subsection{HiBench}
+HiBench memudahkan dalam eksekusi pengukuran berbagai beban kerja karena HiBench sudah membungkus sekumpulan perintah dalam bentuk \textit{shell script}\cite{samadiPerformanceComparisonHadoop2018}. Pengguna hanya perlu menjalankan perintah untuk HiBench melakukan persiapan data. Selanjutnya, pengguna bisa langsung melakukan pengukuran beban kerja. Hasilnya dapat terlihat langsung pada laporan HiBench. Secara umum, alur kerja HiBench terlihat seperti pada Gambar \ref{fig:hibench-process-flow}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/hibench-flow}
+    \caption{Proses yang Terjadi di HiBench \cite{barosenAnalysisComparisonInterfacing2018}}
+    \label{fig:hibench-process-flow}
+\end{figure}
+
+HiBench terdiri dari 3 proses utama. Proses pertama, pengguna melakukan konfigurasi parameter \textit{Data Generation}. Selanjutnya, \textit{Data Generation} akan melakukan pembentukan data yang nantinya akan disimpan pada \textit{Distributed File System} (DFS). Data ini yang akan digunakan pada proses selanjutnya. Proses kedua adalah proses eksekusi. Pengguna akan memicu salah satu beban kerja pada HiBench. Selanjutnya, HiBench akan memberi perintah kepada perangkat lunak (Hadoop/Spark) untuk menjalankan beban kerja tersebut. Setiap melakukan pengukuran, data yang digunakan adalah data dari \textit{Distributed File System} yang sebelumnya sudah dibentuk. Hasil dari eksekusi ini akan disimpan kembali di DFS. Proses terakhir adalah proses pembentukan laporan. Hasil dari proses sebelumnya akan diambil serta akan dibuatkan laporan secara otomatis.
+Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Metriks ini dihitung dalam skala detik. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam \textit{byte}/detik.
+
+\subsection{Beban Kerja \textit{Micro Benchmark} dan Sumber Data}
+HiBench versi 7.1 memiliki 29 beban kerja (\textit{workload}) yang dapat diuji \cite{IntelbigdataHiBench2023}. Beban kerja ini dikategorikan menjadi 7 kategori, yaitu \textit{micro, ml (machine learning), sql, graph, websearch and streaming}. Tabel \ref{table:workload-list-hibench} menunjukkan macam-macam beban kerja yang dapat diuji. \textit{Workload name} mengindikasikan algoritma utama atau operasi apa yang dilakukan. \textit{Workload type} merepresentasikan kategori dari beban kerja. \textit{Operation types} menunjukkan klasifikasi jenis operasi yang dilakukan. \textit{Workload Submission Policy} berguna untuk mengetahui bagaimana cara pengguna untuk mengatur atau mengonfigurasikan beban kerja.
+
+\begin{table}[h]
+  \centering
+  \caption{Beban Kerja pada HiBench \cite{barosenAnalysisComparisonInterfacing2018}}
+  \includegraphics[width=1\textwidth]{figures/ch02/workload-hibench}
+  \label{table:workload-list-hibench}
+\end{table}
+
+Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang untuk menguji kemampuan \textit{raw processing power} \cite{barosenAnalysisComparisonInterfacing2018}. Dalam kategori ini, terdapat tiga beban kerja populer, yaitu Sort, WordCount, dan TeraSort \cite{huangHiBenchBenchmarkSuitea}. Beban kerja Sort dan WordCount merepresentasikan pekerjaan MapReduce \cite{deanMapReduceSimplifiedData2004}. Beban kerja Sort akan mengurutkan setiap kata dalam berkas input. Beban kerja WordCount akan melakukan tugas pemetaan (\textit{map task}) dan mengeluarkan output (kata, 1) untuk setiap kata dalam inputnya.  
+
+Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomWriter dan RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. Sementara itu, beban kerja TeraSort akan mengurutkan data input yang dihasilkan oleh TeraGen.
+
+%TODO: tambahkan penjelasan lebih dalam mengenai beban kerjanya
+\subsection{Beban Kerja WordCount}
+\blindtext
+\subsection{Beban Kerja Sort}
+\blindtext
+\subsection{Beban Kerja TeraSort}
+\blindtext
+\subsection{Metriks yang Dihasilkan}
+\blindtext
+
+\subsection{Word Count - Hadoop}
+\begin{algorithm}[H]
+\caption{Word Count MapReduce}
+\SetKwInOut{Masukan}{Masukan}
+\SetKwInOut{Keluaran}{Keluaran}
+
+\Masukan{Berkas teks dengan setiap baris sebagai kalimat.}
+\Keluaran{Berkas sequence dengan setiap baris sebagai (kata, jumlah).}
+\BlankLine
+\textbf{Tahap Map:}\\
+\For{setiap baris $baris$ dalam teks masukan}{
+    $kata \gets tokenisasi(baris)$\;
+    \For{setiap kata $k$ dalam $kata$}{
+        Keluarkan($k$, 1)\;
+    }
+}
+\BlankLine
+\textbf{Tahap Combine (Opsional):}\\
+\For{setiap pasangan kunci-nilai ($k$, [$j_1, j_2, ..., j_n$])}{
+    $jumlah \gets \sum_{i=1}^{n} j_i$\;
+    Keluarkan($k$, $jumlah$)\;
+}
+\BlankLine
+\textbf{Tahap Reduce:}\\
+\For{setiap pasangan kunci-nilai ($k$, [$j_1, j_2, ..., j_n$])}{
+    $jumlah\_total \gets \sum_{i=1}^{n} j_i$\;
+    Keluarkan($k$, $jumlah\_total$)\;
+}
+\end{algorithm}
+
+\subsection{Word Count - Spark}
+\begin{algorithm}[H]
+\caption{Scala Word Count}
+\SetKwInOut{Masukan}{Masukan}
+\SetKwInOut{Keluaran}{Keluaran}
+
+\Masukan{Berkas teks pada HDFS dengan setiap baris sebagai kalimat.}
+\Keluaran{Berkas teks pada HDFS dengan setiap baris sebagai (kata, jumlah).}
+\BlankLine
+1. Inisialisasi SparkContext\;
+2. $data \gets$ Muat data teks dari HDFS\;
+3. $kata \gets$ Pisahkan setiap baris dalam $data$ menjadi kata-kata individual\;
+4. $pasangan \gets$ Ubah setiap kata menjadi pasangan (kata, 1)\;
+5. $jumlah \gets$ Jumlahkan nilai untuk setiap kata menggunakan `reduceByKey`\;
+6. Simpan $jumlah$ ke HDFS\;
+7. Hentikan SparkContext\;
+\end{algorithm}
+
+\subsection{Sort - Hadoop}
+\begin{algorithm}[H]
+\caption{Sort Hadoop MapReduce}
+\SetKwInOut{Masukan}{Masukan}
+\SetKwInOut{Keluaran}{Keluaran}
+
+\Masukan{Data pada HDFS (format dapat ditentukan)}
+\Keluaran{Data terurut pada HDFS (format dapat ditentukan)}
+\BlankLine
+\textbf{Inisialisasi:}\\
+1. Inisialisasi konfigurasi dan JobClient\;
+2. Tentukan jumlah reducer berdasarkan konfigurasi dan kapasitas cluster\;
+3. Tentukan format input, format output, kelas kunci output, dan kelas nilai output (dapat ditentukan pengguna)\;
+4. Buat objek Job dan atur konfigurasi dasar (nama, jar, mapper, reducer, jumlah reducer, format input/output, kelas kunci/nilai output)\;
+5. Atur lokasi input dan output pada HDFS\;
+6. \If{pengguna meminta total-order sort}{
+    Lakukan sampling data input\;
+    Buat berkas partisi untuk total-order sort\;
+    Atur konfigurasi total-order sort pada job\;
+}
+\BlankLine
+\textbf{Tahap Map:}\\
+\For{setiap masukan (kunci, nilai)}{
+    Emit (keluarkan) pasangan (kunci, nilai)\;
+}
+\BlankLine
+\textbf{Tahap Reduce:}\\
+\For{setiap (kunci, [nilai1, nilai2, ...])}{
+    \For{setiap nilai $v$ dalam daftar nilai}{
+        Emit (keluarkan) pasangan (kunci, $v$)\;
+    }
+}
+\BlankLine
+\textbf{Eksekusi:}\\
+7. Cetak informasi job (node, lokasi input/output, jumlah reducer)\;
+8. Jalankan job dan tunggu hingga selesai\;
+9. Cetak waktu eksekusi job\;
+\end{algorithm}
+
+\subsection{Sort - Spark}
+\begin{algorithm}[H]
+\caption{Scala Sort}
+\SetKwInOut{Masukan}{Masukan}
+\SetKwInOut{Keluaran}{Keluaran}
+
+\Masukan{Berkas teks pada HDFS}
+\Keluaran{Berkas teks terurut pada HDFS}
+\BlankLine
+1. Inisialisasi SparkContext\;
+2. Tentukan jumlah partisi untuk pengurutan\;
+3. $data \gets$ Muat data teks dari HDFS dan ubah setiap baris menjadi pasangan (baris, 1)\;
+4. Buat objek HashPartitioner dengan jumlah partisi yang ditentukan\;
+5. $terurut \gets$ Urutkan $data$ berdasarkan kunci menggunakan `sortByKeyWithPartitioner` dengan HashPartitioner\;
+6. Ambil nilai dari setiap pasangan terurut (yaitu, hanya teks baris)\;
+7. Simpan data terurut $terurut$ ke HDFS\;
+8. Hentikan SparkContext\;
+\end{algorithm}
+
+
+\section{Penelitian Terdahulu}
+Peneltian terdahulu mengenai evaluasi performa Hadoop dan Spark dapat dilihat pada Tabel \ref{table:penelitian-dulu}.
+
+\begin{table}[h]
+  \centering
+  \caption{Penelitian Terdahulu}
+  \includegraphics[width=1\textwidth]{figures/ch02/comparison-thesis}
+  \label{table:penelitian-dulu}
+\end{table}
