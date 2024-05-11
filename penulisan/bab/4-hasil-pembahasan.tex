@@ -1,10 +1,122 @@
 \chapter{HASIL DAN PEMBAHASAN}
 
-\section{Hasil Penelitian}
-Penelitian ini membandingkan kinerja Hadoop dan Spark pada \textit{platform cloud} DigitalOcean menggunakan alat pengujian data besar yang bernama HiBench pada lingkup \textit{Micro Benchmarks}, yaitu \textit{Word Count} dan \textit{Sort} dengan data masukan berupa teks.
-Setiap pengujian, nilai execution time (waktu eksekusi) memiliki satuan detik dan nilai \textit{throughput} memiliki satuan megabita per detik. Ukuran data input akan diubah secara bertahap untuk merepresentasikan berbagai ukuran data pada dunia nyata.
+\section{Pemeriksaan Perangkat Lunak}
+Penelitian ini membandingkan kinerja Hadoop dan Spark pada \textit{platform cloud} DigitalOcean menggunakan alat pengujian data besar yang bernama HiBench pada lingkup \textit{Micro Benchmarks}, yaitu \textit{Word Count} dan \textit{Sort} dengan data masukan berupa teks yang dibuat oleh \textit{data generation} pada tahap persiapan. 
 
-\subsection {Persebaran Waktu Eksekusi pada Hadoop dan Spark}
+Sebelum memulai eksperimen, serangkaian pemeriksaan dilakukan untuk memastikan bahwa semua perangkat lunak yang terlibat berfungsi dengan baik. Tahapan ini penting untuk menjamin validitas hasil penelitian. Berikut adalah pemeriksaan yang dilakukan, yaitu
+\begin{enumerate}
+	\item \textbf{Pengecekan versi Hadoop}. Versi Hadoop yang digunakan dalam penelitian ini adalah 2.4.0. Verifikasi versi dilakukan melalui perintah \textit{hadoop version}, seperti yang ditunjukkan pada Gambar \ref{fig:versi-hadoop}. 
+		\begin{figure}[h]
+		    \centering
+		    \includegraphics[width=0.8\textwidth]{figures/ch04/versi-hadoop}
+		    \caption{Pengecekan Versi Hadoop}
+		    \label{fig:versi-hadoop}
+		\end{figure}
+	\item \textbf{Pengecekan versi Spark}. Versi Spark yang digunakan adalah 2.1.3. Verifikasi dilakukan dengan perintah \textit{spark-submit --version}, seperti yang ditunjukkan pada Gambar \ref{fig:versi-spark}.
+		\begin{figure}[h]
+		    \centering
+		    \includegraphics[width=0.8\textwidth]{figures/ch04/versi-spark}
+		    \caption{Pengecekan Versi Spark}
+		    \label{fig:versi-spark}
+		\end{figure}
+	\item \textbf{Pemeriksaan \textit{service} yang berjalan ketika beban kerja belum dijalankan}. Status layanan (\textit{services}) yang berjalan pada komputer diperiksa dalam keadaan tanpa beban kerja (\textit{idle}). Layanan yang diharapkan aktif meliputi: Jps, ResourceManager, DataNode, NodeManager, NameNode, dan SecondaryNameNode. Gambar \ref{fig:service-dasar} menunjukkan hasil pemeriksaan layanan dasar.		
+		\begin{figure}[h]
+		    \centering
+		    \includegraphics[width=0.9\textwidth]{figures/ch04/service-dasar}
+		    \caption{Pengecekan \textit{Service} yang Berjalan (Normal)}
+		    \label{fig:service-dasar}
+		\end{figure}
+	\item \textbf{Pemeriksaan \textit{service} yang berjalan ketika menggunakan Hadoop}. Ketika beban kerja Hadoop dijalankan, layanan tambahan seperti YarnChild, MRAppMaster, dan RunJar  diharapkan aktif, di samping layanan dasar yang telah disebutkan. Gambar \ref{fig:service-hadoop} menunjukkan hasil pemeriksaan layanan saat Hadoop aktif.
+		\begin{figure}[h]
+		    \centering
+		    \includegraphics[width=0.8\textwidth]{figures/ch04/service-hadoop}
+		    \caption{Pengecekan \textit{Service} yang Berjalan (Hadoop)}
+		    \label{fig:service-hadoop}
+		\end{figure}
+	\item \textbf{Pemeriksaan \textit{service} yang berjalan ketika menggunakan Spark}. Ketika beban kerja Spark dijalankan, layanan seperti CoarseGrainedExecutorBackend, ExecutorLauncher, dan SparkSubmit diharapkan aktif, di samping layanan dasar.  Gambar \ref{fig:service-spark} menunjukkan hasil pemeriksaan layanan saat Spark aktif.
+		\begin{figure}[h]
+		    \centering
+		    \includegraphics[width=0.9\textwidth]{figures/ch04/service-spark}
+		    \caption{Pengecekan \textit{Service} yang Berjalan (Spark)}
+		    \label{fig:service-spark}
+		\end{figure}
+\end{enumerate}
+
+\section{Parameter yang Digunakan}
+Selama pengujian, beberapa parameter pada HiBench, Hadoop, dan Spark dikonfigurasi secara tetap untuk menjaga konsistensi dan memungkinkan perbandingan yang adil. Tabel \ref{table:conf-hibench} dan \ref{table:conf-spark} merangkum konfigurasi parameter yang digunakan.
+
+\begin{table}[h]
+\caption{Konfigurasi HiBench}
+\label{table:conf-hibench}
+\centering
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{c}{\textbf{Nama Parameter}}  & \multicolumn{1}{c}{\textbf{Nilai}} \\ \hline
+hibench.default.map.parallelism     & 8                         \\
+hibench.default.shuffle.parallelism & 8 \\ \hline                        
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Konfigurasi Spark}
+\label{table:conf-spark}
+\centering
+\begin{tabular}{ll}
+\hline
+\multicolumn{1}{c}{\textbf{Nama Parameter}}  & \multicolumn{1}{c}{\textbf{Nilai}} \\ \hline
+hibench.yarn.executor.num     & 2                         \\
+hibench.yarn.executor.cores & 4 \\ 
+spark.executor.memory   & 4G \\
+spark.driver.memory & 4G \\ \hline                        
+\end{tabular}
+\end{table}
+
+\newpage
+Parameter \textit{hibench.default.map.parallelism} memiliki peran yang berbeda pada Hadoop dan Spark. Pada Hadoop, parameter ini menentukan jumlah \textit{Mapper}, yaitu proses yang bertanggung jawab untuk memproses data secara paralel pada tahap \textit{Map}. Pada Spark, parameter ini menentukan jumlah partisi data, yaitu unit pemrosesan dasar dalam Spark.
+
+Parameter \textit{hibench.default.shuffle.parallelism} juga memiliki peran yang berbeda pada Hadoop dan Spark. Pada Hadoop, parameter ini menentukan jumlah \textit{Reducer}, yaitu proses yang bertanggung jawab untuk menggabungkan hasil dari tahap \textit{Map}. Pada Spark, parameter ini menentukan jumlah \textit{Shuffle partition}, yaitu jumlah partisi data yang digunakan selama tahap \textit{Shuffle}, yaitu proses pengocokan dan pengurutan data antara tahap \textit{Map} dan \textit{Reduce}.
+
+Berikut penjelasan mengenai parameter Spark pada Tabel \ref{table:conf-spark}:
+\begin{enumerate}
+	\item \textbf{hibench.yarn.executor.num}: Parameter ini menentukan jumlah \textit{executor} yang akan dialokasikan untuk aplikasi Spark. \textit{Executor} adalah proses yang berjalan pada node pekerja (\textit{worker node}) di kluster YARN dan bertanggung jawab untuk menjalankan task Spark.
+	\item \textbf{hibench.yarn.executor.cores}: Parameter ini menentukan jumlah core CPU yang dialokasikan untuk setiap \textit{executor}. Semakin banyak core yang dialokasikan, semakin banyak task yang dapat dijalankan secara paralel oleh setiap \textit{executor}.
+	\item \textbf{spark.executor.memory}: Parameter ini menentukan jumlah memori yang dialokasikan untuk setiap \textit{executor}. Memori ini digunakan untuk menyimpan data yang diproses oleh \textit{executor}, seperti RDD dan data yang di-\textit{cache}.
+	\item \textbf{spark.driver.memory}: Parameter ini menentukan jumlah memori yang dialokasikan untuk proses driver Spark. Driver bertanggung jawab untuk mengelola aplikasi Spark, menjadwalkan task, dan mengumpulkan hasil.
+\end{enumerate}
+
+\section{Data Keluaran yang Dihasilkan}
+
+Setiap pengujian akan menghasilkan berkas output berupa data HiBench \textit{Report} dan Dool \textit{System Monitoring}. Data HiBench \textit{Report} akan terlihat seperti pada Gambar \ref{fig:data-hibench-report}. Pada Gambar tersebut, terlihat bahwa ekstensi berkasnya \textit{.report} dan terlihat beberapa data seperti jenis beban kerja, aplikasi yang digunakan, besar input data, durasi, dan \textit{throughput}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/ch04/data-hibench}
+    \caption{Data HiBench \textit{Report}}
+    \label{fig:data-hibench-report}
+\end{figure}
+
+Dool, alat monitoring sistem, menghasilkan berkas CSV (\textit{comma-separated value}) untuk setiap perulangan eksperimen. Dengan demikian, terdapat sekitar 240 berkas CSV, seperti yang ditunjukkan pada Gambar \ref{fig:data-dool-luar}. Penamaan berkas mengikuti format: [jenis beban kerja]-[ukuran data]-[nomor perulangan]-[aplikasi]. Sebagai contoh, \textit{sort-fivegig-1-hadoop.csv} menunjukkan \textit{data monitoring} untuk beban kerja sort, data masukan 5 GB, perulangan pertama, dan aplikasi Hadoop.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch04/data-dool-luar}
+    \caption{Berkas Dool}
+    \label{fig:data-dool-luar}
+\end{figure}
+
+Struktur data Dool, yang ditunjukkan pada Gambar \ref{fig:data-dool-dalam}, mencakup baris \textit{header} (baris 1-4) dan nama kolom (baris 6). Data ini akan dianalisis lebih lanjut untuk mendapatkan \textit{insight} tentang kinerja Hadoop dan Spark.
+
+\begin{landscape}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth, height=0.5\linewidth]{figures/ch04/data-dool-dalam}
+    \caption{Contoh Data Dool}
+    \label{fig:data-dool-dalam}
+\end{figure}
+\end{landscape}
+
+\newpage
+\section {Persebaran Waktu Eksekusi pada Hadoop dan Spark}
 Waktu eksekusi adalah waktu yang diperlukan dalam memproses data. Nilai parameter ini didapatkan dengan cara mencari selisih antara waktu awal dan waktu akhir saat Apache Hadoop dan Apache Spark dijalankan atau dihentikan untuk memproses input data dengan beban kerja masing-masing. Satuan pengukuran untuk parameter waktu eksekusi adalah detik atau \textit{seconds}. Setiap beban kerja dijalankan sebanyak 5x untuk mendapatkan hasil yang lebih terukur. 
 
 \begin{figure}[h]
@@ -28,7 +140,6 @@ Secara keseluruhan, hasil ini menunjukkan bahwa Spark umumnya lebih unggul dan k
     \caption{Persebaran Waktu Eksekusi \textit{Sort} (Hadoop, Spark)}
     \label{fig:lama-waktu-eksekusi-sort}
 \end{figure}
-
 
 \subsection {Persebaran \textit{Throughput} pada Hadoop dan Spark}
 

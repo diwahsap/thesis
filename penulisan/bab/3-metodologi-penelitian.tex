@@ -12,7 +12,7 @@
 
 \section{Alur Penelitian}
 Adapun diagram alir penelitian ini ditunjukkan pada Gambar \ref{fig:diagram alir} terdapat enam tahapan. Langkah awal yang dilakukan pada penelitian ini adalah melakukan identifikasi masalah, yaitu proses mencari, menghimpun, serta menemukan permasalahan yang nantinya akan diselesaikan. Setelah melakukan identifikasi masalah, langkah selanjutnya adalah studi literatur. Studi literatur adalah tahapan untuk mencari solusi dari permasalahan yang sebelumnya sudah kita definisikan. Pencarian solusi ini dapat melalui membaca referensi ilmiah terdahulu, baik melalui jurnal, buku, dokumentasi resmi, tesis, dan lain-lain. Tahapan ini akan memberikan pemahaman mendasar mengenai permasalahan yang sudah didapatkan sebelumnya. 
-
+        
 \begin{figure}[h!]
     \centering
     \includegraphics[width=1\textwidth]{figures/ch03/Diagram Tugas Akhir.png}
@@ -203,7 +203,7 @@ Sebagai contoh, untuk \textit{platform} Hadoop dengan beban kerja \textit{word c
 \centering
 \begin{tabular}{lll}
 \hline
-\multicolumn{1}{c}{No} & \multicolumn{1}{c}{Label Input Data} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}Ukuran Input Data  (bita)\end{tabular}} \\ \hline
+\multicolumn{1}{c}{\textbf{No}} & \multicolumn{1}{c}{\textbf{Label Input Data}} & \multicolumn{1}{c}{\begin{tabular}[c]{@{}c@{}}\textbf{Ukuran Input Data  (bita)}\end{tabular}} \\ \hline
 1  & 100 KB & 100000 ($1 * 10^5$) \\
 2  & 500 KB & 500000 ($5 * 10^5$) \\
 3  & 1 MB   & $1 * 10^6$          \\
@@ -235,7 +235,7 @@ Setelah menyelesaikan 240 percobaan yang dijelaskan di bagian eksperimen, langka
 \begin{enumerate}	
 	\item \textbf{Kinerja}
 	\begin{enumerate}
-		\item \textbf{Persebaran Waktu Eksekusi pada Hadoop dan Spark}. Bagian ini akan menganalisis sebaran waktu eksekusi untuk setiap beban kerja (\textit{word count} dan \textit{sort*}) pada kedua aplikasi (Hadoop dan Spark) dengan berbagai ukuran data. Analisis ini akan membantu memahami variabilitas kinerja dan konsistensi hasil pada setiap kombinasi aplikasi, beban kerja, dan ukuran data.
+		\item \textbf{Persebaran Waktu Eksekusi pada Hadoop dan Spark}. Bagian ini akan menganalisis sebaran waktu eksekusi untuk setiap beban kerja (\textit{word count} dan \textit{sort}) pada kedua aplikasi (Hadoop dan Spark) dengan berbagai ukuran data. Analisis ini akan membantu memahami variabilitas kinerja dan konsistensi hasil pada setiap kombinasi aplikasi, beban kerja, dan ukuran data.
 		\item \textbf{Persebaran \textit{Throughput} pada Hadoop dan Spark}. Mirip dengan analisis waktu eksekusi, persebaran \textit{throughput} juga akan dianalisis untuk setiap kombinasi aplikasi, beban kerja, dan ukuran data. Throughput, yang menunjukkan jumlah data yang diproses per satuan waktu,  merupakan metrik penting dalam evaluasi kinerja sistem big data.  Visualisasi distribusi throughput akan membantu dalam memahami efisiensi pemrosesan data oleh Hadoop dan Spark.
 		\item \textbf{Rata-rata Waktu Eksekusi pada Hadoop dan Spark}. Selain persebaran, rata-rata waktu eksekusi untuk setiap kombinasi akan dihitung dan dibandingkan.  Ini memberikan gambaran umum tentang kinerja relatif setiap aplikasi dalam menyelesaikan beban kerja tertentu dengan ukuran data tertentu. Perbedaan rata-rata waktu eksekusi antara Hadoop dan Spark, serta tren perubahannya seiring dengan peningkatan ukuran data, akan diidentifikasi dan dibahas.
 		\item \textbf{Rata-rata \textit{Throughput} pada Hadoop dan Spark}. Serupa dengan rata-rata waktu eksekusi, rata-rata \textit{throughput} juga akan dihitung dan dibandingkan untuk setiap kombinasi. Analisis ini membantu memahami bagaimana efisiensi pemrosesan data berubah dengan berbagai beban kerja dan ukuran data, serta memberikan wawasan tentang skalabilitas setiap platform.

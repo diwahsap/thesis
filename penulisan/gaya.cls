@@ -45,7 +45,8 @@
 \usepackage{indentfirst}
 \usepackage{amsmath}
 \usepackage{array}
-\usepackage{tabularx,booktabs}
+\usepackage{booktabs,tabularx}
+\renewcommand{\tabularxcolumn}{m}
 \usepackage{blindtext}
 
 \newif\if@msthesis
