@@ -22,9 +22,7 @@ Spark, di sisi lain, menawarkan teknologi \textit{Resilient Distributed Datasets
 % TODO: perbaiki, terlalu umum. Umum -> umum tidak bagus.
 Tolok ukur HiBench adalah salah satu tolok ukur kinerja yang paling sering digunakan. HiBench mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuitea}. Oleh karena itu, HiBench adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara Hadoop dan Spark dalam berbagai skenario penggunaan.
 
-Penelitian tentang evaluasi performa Hadoop dan Spark menggunakan HiBench telah beberapa kali dilakukan. Shi et al. \cite{shiClashTitansMapReduce2015} melakukan penelitian dengan dua alat yang dirancang untuk mengukur kinerja MapReduce dan Spark dalam berbagai skenario beban kerja. Penelitian tersebut mengevaluasi kinerja dalam pekerjaan \textit{batch} dan iteratif, dengan fokus pada komponen-komponen penting seperti \textit{shuffle}, dan \textit{caching}. Hasil penelitian menunjukkan bahwa Spark lebih cepat daripada Hadoop dalam beberapa kasus, terutama ketika menangani tugas-tugas pemrosesan data yang lebih kecil. Namun, ketika ukuran data meningkat, Hadoop terbukti lebih efisien. Selanjutnya, perbandingan kinerja antara Hadoop dan Spark juga disorot oleh penelitian Samadi et al. \cite{samadiComparativeStudyHadoop2016}, yang menggunakan delapan tolok ukur dari HiBench. Penelitian ini menunjukkan bahwa Spark cenderung lebih efisien ketika menangani data dalam jumlah kecil atau saat memproses tugas dalam memori, sementara Hadoop lebih sukses ketika beban kerja melibatkan operasi I/O penyimpanan yang intensif. Selain itu, penelitian oleh Satish dan Rohan \cite{gopalaniComparingApacheSpark2015} menyoroti perbandingan kinerja antara Hadoop dan Spark khususnya dalam konteks algoritma \textit{K-means}. Penelitian itu menemukan bahwa Spark dapat mencapai kecepatan hingga tiga kali lipat dibandingkan Hadoop, dengan catatan bahwa performa Spark sangat bergantung pada ukuran memori yang memadai.
-
-Berdasarkan penelitian sebelumnya, penelitian ini bertujuan untuk menyelidiki perbandingan kinerja antara Hadoop dan Spark dengan menggunakan tolok ukur HiBench dengan studi kasus tertentu. Pemahaman mendalam mengenai kekuatan dan kelemahan masing-masing teknologi dalam berbagai konteks pemrosesan data akan membuat organisasi atau peneliti dapat dengan mudah membuat keputusan yang lebih informasional. Selain itu, penelitian ini akan dilakukan dengan memanfaatkan Infrastruktur sebagai Layanan (IaaS) yang disediakan oleh DigitalOcean, memungkinkan penggunaan sumber daya komputasi dalam skala yang fleksibel dan efisien. Dengan demikian, penelitian ini akan memberikan kontribusi berharga dalam membantu pemangku kepentingan dalam pemilihan teknologi pemrosesan data dalam lingkungan komputasi terdistribusi .
+Penelitian ini bertujuan untuk mengevaluasi dan membandingkan kinerja Hadoop dan Spark pada \textit{platform cloud} DigitalOcean menggunakan tolok ukur HiBench. Fokus penelitian ini adalah pada beban kerja \textit{word count} dan \textit{sort}, yang mewakili tugas pemrosesan data yang umum. Dengan menganalisis waktu eksekusi, \textit{throughput}, dan penggunaan sumber daya (CPU, memori, I/O), penelitian ini bertujuan untuk memberikan wawasan tentang kekuatan dan kelemahan relatif dari Hadoop dan Spark dalam berbagai konteks pemrosesan data. Temuan penelitian ini akan memberikan panduan berharga bagi para praktisi dan peneliti di bidang big data untuk memilih platform yang tepat untuk kebutuhan pemrosesan data mereka.
 
 \section{Rumusan Masalah}
 Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
@@ -57,13 +55,11 @@ Hasil dari penelitian ini diharapkan akan memberikan manfaat sebagai berikut:
 Penelitian ini memiliki beberapa batasan yang perlu diperhatikan sebagai berikut:
 	\begin{enumerate}
 		\item 
-		Penelitian ini akan fokus pada perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo-distributed.}
+		Penelitian ini akan fokus pada perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo-distributed} dengan input data berupa teks.
 		\item
 		Pengujian kinerja akan menggunakan HiBench, sebuah tolok ukur kinerja yang umum digunakan dalam penelitian \textit{Big Data.}
 		\item
 		Implementasi Hadoop dan Spark akan menggunakan salah satu penyedia layanan awan, yaitu \textit{DigitalOcean}.
-		\item
-		Penelitian ini akan berfokus pada aspek kinerja. Aspek lain seperti keamanan dan administrasi tidak akan dibahas secara rinci.
 	\end{enumerate}
 
 %\section{Metodologi}
