@@ -2,64 +2,52 @@
 
 \section{Latar Belakang}
 
-% TODO: (P1) Bahas mengenai Kemampuan mengolah dan menganalisis data dalam skala besar. Jabar-jabarkan aja.
-% TAMBAHKAN DATAAA, tambahkan referensi
-Perusahaan dan organisasi menghasilkan dan menyimpan data dalam skala besar setiap hari dengan tingkat pertumbuhannya yang dinamis \cite{samadiPerformanceComparisonHadoop2018}. Pertumbuhan jumlah data diperkirakan akan meningkat hingga 5x lipat pada tahun 2025 dengan \textit{Global Datasphere} diproyeksikan tumbuh dari 33 \textit{Zettabytes} (ZB) pada tahun 2018 menjadi 175 ZB \cite{reinselDigitizationWorldEdge2018} pada tahun 2025. Jumlah data tersebut membutuhkan pengolahan dengan kecepatan tinggi sehingga dapat dimanfaatkan untuk keperluan bisnis dan pengambilan keputusan \cite{adrianExpertReviewBig2018}. Analisis data transaksi nasabah pada perbankan dapat digunakan untuk mendeteksi \textit{fraud} dan meningkatkan keamanan \cite{syahputraPendeteksianFraudPeran2020}. Data pasien pada bidang kesehatan dapat memantau wabah penyakit dan menemukan pola pengobatan yang optimal \cite{sulaimanLITERATUREREVIEWPENERAPAN2023}. Sementara itu, data interaksi pengguna pada \textit{e-commerce} diolah untuk memberikan rekomendasi produk personal dan merancang strategi peningkatan penjualan \cite{fernandoUtilizationBigData2020}. Semakin besar data yang bisa ditangani, semakin banyak peluang analisis dan \textit{value} yang bisa dihasilkan. Namun, semakin besar volume data yang harus diolah, semakin kompleks pula tantangan yang dihadapi dalam mengelolanya secara efisien dan efektif \cite{KOMPARASIKECEPATANHADOOP}.
+Perusahaan dan organisasi menghasilkan dan menyimpan data dalam skala besar setiap hari dengan tingkat pertumbuhannya yang dinamis \cite{samadiPerformanceComparisonHadoop2018}. Pertumbuhan jumlah data diperkirakan akan meningkat hingga 5x lipat pada tahun 2025 dengan \textit{Global Datasphere} diproyeksikan tumbuh dari 33 \textit{Zettabytes} (ZB) pada tahun 2018 menjadi 175 ZB pada tahun 2025 \cite{reinselDigitizationWorldEdge2018}. Jumlah data tersebut membutuhkan pengolahan dengan kecepatan tinggi sehingga dapat dimanfaatkan untuk keperluan bisnis dan pengambilan keputusan \cite{adrianExpertReviewBig2018}. Sebagai contoh, analisis data transaksi nasabah pada perbankan dapat digunakan untuk mendeteksi kecurangan dan meningkatkan keamanan \cite{syahputraPendeteksianFraudPeran2020}, data pasien pada bidang kesehatan dapat memantau wabah penyakit dan menemukan pola pengobatan yang optimal \cite{sulaimanLITERATUREREVIEWPENERAPAN2023}, dan data interaksi pengguna pada \textit{e-commerce} diolah untuk memberikan rekomendasi produk personal dan merancang strategi peningkatan penjualan \cite{fernandoUtilizationBigData2020}. 
 
-% TODO: (P2) Volume data terus meningkat menjadi tantangan utama. Kasih data. Ksih penyebabnya. Kasih dampaknya.
+Data interaksi pengguna pada bidang \textit{e-commerce} dapat dianalisis dengan menerapkan algoritma \textit{sort} dan \textit{word count}, seperti \textit{term frequency-inverse document frequency} (TF-IDF) dan \textit{bag-of-words} (BoW) dimana akan menganalisis kata kunci yang sering muncul dalam deskripsi produk yang dilihat oleh pengguna, sistem dapat merekomendasikan produk serupa atau bahkan produk yang lebih relevan dengan preferensi pengguna tersebut \cite{shrivastavaProductRecommendationsUsing2019}.
 
-Tantangan utama dalam mengelola volume data yang besar adalah memastikan ketersediaan sumber daya komputasi yang memadai \cite{KOMPARASIKECEPATANHADOOP}. Pendekatan konvensional pemrosesan data besar seperti memperbanyak jumlah \textit{storage} secara vertikal, dan penggunaan sistem basis data NoSQL dapat memungkinkan pengolahan data yang skalabel dan fleksibel. Namun, ketika skala dan kompleksitas data semakin meningkat, komputasi terdistribusi menjadi pilihan yang lebih tepat karena memiliki sifat \textit{fault-tolerant}\cite{saadoonFaultToleranceBig2022}. 
+Semakin besar data yang bisa ditangani, semakin banyak peluang analisis dan nilai yang bisa dihasilkan. Namun, semakin besar volume data yang harus diolah, semakin kompleks pula tantangan yang dihadapi dalam mengelolanya secara efisien dan efektif \cite{KOMPARASIKECEPATANHADOOP}. Tantangan utama dalam mengelola volume data yang besar adalah memastikan ketersediaan sumber daya komputasi yang memadai. Pendekatan konvensional pemrosesan data besar seperti menambah kapasitas penyimpanan pada perangkat komputasi yang sama dan penggunaan sistem basis data \textit{not only SQL} (NoSQL) memungkinkan pengolahan data menjadi \textit{scalable} dan fleksibel. Namun, ketika skala dan kompleksitas data semakin meningkat, komputasi terdistribusi menjadi pilihan yang lebih tepat karena memiliki sifat \textit{fault-tolerant}, yaitu kemampuan agar tetap beroperasi normal walaupun mengalami kegagalan sebagian dari sistemnya tersebut \cite{saadoonFaultToleranceBig2022}.
 
-% TODO: Pentingnya evaluasi apa? Belum disebutkan!
+Pengolahan data besar yang melibatkan penerapan algoritma seperti \textit{sort} dan \textit{word count} apabila dijalankan secara serial akan memakan waktu pemrosesan yang lama, terutama dengan volume data yang besar. Oleh karena itu, solusi komputasi terdistribusi diperlukan untuk meningkatkan efisiensi dan kecepatan pemrosesan data. Dua teknologi yang umum digunakan dalam komputasi terdistribusi adalah Hadoop dan Spark \cite{saputroPerbandinganKinerjaKomputasi2020}. Hadoop dan Spark adalah \textit{platform} komputasi \textit{big data} yang populer dan banyak digunakan di seluruh dunia. Pada tahun 2027, Hadoop diperkirakan akan memiliki peningkatan \textit{market size} sebesar USD 341.4 miliar, dari USD 35.3 miliar pada tahun 2024 \cite{HadoopMarketSize}.
 
-Komputasi terdistribusi adalah cara untuk mencapai paralelisme dengan menggabungkan beberapa mesin independen yang berbeda \cite{bhattacharyaEvaluatingDistributedComputing2021}. Dalam komputasi terdistribusi, data besar dibagi ke dalam sejumlah \textit{node} atau server yang bekerja bersama-sama untuk mengolahnya \cite{ahmedComprehensivePerformanceAnalysis2020}. Dua teknologi yang umum digunakan dalam komputasi terdistribusi ini adalah Apache Hadoop dan Apache Spark \cite{saputroPerbandinganKinerjaKomputasi2020}. Hadoop dan Spark adalah dua platform komputasi \textit{big data} yang paling populer dan banyak digunakan di seluruh dunia. Teknologi ini menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. 
+Hadoop dan Spark menawarkan berbagai kemampuan untuk mengelola, menyimpan, dan menganalisis data dalam skala besar. Hadoop dan Spark sama-sama memanfaatkan teknik MapReduce untuk memproses data secara terdistribusi \cite{deanMapReduceSimplifiedData2004}. MapReduce merupakan pendekatan yang  efektif dalam komputasi terdistribusi karena memungkinkan pemrosesan data yang besar dan kompleks dengan membagi tugas menjadi dua tahap utama, yaitu \textit{map} dan \textit{reduce}. Meskipun sama-sama menggunakan teknik MapReduce, Hadoop dan Spark memiliki skema implementasi yang berbeda. Hadoop menggunakan \textit{Hadoop Distributed File System} (HDFS) sebagai sistem penyimpanan data \cite{samadiComparativeStudyHadoop2016}, sementara Spark menggunakan \textit{Resilient Distributed Datasets} (RDDs) yang bersifat \textit{in-memory}. HDFS merupakan sistem penyimpanan berkas terdistribusi yang dirancang untuk menangani data dalam skala besar, sedangkan RDDs memungkinkan penyimpanan data secara sementara di memori, sehingga memungkinkan Spark untuk memproses data lebih cepat \cite{ahmadvandGapproxUsingGallup2019}. 
 
-% TODO: Lebih baik 1-1 antara mapreduce dan spark saja. Bridging ke pentingnya evaluasi.
-MapReduce adalah alat yang digunakan untuk komputasi terdistribusi, dirancang khusus untuk menulis, membaca, dan memproses jumlah data yang besar \cite{deanMapReduceSimplifiedData2004}. Pemrosesan data dalam MapReduce ini terdiri dari tiga tahap: fase \textit{Map}, fase \textit{Shuffle}, dan fase \textit{Reduce}. Dalam teknik ini, berkas-berkas besar dibagi menjadi beberapa blok kecil dengan ukuran yang sama dan didistribusikan ke seluruh klaster untuk penyimpanan. MapReduce dan sistem file terdistribusi (HDFS) adalah bagian inti dari sistem Hadoop, sehingga komputasi dan penyimpanan bekerja bersama-sama di seluruh \textit{node} yang membentuk klaster komputer \cite{samadiComparativeStudyHadoop2016}. Hadoop MapReduce memerlukan akses ke penyimpanan untuk membaca dan menulis data, sehingga dapat memperlambat proses komputasi, sehingga hadirlah Spark.
+Perbedaan skema tersebut memungkinkan terdapat perbedaan performansi yang dihasilkan dari data yang diproses. Salah satu cara untuk membandingkan performa keduanya adalah menggunakan HiBench. HiBench adalah alat ukur yang dirancang khusus untuk mengukur kinerja sistem \textit{big data}, termasuk Hadoop dan Spark \cite{huangHiBenchBenchmarkSuitea}. HiBench memiliki \textit{benchmark} yang dirancang khusus untuk mengukur kinerja suatu algoritma seperti \textit{word count} dan \textit{sort} yang diimplementasikan pada sistem rekomendasi. HiBench juga dapat digunakan pada berbagai \textit{platform cloud}, termasuk DigitalOcean.
 
-Spark, di sisi lain, menawarkan teknologi \textit{Resilient Distributed Datasets} (RDDs) untuk mendukung proses \textit{Map} dan \textit{Reducing} secara lebih efektif dan cepat \cite{ahmadvandGapproxUsingGallup2019}. Spark bukan hanya alternatif Hadoop, tetapi juga menyediakan berbagai fungsi, misalnya mendukung \textit{MLib}, \textit{GraphX}, dan \textit{Spark streaming} untuk analisis data besar \cite{zahariaSparkClusterComputing2010}. Spark menggunakan memori untuk menyimpan data sehingga dapat mengurangi siklus baca dan tulis. Perbedaan mendasar ini mengakibatkan menarik untuk melihat perbandingan performa antara keduanya. Salah satu cara untuk membandingkan performa keduanya adalah menggunakan tolok ukur Hibench.
-
-% TODO: perbaiki, terlalu umum. Umum -> umum tidak bagus.
-Tolok ukur HiBench adalah salah satu tolok ukur kinerja yang paling sering digunakan. HiBench mencakup sejumlah tugas \textit{benchmarking} yang mencerminkan berbagai jenis pemrosesan data, seperti pengolahan batch, aliran data, \textit{query}, atau pun \textit{machine learning} \cite{huangHiBenchBenchmarkSuitea}. Oleh karena itu, HiBench adalah alat yang cocok untuk mengukur dan membandingkan kinerja antara Hadoop dan Spark dalam berbagai skenario penggunaan.
-
-Penelitian ini bertujuan untuk mengevaluasi dan membandingkan kinerja Hadoop dan Spark pada \textit{platform cloud} DigitalOcean menggunakan tolok ukur HiBench. Fokus penelitian ini adalah pada beban kerja \textit{word count} dan \textit{sort}, yang mewakili tugas pemrosesan data yang umum. Dengan menganalisis waktu eksekusi, \textit{throughput}, dan penggunaan sumber daya (CPU, memori, I/O), penelitian ini bertujuan untuk memberikan wawasan tentang kekuatan dan kelemahan relatif dari Hadoop dan Spark dalam berbagai konteks pemrosesan data. Temuan penelitian ini akan memberikan panduan berharga bagi para praktisi dan peneliti di bidang big data untuk memilih platform yang tepat untuk kebutuhan pemrosesan data mereka.
+Penelitian ini bertujuan untuk mengevaluasi dan membandingkan kinerja Hadoop dan Spark pada \textit{platform cloud} DigitalOcean menggunakan HiBench. Fokus penelitian ini adalah pada beban kerja \textit{word count} dan \textit{sort}, yang mewakili tugas pemrosesan data yang umum. Dengan menganalisis waktu eksekusi, \textit{throughput}, dan penggunaan sumber daya (CPU, memori, I/O), penelitian ini bertujuan untuk memberikan wawasan tentang kekuatan dan kelemahan relatif dari Hadoop dan Spark dalam pemrosesan data. Temuan penelitian ini akan memberikan panduan bagi para praktisi dan peneliti di bidang \textit{big data} untuk memilih \textit{platform} yang tepat untuk kebutuhan pemrosesan data mereka.
 
 \section{Rumusan Masalah}
 Adapun rumusan masalah dalam penelitian ini adalah sebagai berikut:
 \begin{enumerate}
-\item Bagaimana kinerja Hadoop dan Spark dalam hal waktu eksekusi dan \textit{throughput} saat menjalankan beban kerja \textit{word count} dan \textit{sort} pada \textit{platform cloud} DigitalOcean?
-\item Bagaimana pengaruh perbedaan ukuran data terhadap kinerja Hadoop dan Spark pada beban kerja \textit{word count} dan \textit{sort}?
-\item Bagaimana pola penggunaan sumber daya (CPU, memori, I/O) oleh Hadoop dan Spark saat menjalankan beban kerja \textit{word count} dan \textit{sort} dengan berbagai ukuran data?
+\item Bagaimana performa Hadoop dan Spark dalam hal waktu eksekusi dan \textit{throughput} saat menjalankan beban kerja \textit{word count} dan \textit{sort} pada \textit{platform cloud} DigitalOcean?
+\item Bagaimana pola penggunaan performa sumber daya (CPU, memori, I/O) oleh Hadoop dan Spark saat menjalankan beban kerja \textit{word count} dan \textit{sort} dengan berbagai ukuran data?
 \end{enumerate}
 
 \section{Tujuan}
 Penelitian ini memiliki tujuan, yaitu:
 \begin{enumerate}
-\item Menganalisis dan membandingkan kinerja Hadoop dan Spark dalam hal waktu eksekusi dan \textit{throughput} saat menjalankan beban kerja \textit{word count} dan \textit{sort} pada \textit{platform cloud} DigitalOcean.
-\item Mengevaluasi pengaruh perbedaan ukuran data terhadap kinerja Hadoop dan Spark pada beban kerja \textit{word count} dan \textit{sort}.
-\item Mengidentifikasi pola penggunaan sumber daya (CPU, memori, I/O) oleh Hadoop dan Spark saat menjalankan beban kerja \textit{word count} dan \textit{sort} dengan berbagai ukuran data.
+\item Menganalisis dan membandingkan performa Hadoop dan Spark dalam hal waktu eksekusi dan \textit{throughput} saat menjalankan beban kerja \textit{word count} dan \textit{sort} pada \textit{platform cloud} DigitalOcean.
+\item Mengidentifikasi pola performa penggunaan sumber daya (CPU, memori, I/O) oleh Hadoop dan Spark saat menjalankan beban kerja \textit{word count} dan \textit{sort} dengan berbagai ukuran data.
 \end{enumerate}
 
-\section{Manfaat}
-Hasil dari penelitian ini diharapkan akan memberikan manfaat sebagai berikut:
-\begin{enumerate}
-	\item 
-	Penelitian ini akan memberikan informasi yang berguna bagi organisasi yang sedang mempertimbangkan pemilihan platform \textit{Big Data}, sehingga \textit{stakeholder} dapat membuat keputusan yang lebih terinformasi.	
-	\item
-	Penelitian ini akan membantu dalam memahami lebih dalam kinerja Hadoop dan Spark dalam berbagai skenario pemrosesan data.
-	\item
-	Hasil dari penelitian ini dapat menjadi dasar untuk penelitian lebih lanjut dalam pengembangan dan peningkatan platform \textit{Big Data.}
-\end{enumerate}
+%\section{Manfaat}
+%Hasil dari penelitian ini diharapkan akan memberikan manfaat sebagai berikut:
+%\begin{enumerate}
+%	\item 
+%	Penelitian ini akan memberikan informasi yang berguna bagi organisasi yang sedang mempertimbangkan pemilihan platform \textit{Big Data}, sehingga \textit{stakeholder} dapat membuat keputusan yang lebih terinformasi.	
+%	\item
+%	Penelitian ini akan membantu dalam memahami lebih dalam kinerja Hadoop dan Spark dalam berbagai skenario pemrosesan data.
+%	\item
+%	Hasil dari penelitian ini dapat menjadi dasar untuk penelitian lebih lanjut dalam pengembangan dan peningkatan platform \textit{Big Data.}
+%\end{enumerate}
 
 \section{Batasan Masalah}
 Penelitian ini memiliki beberapa batasan yang perlu diperhatikan sebagai berikut:
 	\begin{enumerate}
-		\item 
-		Penelitian ini akan fokus pada perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo-distributed} dengan input data berupa teks.
-		\item
-		Pengujian kinerja akan menggunakan HiBench, sebuah tolok ukur kinerja yang umum digunakan dalam penelitian \textit{Big Data.}
-		\item
-		Implementasi Hadoop dan Spark akan menggunakan salah satu penyedia layanan awan, yaitu \textit{DigitalOcean}.
+		\item Perfoma pada penelitian ini berdasarkan pada waktu eksekusi, \textit{throughput}, dan penggunaan sumber daya (CPU, memori, I/O).
+		\item Penelitian ini akan fokus pada perbandingan kinerja antara Hadoop dan Spark dalam mode \textit{pseudo-distributed} dengan input data berupa teks.
+		\item Pengukuran performa akan menggunakan HiBench (tolok ukur utama) dan Dool \textit{Monitoring System} (tolok ukur pembantu) 
+		\item Implementasi Hadoop dan Spark akan menggunakan salah satu penyedia layanan awan, yaitu \textit{DigitalOcean}.
 	\end{enumerate}
 
 %\section{Metodologi}

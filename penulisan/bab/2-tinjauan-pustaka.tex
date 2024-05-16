@@ -3,7 +3,7 @@
 \section{Tinjauan Pustaka}
 Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses penelitian dan memberikan pemahaman lebih lanjut. Peneltian terdahulu mengenai evaluasi performa Hadoop dan Spark dapat dilihat pada Tabel \ref{table:penelitian-dulu}.
 
-\begin{table}
+\begin{table}[h]
 \caption{Penelitian Terdahulu}
 \label{table:penelitian-dulu}
 \scriptsize
@@ -24,6 +24,19 @@ Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses peneli
   & Yassir Samadi, Mostapha Zbakh, Claude Tadonki 
   & Perbandingan kinerja diimplementasikan pada mesin virtual (VM). Untuk membandingkannya, digunakan HiBench. Perbandingan dilakukan berdasarkan tiga kriteria: waktu eksekusi, \textit{throughput}, dan speedup. Beban kerja \textit{WordCount} diuji dengan ukuran data yang berbeda.
   & Spark lebih efisien dibandingkan Hadoop dalam menangani jumlah data yang besar. Namun, Spark memerlukan alokasi memori yang lebih tinggi, karena memuat data yang akan diproses ke dalam memori dan menyimpannya dalam cache untuk sementara. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[ht]
+\caption{Lanjutan Penelitian Terdahulu}
+\label{table:penelitian-dulu-lanjutan}
+\scriptsize
+\begin{tabularx}{\textwidth}{c*{5}{>{\raggedright\arraybackslash}X}}
+\toprule
+\textbf{Tahun} & \textbf{Judul} & \textbf{Penulis} & \textbf{Metode} 
+  & \textbf{Deskripsi Penelitian} \\
+\midrule
  2015 & \textit{Comparing Apache Spark and Map Reduce with Performance Analysis using K-Means \cite{gopalaniComparingApacheSpark2015}} 
   & Satish Gopalani, Rohan Arora
   & Hadoop dan Spark dibandingkan menggunakan algoritma pembelajaran mesin (KMeans). Ukuran data yang digunakan adalah sebesar 64MB, 1240MB dengan satu node, dan 1240MB dengan dua node.  
@@ -40,7 +53,6 @@ Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses peneli
 %  \label{table:penelitian-dulu}
 %\end{table}
 
-\newpage
 \section{Konsep \textit{Big Data}}
 \textit{Big Data} biasanya sering didefinisikan bersama dengan kompleksitas suatu data \cite{barosenAnalysisComparisonInterfacing2018}. Berbeda dengan tradisional data, \textit{Big Data} merujuk pada pertumbuhan data dalam berbagai format, baik dari struktur, semi-terstruktur, dan tidak terstruktur \cite{oussousBigDataTechnologies2018}. \textit{Big Data} memiliki banyak jenis sehingga membutuhkan teknologi yang lebih bertenaga serta algoritma yang lebih canggih. Pendekatan teknologi yang sering digunakan oleh \textit{Business Intelligence} biasanya tidak dapat lagi efisien jika digunakan.
 
@@ -48,21 +60,11 @@ Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses peneli
 
 Penerapan dari \textit{big data} tidak hanya terbatas pada pengumpulan dan penyimpanan data, tetapi juga meliputi analisis dan pengolahan data tersebut untuk menghasilkan wawasan yang berguna. Beberapa sektor yang telah menerapkan \textit{big data} secara luas meliputi kesehatan, keuangan, ritel, dan pemerintahan \cite{oussousBigDataTechnologies2018}. Dalam sektor kesehatan, \textit{big data} digunakan untuk menganalisis informasi pasien secara massal guna meningkatkan kualitas perawatan dan menemukan pola-pola penyakit. Sementara itu, di sektor keuangan, big data membantu dalam analisis risiko, deteksi penipuan, dan personalisasi layanan untuk pelanggan.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=1\textwidth]{figures/ch02/data-stack.jpg}
-    \caption{Beberapa Alat di Dunia Data \cite{RedHot20212021}}
-    \label{fig:data-stacks}
-\end{figure}
-
-Perkembangan alat dalam \textit{big data} juga sangat pesat seperti pada Gambar \ref{fig:data-stacks}. Salah satu contoh signifikan adalah penggunaan teknologi \textit{machine learning} dan \textit{artificial intelligence} (AI) dalam pengolahan data. AI dan \textit{machine learning} memungkinkan analisis data yang lebih akurat dan cepat, bahkan dengan volume dan variasi data yang sangat besar. Alat seperti Hadoop dan Spark telah menjadi standar dalam industri untuk mengelola dan memproses data besar. Selain itu, penggunaan \textit{cloud computing} dalam \textit{big data} memungkinkan penyimpanan dan pengolahan data dalam skala yang lebih besar dan lebih fleksibel.
-
 \section{Ekstraksi Fitur Teks (\textit{Text Feature Extraction})}
-\textit{Ekstraksi Fitur Teks} adalah salah satu proses pada pembelajaran mesin (\textit{machine learning)} dan data analisis yang melibatkan identifikasi dan ekstraksi fitur yang relevan dari data mentah. Fitur-fitur tersebut nantinya akan digunakan untuk membuat data yang lebih informatif, sehingga dapat digunakan untuk klasifikasi, prediksi, dan klasterisasi. Ekstraksi fitur bertujuan untuk mengurangi kompleksitas data (atau yang sering disebut juga \textit{Data Dimensionality}) namun tetap menyimpan sebanyak mungkin informasi yang paling relevan. Hal ini bertujuan untuk meningkatkan performa dan efisiensi algoritma pada pembelajaran mesin dan mempermudah dalam proses analisis. Ekstraksi fitur dapat melibatkan membuat fitur baru (\textit{Feature Engineering}) atau memanipulasi data yang menghasilkan fitur yang berguna.
-Ekstraksi fitur juga memainkan peran penting dalam banyak penerapan di dunia nyata, misalnya untuk pemrosesan teks dan \textit{Natural Language Processing} (NLP). Dalam skenario ini, data mentah mungkin mengandung banyak fitur yang tidak relevan atau berlebihan. Hal ini menyulitkan algoritme untuk memproses data secara akurat. Dengan melakukan ekstraksi fitur, fitur yang relevan dipisahkan dari fitur yang tidak relevan. Dengan lebih sedikit fitur yang harus diproses, kumpulan data menjadi lebih sederhana dan akurasi serta efisiensi analisis meningkat.
+\textit{Ekstraksi Fitur Teks} adalah salah satu proses pada pembelajaran mesin (\textit{machine learning)} dan data analisis yang melibatkan identifikasi dan ekstraksi fitur yang relevan dari data mentah \cite{vijayakumarFusionBasedFeature2021}. Fitur-fitur tersebut nantinya akan digunakan untuk membuat data yang lebih informatif, sehingga dapat digunakan untuk klasifikasi, prediksi, dan klasterisasi. Ekstraksi fitur bertujuan untuk mengurangi kompleksitas data (atau yang sering disebut juga \textit{Data Dimensionality}) namun tetap menyimpan sebanyak mungkin informasi yang paling relevan. Hal ini bertujuan untuk meningkatkan performa dan efisiensi algoritma pada pembelajaran mesin dan mempermudah dalam proses analisis. Ekstraksi fitur dapat melibatkan membuat fitur baru (\textit{Feature Engineering}) atau memanipulasi data yang menghasilkan fitur yang berguna.
+Ekstraksi fitur juga memainkan peran penting dalam banyak penerapan di dunia nyata, misalnya untuk pemrosesan teks dan \textit{Natural Language Processing} (NLP). Dalam skenario ini, data mentah mungkin mengandung banyak fitur yang tidak relevan atau berlebihan. Hal ini menyulitkan algoritma untuk memproses data secara akurat. Dengan melakukan ekstraksi fitur, fitur yang relevan dipisahkan dari fitur yang tidak relevan \cite{shakerFeatureExtractionBased2022}. Dengan lebih sedikit fitur yang harus diproses, kumpulan data menjadi lebih sederhana dan akurasi serta efisiensi analisis meningkat.
 
 \subsection{\textit{Bag of Words} (BoW)}
-
 BoW adalah teknik sederhana yang mengabaikan urutan dan struktur gramatikal kalimat, dan hanya berfokus pada frekuensi kemunculan kata dalam dokumen. Prosesnya melibatkan langkah-langkah berikut:
 
 \begin{enumerate}
@@ -76,7 +78,7 @@ BoW mudah diimplementasikan dan efisien, namun kelemahannya adalah kehilangan in
 
 \subsection{\textit{Term Frequency-Inverse Document Frequency} (TF-IDF)}
 
-TF-IDF mengatasi beberapa kelemahan BoW dengan mempertimbangkan pentingnya kata dalam dokumen dan koleksi dokumen. TF-IDF terdiri dari dua komponen:
+TF-IDF mengatasi beberapa kelemahan BoW dengan mempertimbangkan pentingnya kata dalam dokumen dan koleksi dokumen \cite{qaiserTextMiningUse2018}. TF-IDF terdiri dari dua komponen:
 
 \begin{enumerate}
     \item \textbf{\textit{Term Frequency} (TF): } Mengukur seberapa sering suatu kata muncul dalam dokumen.
@@ -88,8 +90,8 @@ Dengan mengalikan TF dan IDF, kita mendapatkan nilai TF-IDF yang mencerminkan pe
 \subsection{Penggunaan \textit{Word Count} dan \textit{Sort} pada BoW dan TF-IDF}
 
 \begin{enumerate}
-    \item \textbf{Word Count:} Digunakan dalam kedua metode (BoW dan TF-IDF) untuk menghitung frekuensi kemunculan kata dalam dokumen.
-    \item \textbf{Sort:} Biasanya tidak digunakan secara langsung dalam proses BoW atau TF-IDF. Namun, pengurutan dapat digunakan untuk:
+    \item \textbf{\textit{Word Count:}} Digunakan dalam kedua metode (BoW dan TF-IDF) untuk menghitung frekuensi kemunculan kata dalam dokumen.
+    \item \textbf{\textit{Sort:}} Biasanya tidak digunakan secara langsung dalam proses BoW atau TF-IDF. Namun, pengurutan dapat digunakan untuk:
     \begin{itemize}
         \item \textbf{Memilih fitur:} Memilih fitur dengan nilai TF-IDF tertinggi untuk mengurangi dimensi data dan fokus pada kata-kata yang paling informatif. 
         \item \textbf{Visualisasi:} Mengurutkan kata berdasarkan frekuensi atau nilai TF-IDF dapat membantu dalam visualisasi dan analisis data.
@@ -112,11 +114,12 @@ Sebagai contoh, dalam mengelola pencadangan sistem, seorang administrator dapat 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch02/contoh-bash}
+    \includegraphics[width=0.75\textwidth]{figures/ch02/contoh-bash}
     \caption{Contoh Shell Script yang Digunakan pada Penelitian}
     \label{fig:contoh-bash}
 \end{figure}
 
+\newpage
 Gambar \ref{fig:contoh-bash} menampilkan sebuah contoh potongan \textit{shell script} yang digunakan dalam penelitian ini. Berikut adalah penjelasan lebih rinci mengenai skrip tersebut,
 \begin{enumerate}
     \item \textbf{Baris 1:} Mendefinisikan interpreter Bash untuk menjalankan skrip.
@@ -137,27 +140,12 @@ MapReduce adalah model pemrograman dan implementasi teknik pemrosesan data beruk
 
 MapReduce terdiri dari fungsi \textit{Map} dan fungsi \textit{Reduce} \cite{gandomiHybSMRPHybridScheduling2019}. Kedua fungsi ini tersebar di seluruh \textit{slave node} yang terhubung dalam klaster dan berjalan secara paralel. Fungsi \textit{Map} berperan untuk membagi masalah besar menjadi masalah yang lebih kecil dan mendistribusikannya ke \textit{slave node}. Hasil pemrosesan dari \textit{slave node} akan dikumpulkan oleh \textit{master node} melalui fungsi \textit{Reduce}. Sesuai dengan Gambar \ref{fig:mapreduce-flow}, hasil dari proses \textit{Reduce} yang akan dikirimkan sebagai hasil akhir proses MapReduce.  
 
-Implementasi MapReduce pada \textit{Word Count}\cite{KOMPARASIKECEPATANHADOOP} dapat dilihat pada Gambar \ref{fig:mapreduce-wordcount}. Pada proses MapReduce, data masukan akan melalui beberapa tahapan pemrosesan. Pertama, data akan dipecah menjadi bagian-bagian yang lebih kecil pada proses pemecahan data masukan (\textit{splitting}). Dalam kasus Hadoop MapReduce, data idealnya akan dipecah menjadi beberapa blok berukuran maksimal 128MB.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch02/map-reduce-word-count-oreilly.png}
-    \caption{Implementasi MapReduce pada Word Count \cite{MapReduceDistributedComputing}}
-    \label{fig:mapreduce-wordcount}
-\end{figure}
-
-Kemudian, blok data tersebut akan diproses lebih lanjut pada tahap pemetaan (\textit{mapping}). Pemetaan merupakan salah satu tahapan terpenting dalam MapReduce. Pada tahap ini, blok data yang sudah dipecah akan diproses untuk menghasilkan pasangan kunci-nilai (\textit{key-value pairs}) sementara, seperti pada contoh kasus \textit{wordcount} yang menghasilkan pasangan kunci-nilai \textit{Dear:1, Bear:1, dan River:1}. Pemetaan dapat melibatkan satu atau beberapa mesin pekerja (\textit{worker}) yang memproses blok data secara paralel.
-
-Selanjutnya adalah tahap pengocokan (\textit{shuffling}) di mana pasangan kunci-nilai hasil pemetaan yang tersebar di beberapa mesin akan dikumpulkan berdasarkan kesamaan kuncinya agar bisa diproses lebih lanjut. Misalnya semua pasangan dengan kunci \textit{Bear} dikumpulkan dalam satu mesin.
-
-Pada tahap terakhir yaitu pengurangan (\textit{reducing}), dilakukan agregasi terhadap pasangan kunci-nilai dengan kunci yang sama untuk menghasilkan keluaran akhir. Seperti pada contoh kasus \textit{wordcount}, pasangan \textit{Bear:1} dan \textit{Bear:1} akan dijumlahkan menjadi \textit{Bear:2} oleh proses pengurangan.
-
 \subsection{Apache Hadoop}
 Apache Hadoop adalah perangkat lunak sumber terbuka yang ditulis dengan bahasa pemrograman Java untuk pemrosesan dan penyimpanan data menggunakan komputasi terdistribusi \cite{ApacheHadoop}. Hadoop dapat diinstalasi pada satu \textit{node} komputer, atau ratusan \textit{node} komputer yang digabungkan dalam sebuah klaster \cite{maneasEvolutionHadoopDistributed2018}. Berkaitan dengan pemrosesan data, Hadoop mengimplementasikan model MapReduce untuk pemrosesan data secara paralel dan cepat. Selain itu, Hadoop menyediakan sistem penyimpanan data terdistribusi yang dikenal sebagai Hadoop Distributed File System (HDFS) untuk akses data, pemrosesan, dan komputasi \cite{dabasAnalysisCommentsYoutube2019}. Arsitektur Hadoop secara umum dapat dilihat pada Gambar \ref{fig:hadoop-str}.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch02/hadoop-str}
+    \includegraphics[width=0.6\textwidth]{figures/ch02/hadoop-str}
     \caption{Arsitektur Hadoop}
     \label{fig:hadoop-str}
 \end{figure}
@@ -184,7 +172,7 @@ Hadoop dapat dijalankan dalam tiga mode operasi yang berbeda yaitu \textit{stand
     \label{fig:hdfs-arch}
 \end{figure}
 
-Secara struktur, HDFS terdiri dari NameNode sebagai \textit{node master} yang mengelola \textit{metadata} dan \textit{namespace}, serta DataNode sebagai \textit{node slave} yang bertugas menyimpan data sebenarnya dalam bentuk blok seperti pada Gambar \ref{fig:hdfs-arch}. Berkas di HDFS dipartisi menjadi satu atau lebih blok berukuran 64MB atau 128MB, kemudian didistribusikan dan disimpan di beberapa DataNode. Setiap block direplikasi (biasanya 3x) di DataNode yang berbeda untuk toleransi kesalahan. Replikasi blok di \textit{node/rack} yang berbeda juga meningkatkan ketersediaan HDFS.
+Secara struktur, HDFS terdiri dari NameNode sebagai \textit{node master} yang mengelola \textit{metadata} dan \textit{namespace}, serta DataNode sebagai \textit{node slave} yang bertugas menyimpan data sebenarnya dalam bentuk blok seperti pada Gambar \ref{fig:hdfs-arch}. Berkas di HDFS dipartisi menjadi satu atau lebih blok berukuran 64MB atau 128MB, kemudian didistribusikan dan disimpan di beberapa DataNode. Setiap blok direplikasi (biasanya 3x) di DataNode yang berbeda untuk toleransi kesalahan. Replikasi blok di \textit{node/rack} yang berbeda juga meningkatkan ketersediaan HDFS.
 
 Dengan desain terdistribusi, HDFS sangat populer digunakan bersama framework Hadoop untuk memproses \textit{big data} \cite{almansouriHadoopDistributedFile2019}. Namun, ketergantungan pada \textit{single} NameNode dan performa akses data acak yang kurang optimal menjadi kelemahan utama HDFS. Secara keseluruhan, HDFS telah terbukti menjadi pilihan matang untuk penyimpanan data massal secara terdistribusi.
 
@@ -226,7 +214,7 @@ Integrasi Spark dengan Hadoop dapat dilakukan melalui tiga metode berbeda sepert
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/ch02/sparkxhadoop}
+    \includegraphics[width=0.7\textwidth]{figures/ch02/sparkxhadoop}
     \caption{Integrasi Spark dan Hadoop}
     \label{fig:spark-x-hadoop}
 \end{figure}
@@ -271,7 +259,7 @@ HiBench memudahkan dalam eksekusi pengukuran berbagai beban kerja karena HiBench
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch02/hibench-flow}
+    \includegraphics[width=1\textwidth]{figures/ch02/hibench-flow}
     \caption{Proses yang Terjadi di HiBench \cite{barosenAnalysisComparisonInterfacing2018}}
     \label{fig:hibench-process-flow}
 \end{figure}
@@ -344,6 +332,21 @@ Kompleksitas algoritma \textit{sort} bervariasi, tetapi umumnya membutuhkan perb
     \caption{Contoh Input dan Output \textit{Sort}}
     \label{fig:sample-sort}
 \end{figure}
+
+Implementasi MapReduce pada \textit{Word Count}\cite{KOMPARASIKECEPATANHADOOP} dapat dilihat pada Gambar \ref{fig:mapreduce-wordcount}. Pada proses MapReduce, data masukan akan melalui beberapa tahapan pemrosesan. Pertama, data akan dipecah menjadi bagian-bagian yang lebih kecil pada proses pemecahan data masukan (\textit{splitting}). Dalam kasus Hadoop MapReduce, data idealnya akan dipecah menjadi beberapa blok berukuran maksimal 128MB.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ch02/map-reduce-word-count-oreilly.png}
+    \caption{Implementasi MapReduce pada Word Count \cite{MapReduceDistributedComputing}}
+    \label{fig:mapreduce-wordcount}
+\end{figure}
+
+Kemudian, blok data tersebut akan diproses lebih lanjut pada tahap pemetaan (\textit{mapping}). Pemetaan merupakan salah satu tahapan terpenting dalam MapReduce. Pada tahap ini, blok data yang sudah dipecah akan diproses untuk menghasilkan pasangan kunci-nilai (\textit{key-value pairs}) sementara, seperti pada contoh kasus \textit{wordcount} yang menghasilkan pasangan kunci-nilai \textit{Dear:1, Bear:1, dan River:1}. Pemetaan dapat melibatkan satu atau beberapa mesin pekerja (\textit{worker}) yang memproses blok data secara paralel.
+
+Selanjutnya adalah tahap pengocokan (\textit{shuffling}) di mana pasangan kunci-nilai hasil pemetaan yang tersebar di beberapa mesin akan dikumpulkan berdasarkan kesamaan kuncinya agar bisa diproses lebih lanjut. Misalnya semua pasangan dengan kunci \textit{Bear} dikumpulkan dalam satu mesin.
+
+Pada tahap terakhir yaitu pengurangan (\textit{reducing}), dilakukan agregasi terhadap pasangan kunci-nilai dengan kunci yang sama untuk menghasilkan keluaran akhir. Seperti pada contoh kasus \textit{wordcount}, pasangan \textit{Bear:1} dan \textit{Bear:1} akan dijumlahkan menjadi \textit{Bear:2} oleh proses pengurangan.
 
 %\subsection{Word Count - Hadoop}
 %\begin{algorithm}[H]
@@ -480,7 +483,7 @@ Akhirnya, HiBench memberikan gambaran umum tentang efisiensi sistem dalam menang
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1\textwidth]{figures/ch02/output-hibench-dool.png}
+    \includegraphics[width=0.7\textwidth]{figures/ch02/output-hibench-dool.png}
     \caption{Data Keluaran HiBench dan Dool}
     \label{fig:output-hibench-dool}
 \end{figure}

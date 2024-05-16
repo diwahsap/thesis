@@ -15,21 +15,19 @@ Adapun diagram alir penelitian ini ditunjukkan pada Gambar \ref{fig:diagram alir
         
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\textwidth]{figures/ch03/Diagram Tugas Akhir.png}
+    \includegraphics[width=0.9\textwidth]{figures/ch03/Diagram Tugas Akhir.png}
     \caption{Diagram Alir Penelitian}
     \label{fig:diagram alir}
 \end{figure}
 
+\newpage
 Kemudian, penelitian ini akan dilanjutkan pada tahap membangun \textit{virtual machine} di DigitalOcean. DigitalOcean adalah perusahaan penyedia layanan awan \textit{Infrastructure as a Service} (IaaS) yang memberikan banyak pilihan kepada pengguna untuk menggunakan berbagai jenis layanan sesuai dengan kebutuhan, salah satunya yaitu \textit{virtual machine}. \textit{Virtual Machine} tersebut dapat dihentikan atau dihapus kapanpun saat tidak lagi diperlukan. Ketika infrastruktur sudah siap digunakan, penelitian dilanjutkan ke tahap pemasangan perangkat lunak, seperti Hadoop, Spark, dan HiBench. Selanjutnya dilakukan eksperimen pada beban kerja \textit{Micro Benchmarks}. Akhirnya, hasil dari eksperimen akan digunakan untuk proses analisis dan evaluasi.
 
-\section{Penjabaran Langkah Penelitian}
-Adapun untuk lebih memperjelas lagi dari setiap langkah yang ada pada Gambar \ref{fig:diagram alir}, dijabarkan secara rinci tahapan-tahapan yang dilakukan pada penelitian ini.
-
-\subsection{Identifikasi Masalah dan Studi Literatur}
+\section{Identifikasi Masalah dan Studi Literatur}
 Langkah awal penelitian ini adalah identifikasi masalah dan studi literatur. Identifikasi masalah dapat dipahami sebagai tahapan mendefinisikan masalah sehingga masalah tersebut dapat terukur dan jelas untuk dijadikan landasan dalam latar belakang penelitian. Setelah masalah berhasil diidentifikasi, langkah selanjutnya adalah studi literatur yang mana dalam proses ini dilakukan pengumpulan berbagai macam informasi, referensi, dan konsep dasar yang menjadi landasan dasar dari penelitian. Langkah ini dapat dilakukan melalui membaca artikel ilmiah pendukung, buku-buku yang ditulis oleh para ahli, dan jika berkaitan dengan pemrograman dapat melihat dari dokumentasi resmi. Pada tahap ini juga dilakukan analisis terhadap penelitian terdahulu dan dibandingkan dengan identifikasi masalah yang didapatkan untuk membuka celah penelitian baru sehingga penelitian ini dapat bermanfaat. 
 
-\subsection{Membangun \textit{Virtual Machine} di DigitalOcean}
-Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja aplikasi \textit{big data} berbasis Hadoop dan Spark. DigitalOcean, sebagai penyedia layanan infrastruktur sebagai layanan (IaaS), memberikan pengguna kebebasan penuh untuk membuat, mengonfigurasi, dan mengelola berbagai infrastruktur yang telah disediakan. Dalam konteks penelitian ini, diperlukan penggunaan mesin virtual, yang dalam DigitalOcean dikenal sebagai "Droplets," yang memungkinkan untuk menyesuaikan berbagai aspek seperti sistem operasi, kapasitas penyimpanan, jumlah prosesor, dan parameter lainnya sesuai dengan kebutuhan spesifik penelitian.
+\section{Membangun \textit{Virtual Machine} di DigitalOcean}
+Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja aplikasi \textit{big data} berbasis Hadoop dan Spark. DigitalOcean, sebagai penyedia layanan infrastruktur sebagai layanan (IaaS), memberikan pengguna kebebasan penuh untuk membuat, mengonfigurasi, dan mengelola berbagai infrastruktur yang telah disediakan. Dalam konteks penelitian ini, diperlukan penggunaan mesin virtual, yang dalam DigitalOcean dikenal sebagai "\textit{Droplets}," yang memungkinkan untuk menyesuaikan berbagai aspek seperti sistem operasi, kapasitas penyimpanan, jumlah prosesor, dan parameter lainnya sesuai dengan kebutuhan spesifik penelitian.
 
 \begin{table}[h!]
 	\centering
@@ -40,7 +38,7 @@ Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja a
         \midrule
 		\textbf{Lokasi Pusat Data} & Singapore - Datacenter 1 - SGP1               \\ 
 		\textbf{Sistem Operasi}    & Ubuntu 20.04 (LTS) x64                        \\
-		\textbf{Jenis Droplet}     & Basic                                         \\ 
+		\textbf{Jenis \textit{Droplet}}     & Basic                                         \\ 
 		\textbf{Prosesor}          & Premium AMD - 4 Core                          \\ 
 		\textbf{Memori}            & 8 GB                                          \\ 
 		\textbf{Penyimpanan}       & 160 GB NVMe SSD                               \\ 
@@ -50,7 +48,7 @@ Konfigurasi perangkat keras merupakan aspek penting dalam mengevaluasi kinerja a
 \end{table}
 Penelitian ini mengadopsi mode \textit{pseudo-distributed} yang memungkinkan penggunaan hanya satu \textit{virtual machine} dalam konfigurasi \textit{single node}. Walaupun hanya menggunakan satu \textit{virtual machine}, mode \textit{pseudo-distributed} memungkinkan setiap proses dalam klaster beroperasi secara independen, menciptakan lingkungan di mana semua proses berjalan mandiri satu sama lain. Hal ini memungkinkan untuk lebih berfokus pada pengumpulan data dan analisis, tanpa perlu melakukan konfigurasi yang rumit terkait dengan pengaturan klaster. Spesifikasi perangkat keras yang digunakan untuk \textit{virtual machine} dalam mode \textit{pseudo-distributed} sesuai pada Tabel \ref{table:conf-hardware}. Penjelasan lengkap tentang pembuatan \textit{virtual machine} (VM) pada \textit{platform} DigitalOcean dan cara mengakses VM tersebut disajikan pada Lampiran \ref{appendix:A}.
 
-\subsection{Pemasangan dan Konfigurasi Perangkat Lunak}
+\section{Pemasangan dan Konfigurasi Perangkat Lunak}
 Pemasangan dan konfigurasi perangkat lunak merupakan hal yang krusial dalam penelitian ini. Perangkat lunak yang diperlukan ditunjukkan pada Tabel \ref{table:software-needs}.
 
 \begin{table}[h]
@@ -76,7 +74,7 @@ Pemasangan dan konfigurasi perangkat lunak merupakan hal yang krusial dalam pene
 \end{table}
 
 
-Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gambar \ref{fig:alurkerja-soft}. Pada gambar, terdapat tiga bagian utama, yaitu \textit{prerequisites} (perangkat lunak prasyarat) ditandai dengan warna biru, alat penyimpanan dan pemrosesan \textit{Big Data} ditandai dengan warna oren, dan alat untuk mengukur kinerja \textit{big data} ditandai dengan warna hijau. Semua perangkat lunak dijalankan pada sistem operasi Ubuntu 20.04 LTS x64.\\
+Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gambar \ref{fig:alurkerja-soft}. Pada gambar, terdapat tiga bagian utama, yaitu \textit{prerequisites} (perangkat lunak prasyarat) ditandai dengan warna biru, alat penyimpanan dan pemrosesan \textit{Big Data} ditandai dengan warna oren, dan alat untuk mengukur kinerja \textit{big data} ditandai dengan warna hijau. 
 
 \begin{landscape}
 \begin{figure}[h]
@@ -87,7 +85,7 @@ Alur kerja instalasi perangkat lunak dalam penelitian ini dapat dilihat pada Gam
 \end{figure}
 \end{landscape}
 
-\textbf{Instalasi Perangkat Lunak Prasyarat}\\
+\subsection{Instalasi Perangkat Lunak Prasyarat}
 Ada beberapa perangkat lunak yang perlu diimplementasikan sebelum memasang Hadoop, Spark, dan HiBench, yaitu:
 \begin{enumerate}
 	\item Ubuntu 20.04 LTS x64
@@ -97,7 +95,7 @@ Ada beberapa perangkat lunak yang perlu diimplementasikan sebelum memasang Hadoo
 	\item Scala 2.11.8
 \end{enumerate}
 
-Pemasangan dan konfigurasi perangkat lunak pada tahapan ini tidak membutuhkan urutan. Akan tetapi, pada penelitian ini dibuatkan alur untuk pemasangan dan konfigurasi perangkat lunak prasyarat seperti pada Gambar \ref{fig:prasyarat-flow}. Penjelasan lengkap mengenai tata cara instalasi dan konfigurasi perangkat lunak prasyarat ini disajikan pada Lampiran \ref{appendix:B}. \\
+Pemasangan dan konfigurasi perangkat lunak pada tahapan ini tidak membutuhkan urutan. Akan tetapi, pada penelitian ini dibuatkan alur untuk pemasangan dan konfigurasi perangkat lunak prasyarat seperti pada Gambar \ref{fig:prasyarat-flow}. Penjelasan lengkap mengenai tata cara instalasi dan konfigurasi perangkat lunak prasyarat ini disajikan pada Lampiran \ref{appendix:B}. 
 
 \begin{figure}[h!]
     \centering
@@ -106,9 +104,9 @@ Pemasangan dan konfigurasi perangkat lunak pada tahapan ini tidak membutuhkan ur
     \label{fig:prasyarat-flow}
 \end{figure}
 
-\textbf{Instalasi dan Konfigurasi Hadoop}\\
+\subsection{Instalasi dan Konfigurasi Hadoop}
 Hadoop adalah perangkat lunak \textit{open source} yang efektif dalam menyimpan dan memproses data dalam skala besar. Daripada menggunakan satu komputer besar untuk menyimpan dan memproses data, Hadoop memungkinkan pengklasteran beberapa komputer untuk menganalisis set data besar secara paralel dengan lebih cepat. Ada beberapa perangkat lunak prasyarat yang perlu dipasang sebelum menggunakan Hadoop. Setelah perangkat lunak prasyarat berhasil dipasang, Hadoop juga dapat dipasang mengikuti panduan lengkap pada Lampiran \ref{appendix:C}. 
-Secara umum, alur yang harus dilakukan meliputi pengunduhan berkas Hadoop. Selanjutnya akan dilakukan pengubahan kepemilikan berkas ke \textit{user hdfsuser}. Karena Hadoop tidak mendukung IPv6, maka fitur ini perlu dimatikan juga. Alur pemasangan dan konfigurasi Hadoop lebih jelas sesuai dengan Gambar \ref{fig:hadoop-flow}.\\
+Secara umum, alur yang harus dilakukan meliputi pengunduhan berkas Hadoop. Selanjutnya akan dilakukan pengubahan kepemilikan berkas ke \textit{user hdfsuser}. Karena Hadoop tidak mendukung IPv6, maka fitur ini perlu dimatikan juga. Alur pemasangan dan konfigurasi Hadoop lebih jelas sesuai dengan Gambar \ref{fig:hadoop-flow}.
 
 \begin{figure}[h!]
     \centering
@@ -117,8 +115,8 @@ Secara umum, alur yang harus dilakukan meliputi pengunduhan berkas Hadoop. Selan
     \label{fig:hadoop-flow}
 \end{figure}
 
-\textbf{Instalasi dan Konfigurasi Spark}\\
-Apache Spark adalah sebuah kerangka kerja pengolahan data terdistribusi yang sangat cepat dan efisien. Spark dan Hadoop memiliki hubungan yang erat. Spark dapat berjalan di atas \textit{Hadoop Distributed File System} (HDFS) dan dapat menggunakan Hadoop YARN sebagai manajer sumber daya. Oleh karena itu, instalasi Spark membutuhkan Hadoop sudah terpasang lebih dahulu. Alur pemasangan dan konfigurasi spark terlihat seperti pada Gambar \ref{fig:spark-flow}. Apabila Hadoop sudah berhasil terpasang, langkah selanjutnya adalah memasang Spark seperti pada Lampiran \ref{appendix:D}.\\
+\subsection{Instalasi dan Konfigurasi Spark}
+Apache Spark adalah sebuah kerangka kerja pengolahan data terdistribusi yang sangat cepat dan efisien. Spark dan Hadoop memiliki hubungan yang erat. Spark dapat berjalan di atas \textit{Hadoop Distributed File System} (HDFS) dan dapat menggunakan Hadoop YARN sebagai manajer sumber daya. Oleh karena itu, instalasi Spark membutuhkan Hadoop sudah terpasang lebih dahulu. Alur pemasangan dan konfigurasi spark terlihat seperti pada Gambar \ref{fig:spark-flow}. Apabila Hadoop sudah berhasil terpasang, langkah selanjutnya adalah memasang Spark seperti pada Lampiran \ref{appendix:D}.
 
 \begin{figure}[h]
     \centering
@@ -127,7 +125,7 @@ Apache Spark adalah sebuah kerangka kerja pengolahan data terdistribusi yang san
     \label{fig:spark-flow}
 \end{figure}
 
-\textbf{Instalasi dan Konfigurasi HiBench}\\
+\subsection{Instalasi dan Konfigurasi HiBench}
 Sebelum melakukan eksperimen, diperlukan suatu perangkat lunak pengukuran kinerja sistem \textit{Big Data}, yaitu HiBench. HiBench tidak dapat digunakan secara langsung ketika sudah berhasil diunduh, melainkan harus dilakukan pembangunan beberapa modul yang dibutuhkan dengan Maven dan konfigurasi beberapa parameter. 
 
 \begin{figure}[h]
@@ -153,7 +151,7 @@ Secara umum, alur instalasi dan konfigurasi HiBench sesuai dengan Gambar \ref{fi
 %\end{table}
 
 
-\subsection{Eksperimen}
+\section{Eksperimen}
 Setelah instalasi dan konfigurasi perangkat keras dan perangkat lunak berhasil diselesaikan, tahap selanjutnya adalah eksperimen. Tahap ini melibatkan serangkaian pengujian yang terkontrol untuk mengevaluasi kinerja \textit{platform big data} Hadoop dan Spark dalam menjalankan beban kerja tertentu dengan berbagai ukuran data. Tujuan utama eksperimen ini adalah untuk menjawab pertanyaan penelitian yang telah didefinisikan sebelumnya dan memperoleh pemahaman yang komprehensif tentang karakteristik kinerja masing-masing \textit{platform}.
 
 Penelitian ini difokuskan pada pengujian dua beban kerja yang umum dalam pemrosesan big data, yaitu \textit{word count} dan \textit{sort}. Beban kerja ini akan dieksekusi pada dua \textit{platform big data} yang populer, yaitu Hadoop dan Spark. Setiap kombinasi \textit{platform} dan beban kerja akan diuji dengan 12 ukuran data yang berbeda, mulai dari 100 KB hingga 15 GB. Detail ukuran data yang digunakan ditunjukkan pada Tabel \ref{table:variasi-input-data}. Untuk memastikan reliabilitas dan konsistensi hasil, setiap kombinasi \textit{platform}, beban kerja, dan ukuran data akan diulang sebanyak 5 kali. 
@@ -167,7 +165,7 @@ Proses eksperimen menghasilkan dua jenis berkas data:
 Secara keseluruhan, desain eksperimen ini menghasilkan 240 percobaan individu, seperti yang diilustrasikan pada Gambar \ref{fig:total-percobaan}. Setiap percobaan mewakili kombinasi unik dari:
 \begin{enumerate}
 	\item \textit{Platform big data} (Hadoop atau Spark)
-	\item Beban kerja (\textit{word count} atau \textit{sort*})
+	\item Beban kerja (\textit{word count} atau \textit{sort})
 	\item Ukuran data (12 variasi)
 	\item Pengulangan (5 kali)
 \end{enumerate}
@@ -188,7 +186,7 @@ Secara keseluruhan, desain eksperimen ini menghasilkan 240 percobaan individu, s
 \end{figure}
 \end{landscape}
 
-Sebagai contoh, untuk \textit{platform} Hadoop dengan beban kerja \textit{word count} dan ukuran data 100 KB, akan menghasilkan 5 HiBench \textit{Report} dan 5 berkas Dool \textit{System Monitoring}, sesuai dengan jumlah pengulangan.  Ilustrasi ini dapat dilihat pada Gambar \ref{fig:contoh-percobaan}.
+Sebagai contoh, untuk \textit{platform} Hadoop dengan beban kerja \textit{word count} dan ukuran data 100 KB, akan menghasilkan lima HiBench \textit{Report} dan lima berkas Dool \textit{System Monitoring}, sesuai dengan jumlah pengulangan.  Ilustrasi ini dapat dilihat pada Gambar \ref{fig:contoh-percobaan}.
 
 \begin{figure}[h]
     \centering
@@ -214,8 +212,8 @@ Sebagai contoh, untuk \textit{platform} Hadoop dengan beban kerja \textit{word c
 8  & 500 MB & $5 * 10^8$          \\
 9  & 1 GB   & $1 * 10^9$          \\
 10 & 5 GB   & $5 * 10^9$          \\
-11 & 10 GB  & $1 * 10^10$         \\ 
-12 & 15 GB  & $1.5 * 10^10$       \\ \hline
+11 & 10 GB  & $1 * 10^{10}$         \\ 
+12 & 15 GB  & $1.5 * 10^{10}$       \\ \hline
 \end{tabular}
 \end{table}
 
@@ -228,7 +226,7 @@ Skrip persiapan data Hadoop dan Spark dijalankan berulang kali hingga proses per
 
 Setelah semua perulangan selesai, algoritma menunggu selama 15 detik sebelum melanjutkan ke ukuran data berikutnya. Proses ini berlanjut hingga semua kombinasi beban kerja dan ukuran data selesai diproses.
 
-\subsection{Analisis dan Evaluasi Hasil Eksperimen}
+\section{Analisis dan Evaluasi Hasil Eksperimen}
 
 Setelah menyelesaikan 240 percobaan yang dijelaskan di bagian eksperimen, langkah selanjutnya adalah menganalisis dan mengevaluasi hasil yang diperoleh. Analisis ini bertujuan untuk menjawab pertanyaan penelitian dan memahami bagaimana kinerja Hadoop dan Spark dalam menjalankan beban kerja \textit{word count} dan \textit{sort} dengan berbagai ukuran data. Berikut adalah beberapa aspek yang akan dikaji:
 
@@ -239,7 +237,7 @@ Setelah menyelesaikan 240 percobaan yang dijelaskan di bagian eksperimen, langka
 		\item \textbf{Persebaran \textit{Throughput} pada Hadoop dan Spark}. Mirip dengan analisis waktu eksekusi, persebaran \textit{throughput} juga akan dianalisis untuk setiap kombinasi aplikasi, beban kerja, dan ukuran data. Throughput, yang menunjukkan jumlah data yang diproses per satuan waktu,  merupakan metrik penting dalam evaluasi kinerja sistem big data.  Visualisasi distribusi throughput akan membantu dalam memahami efisiensi pemrosesan data oleh Hadoop dan Spark.
 		\item \textbf{Rata-rata Waktu Eksekusi pada Hadoop dan Spark}. Selain persebaran, rata-rata waktu eksekusi untuk setiap kombinasi akan dihitung dan dibandingkan.  Ini memberikan gambaran umum tentang kinerja relatif setiap aplikasi dalam menyelesaikan beban kerja tertentu dengan ukuran data tertentu. Perbedaan rata-rata waktu eksekusi antara Hadoop dan Spark, serta tren perubahannya seiring dengan peningkatan ukuran data, akan diidentifikasi dan dibahas.
 		\item \textbf{Rata-rata \textit{Throughput} pada Hadoop dan Spark}. Serupa dengan rata-rata waktu eksekusi, rata-rata \textit{throughput} juga akan dihitung dan dibandingkan untuk setiap kombinasi. Analisis ini membantu memahami bagaimana efisiensi pemrosesan data berubah dengan berbagai beban kerja dan ukuran data, serta memberikan wawasan tentang skalabilitas setiap platform.
-		\item \textbf{\textit{Rate of Change}}. \textit{Rate of Change} akan dihitung untuk metrik-metrik kinerja seperti waktu eksekusi dan throughput. Ini akan menunjukkan seberapa besar perubahan kinerja seiring dengan peningkatan ukuran data.  
+		\item \textbf{\textit{Rate of Change}}. \textit{Rate of Change} akan dihitung untuk metrik-metrik kinerja seperti waktu eksekusi dan \textit{throughput}. Analisis ini akan menunjukkan seberapa besar perubahan kinerja seiring dengan peningkatan ukuran data.  
 	\end{enumerate}
 	\item \textbf{Penggunaan Sumber Daya}
 	\begin{enumerate}
