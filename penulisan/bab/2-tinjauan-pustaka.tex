@@ -39,7 +39,7 @@ Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses peneli
 \midrule
  2015 & \textit{Comparing Apache Spark and Map Reduce with Performance Analysis using K-Means \cite{gopalaniComparingApacheSpark2015}} 
   & Satish Gopalani, Rohan Arora
-  & Hadoop dan Spark dibandingkan menggunakan algoritma pembelajaran mesin (KMeans). Ukuran data yang digunakan adalah sebesar 64MB, 1240MB dengan satu node, dan 1240MB dengan dua node.  
+  & Hadoop dan Spark dibandingkan menggunakan algoritma pembelajaran mesin (K-Means). Ukuran data yang digunakan adalah sebesar 64MB, 1240MB dengan satu node, dan 1240MB dengan dua node.  
   & Hasil-hasil penelitian dengan jelas menunjukkan bahwa kinerja Spark jauh lebih tinggi dari segi waktu, di mana setiap ukuran dataset mengakibatkan penurunan waktu pemrosesan hingga tiga kali lipat dibandingkan dengan Hadoop. \\
 \bottomrule
 \end{tabularx}
@@ -59,6 +59,59 @@ Penelitian ini menggunakan beberapa teori dasar supaya memperjelas proses peneli
 \textit{Big Data} biasanya didefinisikan menjadi tiga karakteristik (3V), yaitu \textit{Volume, Velocity}, dan \textit{Variety} \cite{furhtIntroductionBigData2016}. \textit{Volume} berkaitan dengan jumlah data yang terbentuk atau dibuat secara terus menerus oleh beragam  perangkat, seperti telepon genggam dan aplikasi (sosial media, sensor, IoT). Jumlah data diharapkan tumbuh 5x lipat pada tahun 2020 \cite{furhtIntroductionBigData2016}. Selanjutnya, \textit{Velocity} memberikan makna bahwa data bertumbuh secara cepat dan harus diproses secara cepat juga untuk memberikan informasi yang berguna \cite{sandhuBigDataCloud2022}. YouTube adalah ilustrasi yang tepat untuk menggambarkan bagaimana pertumbuhan data begitu cepat. Terakhir, \textit{Variety} berkaitan dengan variasi sumber dan format data. 
 
 Penerapan dari \textit{big data} tidak hanya terbatas pada pengumpulan dan penyimpanan data, tetapi juga meliputi analisis dan pengolahan data tersebut untuk menghasilkan wawasan yang berguna. Beberapa sektor yang telah menerapkan \textit{big data} secara luas meliputi kesehatan, keuangan, ritel, dan pemerintahan \cite{oussousBigDataTechnologies2018}. Dalam sektor kesehatan, \textit{big data} digunakan untuk menganalisis informasi pasien secara massal guna meningkatkan kualitas perawatan dan menemukan pola-pola penyakit. Sementara itu, di sektor keuangan, big data membantu dalam analisis risiko, deteksi penipuan, dan personalisasi layanan untuk pelanggan.
+
+\section{Statistika Deskriptif}
+Statistika deskriptif merupakan cabang statistika yang fokus pada pengorganisasian, penyajian, dan pengikhtisaran data \cite{rossIntroductoryStatistics2017}. Informasi yang diperoleh dari statistika deskriptif berguna untuk mendapatkan gambaran umum mengenai data dan untuk memahaminya secara lebih mendalam. Beberapa ukuran statistika deskriptif yang umum digunakan antara lain,
+
+\begin{enumerate}
+\item Maksimum (Max)
+
+Maksimum (Max) merupakan nilai tertinggi dalam suatu kumpulan data. 
+
+\begin{equation}
+\text{Max} = \text{Nilai tertinggi dalam data}
+\end{equation}
+
+\item Minimum (Min)
+
+Minimum (Min) merupakan nilai terendah dalam suatu kumpulan data. 
+
+\begin{equation}
+\text{Min} = \text{Nilai terendah dalam data}
+\end{equation}
+
+\item Rata-rata (Mean)
+
+Rata-rata (Mean) merupakan nilai tengah dari suatu kumpulan data. Didefinisikan sebagai jumlah semua nilai data dibagi dengan jumlah total data.
+
+\begin{equation}
+\text{Mean} = \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+\end{equation}
+
+Keterangan:
+\begin{itemize}
+\item $\bar{x}$ adalah mean
+\item $x_i$ adalah nilai data ke-i
+\item $n$ adalah jumlah total data
+\end{itemize}
+
+\item Standar Deviasi (Std)
+
+Standar deviasi (Std) merupakan ukuran penyebaran data terhadap mean. Semakin besar standar deviasi, semakin tersebar data dari mean. 
+
+\begin{equation}
+\text{Std} = s = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n}}
+\end{equation}
+
+Keterangan:
+\begin{itemize}
+\item $s$ adalah standar deviasi
+\item $x_i$ adalah nilai data ke-i
+\item $\bar{x}$ adalah mean
+\item $n$ adalah jumlah total data
+\end{itemize}
+
+\end{enumerate}
 
 \section{Ekstraksi Fitur Teks (\textit{Text Feature Extraction})}
 \textit{Ekstraksi Fitur Teks} adalah salah satu proses pada pembelajaran mesin (\textit{machine learning)} dan data analisis yang melibatkan identifikasi dan ekstraksi fitur yang relevan dari data mentah \cite{vijayakumarFusionBasedFeature2021}. Fitur-fitur tersebut nantinya akan digunakan untuk membuat data yang lebih informatif, sehingga dapat digunakan untuk klasifikasi, prediksi, dan klasterisasi. Ekstraksi fitur bertujuan untuk mengurangi kompleksitas data (atau yang sering disebut juga \textit{Data Dimensionality}) namun tetap menyimpan sebanyak mungkin informasi yang paling relevan. Hal ini bertujuan untuk meningkatkan performa dan efisiensi algoritma pada pembelajaran mesin dan mempermudah dalam proses analisis. Ekstraksi fitur dapat melibatkan membuat fitur baru (\textit{Feature Engineering}) atau memanipulasi data yang menghasilkan fitur yang berguna.
@@ -85,7 +138,28 @@ TF-IDF mengatasi beberapa kelemahan BoW dengan mempertimbangkan pentingnya kata 
     \item \textbf{\textit{Inverse Document Frequency} (IDF): } Mengukur seberapa penting suatu kata dalam seluruh koleksi dokumen. Kata-kata yang muncul di banyak dokumen (seperti kata "yang") memiliki IDF rendah, sementara kata-kata yang jarang muncul (dan kemungkinan lebih informatif) memiliki IDF tinggi.
 \end{enumerate}
 
-Dengan mengalikan TF dan IDF, kita mendapatkan nilai TF-IDF yang mencerminkan pentingnya kata dalam dokumen dan koleksi dokumen. 
+Dengan mengalikan TF dan IDF, kita mendapatkan nilai TF-IDF yang mencerminkan pentingnya kata dalam dokumen dan koleksi dokumen. Rumus umum untuk TF-IDF sebagai berikut, 
+
+\begin{equation}
+w_{ij} = tf_{ij} \times \log \left(\frac{N}{df_i}\right)
+\end{equation}
+
+Keterangan:
+
+\begin{itemize}
+    \item $w_{ij}$ adalah bobot tf-idf untuk kata $i$ dalam dokumen $j$;
+    \item $tf_{ij}$ adalah frekuensi kemunculan kata $i$ dalam dokumen $j$ dibagi dengan total jumlah kata dalam dokumen $j$;
+    \item $N$ adalah total jumlah dokumen dalam korpus;
+    \item $df_i$ adalah jumlah dokumen dalam korpus yang mengandung kata $i$.
+\end{itemize}
+
+Sebagai contoh, misalkan kita ingin menghitung bobot TF-IDF untuk kata “\textit{British}” yang muncul 5 kali dalam sebuah dokumen yang berisi 100 kata. Dengan korpus yang berisi 4 dokumen, dimana 2 dokumen menyebutkan kata “British”, TF-IDF dapat dihitung sebagai berikut:
+
+\begin{equation}
+w_{British} = \frac{5}{100} \times \log \left(\frac{4}{2}\right) = 0.015
+\end{equation}
+
+TF-IDF meningkat seiring dengan peningkatan frekuensi kemunculan kata dalam dokumen, tetapi menurun seiring dengan peningkatan jumlah dokumen lain dalam korpus yang juga mengandung kata tersebut. Variasi dari skema pembobotan TF-IDF sering digunakan oleh mesin pencari sebagai alat utama dalam menilai dan meranking relevansi dokumen terhadap query pengguna.
 
 \subsection{Penggunaan \textit{Word Count} dan \textit{Sort} pada BoW dan TF-IDF}
 
@@ -119,7 +193,6 @@ Sebagai contoh, dalam mengelola pencadangan sistem, seorang administrator dapat 
     \label{fig:contoh-bash}
 \end{figure}
 
-\newpage
 Gambar \ref{fig:contoh-bash} menampilkan sebuah contoh potongan \textit{shell script} yang digunakan dalam penelitian ini. Berikut adalah penjelasan lebih rinci mengenai skrip tersebut,
 \begin{enumerate}
     \item \textbf{Baris 1:} Mendefinisikan interpreter Bash untuk menjalankan skrip.
@@ -127,6 +200,20 @@ Gambar \ref{fig:contoh-bash} menampilkan sebuah contoh potongan \textit{shell sc
     \item \textbf{Baris 6-7: } Mendefinisikan daftar \textit{(list)} \textit{workLoads} berisi macam-macam beban kerja, yaitu \textit{wordcount} dan \textit{sort}.
     \item \textbf{Baris 9-15: } Mendefinisikan daftar \textit{scales} berisi skala input data.
 \end{enumerate}
+
+\section{\textit{CPU Bound} dan \textit{I/O Bound}}
+
+Terdapat dua jenis beban kerja pada pemrosesan data berdasarkan karakteristik dan kebutuhan sumber daya yang berbeda, yaitu \textit{CPU-bound} dan \textit{I/O-bound}. Proses \textit{CPU-bound} (Gambar \ref{fig:cpu-bound} atas) sangat bergantung pada kemampuan pemrosesan data oleh \textit{Central Processing Unit} (CPU). Proses ini menghabiskan sebagian besar waktunya dalam menjalankan instruksi CPU dan jarang berinteraksi dengan sistem I/O (Input/Output). Sebaliknya, proses \textit{I/O-bound} (Gambar \ref{fig:cpu-bound} bawah) lebih banyak menghabiskan waktu dalam menunggu operasi I/O, seperti akses disk, jaringan, atau komunikasi peripheral. CPU dalam proses ini mungkin hanya digunakan sesaat untuk memproses data yang baru saja diperoleh dari I/O. 
+
+Proses \textit{CPU-bound} memiliki interval waktu yang panjang untuk menjalankan instruksi CPU, dan jarang melakukan operasi I/O, yang dikenal sebagai \textit{CPU bursts} yang panjang dan jarang. Sementara itu, proses \textit{I/O-bound} memiliki interval waktu yang pendek untuk menjalankan instruksi CPU, dan sering melakukan operasi I/O, sehingga memiliki \textit{CPU bursts} yang pendek dan sering. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch02/cpu-io-bound.jpg}
+    \caption{\textit{CPU-I/O Bound} \cite{baeldungGuideCpuBoundBound2021}}
+    \label{fig:cpu-bound}
+\end{figure}
+
 
 \section{MapReduce}
 MapReduce adalah model pemrograman dan implementasi teknik pemrosesan data berukuran besar yang pertama kali dipopulerkan oleh Google pada tahun 2004\cite{kaliaAnalysisHadoopMapReduce2021}. MapReduce menawarkan pemrosesan data yang dapat diandalkan serta \textit{fault-tolerant manner} (tahan terhadap kesalahan).  MapReduce berjalan secara paralel dan berada pada lingkungan komputasi terdistribusi \cite{cTaskFailureResilience2020}. Model ini mengadopsi arsitektur tersentraliasi, yaitu satu \textit{node} berperan sebagai \textit{master} dan \textit{node} yang lain berperan sebagai \textit{workers} atau \textit{slave} \cite{herodotouHadoopPerformanceModels2011, bakratsasHadoopMapReducePerformance2018}. \textit{Master node} bertanggung jawab untuk melakukan penjadwalan kerja, dan \textit{slave node} berperan untuk menjalankan eksekusi kerja. 
@@ -281,7 +368,7 @@ HiBench versi 7.1 memiliki 29 beban kerja (\textit{workload}) yang dapat diuji \
 Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang untuk menguji kemampuan \textit{raw processing power} \cite{barosenAnalysisComparisonInterfacing2018}. Dalam kategori ini, terdapat dua beban kerja populer, yaitu Sort, dan WordCount \cite{huangHiBenchBenchmarkSuitea}. Beban kerja Sort dan WordCount merepresentasikan pekerjaan MapReduce \cite{deanMapReduceSimplifiedData2004}. Beban kerja Sort akan mengurutkan setiap kata dalam berkas input. Beban kerja WordCount akan melakukan tugas pemetaan (\textit{map task}) dan mengeluarkan output (kata, 1) untuk setiap kata dalam inputnya.  Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. 
 
 \subsection{\textit{Data Generation} pada \textit{Word Count} dan \textit{Sort}}
-\textit{Data generation} merupakan tahapan krusial dalam benchmark menggunakan HiBench, khususnya untuk beban kerja \textit{Word Count} dan \textit{Sort}. Tahapan ini bertanggung jawab untuk membentuk data acak yang akan diproses oleh kedua beban kerja tersebut. Tujuannya adalah untuk mensimulasikan skenario nyata dengan input data yang bervolume besar dan beragam.
+\textit{Data generation} merupakan tahapan krusial dalam benchmark menggunakan HiBench, khususnya untuk beban kerja \textit{Word Count} dan \textit{Sort}. Tahapan ini bertanggung jawab untuk membentuk data acak yang akan diproses oleh kedua beban kerja tersebut. Tujuannya adalah untuk menyimulasikan skenario nyata dengan input data yang bervolume besar dan beragam.
 
 Pada HiBench, skrip \textit{prepare.sh} seperti pada Algoritma \ref{algo:data-gen} berperan penting dalam menyiapkan data untuk beban kerja. Skrip ini mengeksekusi program \textit{randomtextwriter} yang terdapat dalam paket Hadoop. \textit{randomtextwriter} menghasilkan sekumpulan data acak yang terdiri dari kata-kata yang diambil dari daftar kata yang telah ditentukan. Jumlah data yang dihasilkan, jumlah \textit{map}, dan jumlah \textit{reduce} dapat dikonfigurasi melalui parameter-parameter yang diberikan kepada skrip \textit{prepare.sh}.
 
@@ -311,8 +398,20 @@ show_bannar finish
 leave_bench
 \end{lstlisting}
 
+Dalam penerapannya, \textit{random text writer} akan menghitung jumlah total \textit{map task} yang diperlukan berdasarkan konfigurasi dan status kluster Hadoop. Setiap \textit{map task} akan menulis data hingga mencapai jumlah bita yang telah dikonfigurasi, menghasilkan kata acak sesuai dengan panjang yang telah ditentukan. Kata acak tersebut berasal dari kamus (\textit{dictionary}) yang sebelumnya sudah didefinisikan seperti pada Gambar \ref{fig:contoh-data}.
+
+Jika diberikan input yang pasti, misalnya 100 KB, \textit{random text writer} memungkinkan menghasilkan output dengan ukuran tersebut tanpa pemotongan kata, karena \textit{mapper} menghasilkan kata acak dalam satuan kata lengkap dan menghitung panjang kata-kata tersebut sebelum menulisnya.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/ch02/contoh-data}
+    \caption{Potongan Data pada \textit{Random Text Writer}}
+    \label{fig:contoh-data}
+\end{figure}
+
+
 \subsection{Beban Kerja \textit{Word Count}}
-\textit{Word Count} adalah algoritma sederhana untuk membaca berkas teks, dan menghitung jumlah kemunculan kata-kata pada file tersebut. Pada algoritma ini, inputnya berupa berkas teks dan outputnya berupa pasangan kata-kata dan jumlah kemunculannya. Beban kerja \textit{word count} akan menghasilkan data keluaran yang lebih kecil dari pada data input. %TODO: tambahkan penjelasan ini
+\textit{Word Count} adalah algoritma sederhana untuk membaca berkas teks, dan menghitung jumlah kemunculan kata-kata pada file tersebut. Pada algoritma ini, inputnya berupa berkas teks dan outputnya berupa pasangan kata-kata dan jumlah kemunculannya. Beban kerja \textit{word count} akan menghasilkan data keluaran yang lebih kecil dari pada data input seperti pada Gambar \ref{fig:sample-wordcount}.
 Karena itu, \textit{word count} memiliki sifat \textit{CPU Bound} yang nantinya akan ditandai dengan tingkat penggunaan CPU yang tinggi dan penggunaan I/O ringan. Selain itu, perilakunya diperkirakan akan tetap sama bahkan pada cluster yang lebih besar.
 
 \begin{figure}[h]
@@ -322,22 +421,11 @@ Karena itu, \textit{word count} memiliki sifat \textit{CPU Bound} yang nantinya 
     \label{fig:sample-wordcount}
 \end{figure}
 
-\subsection{Beban Kerja \textit{Sort}}
-\textit{Sort} adalah algoritma yang umum digunakan untuk mengurutkan data berdasarkan kriteria tertentu. Algoritma ini menerima data dalam bentuk acak sebagai input, dan menghasilkan data yang terurut sebagai output. Data input dan output memiliki ukuran yang sama, sehingga beban kerja sort tidak menghasilkan pengurangan data.
-Kompleksitas algoritma \textit{sort} bervariasi, tetapi umumnya membutuhkan perbandingan dan pertukaran elemen data yang intensif. Oleh karena itu, beban kerja \textit{sort} cenderung bersifat I/O \textit{bound}, dengan pemanfaatan CPU yang rendah dan penggunaan I/O yang tinggi. 
+Implementasi MapReduce pada \textit{Word Count}\cite{KOMPARASIKECEPATANHADOOP} dapat dilihat pada Gambar \ref{fig:mapreduce-wordcount}. Pada proses MapReduce, data masukan akan melalui beberapa tahapan pemrosesan. Pertama, data akan dipecah menjadi bagian-bagian yang lebih kecil pada proses pemecahan data masukan (\textit{splitting}). Dalam kasus Hadoop MapReduce, data idealnya akan dipecah menjadi beberapa blok berukuran maksimal 128MB.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch02/sample-sort}
-    \caption{Contoh Input dan Output \textit{Sort}}
-    \label{fig:sample-sort}
-\end{figure}
-
-Implementasi MapReduce pada \textit{Word Count}\cite{KOMPARASIKECEPATANHADOOP} dapat dilihat pada Gambar \ref{fig:mapreduce-wordcount}. Pada proses MapReduce, data masukan akan melalui beberapa tahapan pemrosesan. Pertama, data akan dipecah menjadi bagian-bagian yang lebih kecil pada proses pemecahan data masukan (\textit{splitting}). Dalam kasus Hadoop MapReduce, data idealnya akan dipecah menjadi beberapa blok berukuran maksimal 128MB.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch02/map-reduce-word-count-oreilly.png}
+    \includegraphics[width=0.85\textwidth]{figures/ch02/map-reduce-word-count-oreilly.png}
     \caption{Implementasi MapReduce pada Word Count \cite{MapReduceDistributedComputing}}
     \label{fig:mapreduce-wordcount}
 \end{figure}
@@ -347,6 +435,17 @@ Kemudian, blok data tersebut akan diproses lebih lanjut pada tahap pemetaan (\te
 Selanjutnya adalah tahap pengocokan (\textit{shuffling}) di mana pasangan kunci-nilai hasil pemetaan yang tersebar di beberapa mesin akan dikumpulkan berdasarkan kesamaan kuncinya agar bisa diproses lebih lanjut. Misalnya semua pasangan dengan kunci \textit{Bear} dikumpulkan dalam satu mesin.
 
 Pada tahap terakhir yaitu pengurangan (\textit{reducing}), dilakukan agregasi terhadap pasangan kunci-nilai dengan kunci yang sama untuk menghasilkan keluaran akhir. Seperti pada contoh kasus \textit{wordcount}, pasangan \textit{Bear:1} dan \textit{Bear:1} akan dijumlahkan menjadi \textit{Bear:2} oleh proses pengurangan.
+
+\subsection{Beban Kerja \textit{Sort}}
+\textit{Sort} adalah algoritma yang umum digunakan untuk mengurutkan data berdasarkan kriteria tertentu. Algoritma ini menerima data dalam bentuk acak sebagai input, dan menghasilkan data yang terurut sebagai output seperti pada Gambar \ref{fig:sample-sort}. Data input dan output memiliki ukuran yang sama, sehingga beban kerja sort tidak menghasilkan pengurangan data.
+Kompleksitas algoritma \textit{sort} bervariasi, tetapi umumnya membutuhkan perbandingan dan pertukaran elemen data yang intensif. Oleh karena itu, beban kerja \textit{sort} cenderung bersifat I/O \textit{bound}, dengan pemanfaatan CPU yang rendah dan penggunaan I/O yang tinggi. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch02/sample-sort}
+    \caption{Contoh Input dan Output \textit{Sort}}
+    \label{fig:sample-sort}
+\end{figure}
 
 %\subsection{Word Count - Hadoop}
 %\begin{algorithm}[H]
@@ -461,20 +560,39 @@ Pada tahap terakhir yaitu pengurangan (\textit{reducing}), dilakukan agregasi te
 \section{Data Keluaran HiBench dan Dool}
 Diagram pada Gambar \ref{fig:output-hibench-dool} mengilustrasikan data keluaran dari dua alat, yaitu HiBench dan Dool, yang digunakan untuk mengevaluasi kinerja sistem. HiBench berfokus pada pengukuran kinerja keseluruhan dari suatu beban kerja (\textit{benchmark}), sementara Dool memberikan pemantauan sistem yang terperinci secara \textit{real-time}.
 
+\subsection{HiBench \textit{Report}}
 HiBench menghasilkan laporan yang mencakup dua metrik utama, yaitu
 \begin{enumerate}
-	\item \textbf{Waktu Eksekusi (\textit{Execution Time})}: Menunjukkan total waktu yang dibutuhkan untuk menjalankan beban kerja (\textit{benchmark}) dari awal hingga akhir, diukur dalam detik.
-	\item \textbf{\textit{Throughput}}: Mengukur jumlah data yang diproses per satuan waktu, biasanya dalam bita (\textit{byte}) per detik. Metrik ini mencerminkan efisiensi sistem dalam menangani beban kerja.
+	\item \textbf{Waktu Eksekusi (\textit{Execution Time})}: Menunjukkan total waktu yang dibutuhkan untuk menjalankan beban kerja (\textit{benchmark}) dari awal hingga akhir, diukur dalam detik. Nilai detik didapatkan dari \textit{timestamp} awal beban kerja dijalankan, dikurangkan dengan \textit{timestamp} akhir beban kerja.
+	\item \textbf{\textit{Throughput}}: Mengukur jumlah data yang diproses per satuan waktu, biasanya dalam bita (\textit{byte}) per detik. Metrik ini mencerminkan efisiensi sistem dalam menangani beban kerja. Ilustrasi \textit{Throughput} terlihat seperti pada Gambar \ref{fig:ilustrasi-throughput}
 \end{enumerate}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ch02/ilustrasi-lalu-lintas-jaringan.png}
+    \caption{Ilustrasi \textit{Throughput} \cite{PenjelasanApaItu2023}}
+    \label{fig:ilustrasi-throughput}
+\end{figure}
+
+
+
+\subsection{Dool: \textit{System Monitoring}}
 Dool menyediakan pemantauan sistem yang mendetail dan diperbarui setiap detik. Data keluaran Dool meliputi berbagai aspek kinerja sistem, antara lain:
 \begin{enumerate}
-	\item \textbf{\textit{Time}}: Timestamp yang menunjukkan waktu pengambilan data.
+	\item \textbf{\textit{Time}}: \textit{Timestamp} yang menunjukkan waktu pengambilan data.
 	\item \textbf{\textit{Date}}: Tanggal pengambilan 
 	\item \textbf{\textit{Type}}: Jenis pengukuran yang dilakukan, misalnya CPU, memori, disk, atau jaringan. 
 	\item \textbf{io/total}: Total aktivitas input/output (I/O) pada \textit{disk}, diukur dalam jumlah operasi I/O per 
-	\item \textbf{total cpu usage}: Persentase penggunaan CPU secara keseluruhan.
+	\item \textbf{total cpu usage}: Persentase penggunaan CPU secara keseluruhan. 
+		\begin{enumerate}
+		\item \textbf{cpu/user}: Persentase waktu CPU yang digunakan oleh proses-proses di ruang pengguna (\textit{user space}). Ini mencerminkan aktivitas dari aplikasi-aplikasi dan proses-proses yang dijalankan oleh pengguna.
+		\item \textbf{cpu/wait}: Persentase waktu CPU yang dihabiskan untuk menunggu operasi I/O selesai. Angka yang tinggi pada metrik ini bisa menunjukkan adanya \textit{bottleneck} pada disk atau jaringan yang menyebabkan CPU harus menunggu data tersedia.
+		\end{enumerate}
 	\item \textbf{dsk/total}: Total aktivitas \textit{disk}, mencakup baca dan tulis, diukur dalam bita per detik.
+		\begin{enumerate}
+		\item \textbf{disk/read}: Jumlah data yang dibaca dari disk, diukur dalam bita per detik. Metrik ini penting untuk mengidentifikasi seberapa banyak beban pembacaan yang diterima oleh sistem penyimpanan.
+		\item \textbf{disk/write}: Jumlah data yang ditulis ke disk, diukur dalam bita per detik. Metrik ini menunjukkan seberapa banyak data yang sedang ditulis ke penyimpanan, yang bisa mempengaruhi kinerja sistem jika terlalu tinggi.
+		\end{enumerate}
 	\item \textbf{\textit{memory usage}}: Jumlah memori yang sedang digunakan oleh sistem.
 	\item \textbf{net/total}: Total aktivitas jaringan, mencakup data yang dikirim dan diterima, diukur dalam bita per detik.
 \end{enumerate}
@@ -483,7 +601,7 @@ Akhirnya, HiBench memberikan gambaran umum tentang efisiensi sistem dalam menang
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/ch02/output-hibench-dool.png}
+    \includegraphics[width=0.9\textwidth]{figures/ch02/output-hibench-dool.png}
     \caption{Data Keluaran HiBench dan Dool}
     \label{fig:output-hibench-dool}
 \end{figure}
