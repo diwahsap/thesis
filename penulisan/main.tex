@@ -55,17 +55,16 @@
 \cleardoublepage
 
 % Daftar Isi
-\newpage
 \addcontentsline{toc}{chapter}{DAFTAR ISI}
 \tableofcontents
 
 % Daftar Gambar
-\newpage
+\phantomsection%<---
 \addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
 \listoffigures
 
 % Daftar Tabel
-\newpage
+\phantomsection%<---
 \addcontentsline{toc}{chapter}{DAFTAR TABEL}
 \listoftables
 
@@ -96,12 +95,15 @@
 \include{bab/5-penutup.tex}
 
 % Daftar Pustaka
+\phantomsection%<---
 \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
 \sloppy
 \printbibliography
 
 % Halaman lampiran di tengah
 \newpage
+\phantomsection%<---
+\addcontentsline{toc}{chapter}{LAMPIRAN}
 \input{lainnya/lampiran-di-tengah.tex}
 
 % Lampiran

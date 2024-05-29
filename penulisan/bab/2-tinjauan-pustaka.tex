@@ -259,7 +259,7 @@ Hadoop dapat dijalankan dalam tiga mode operasi yang berbeda yaitu \textit{stand
     \label{fig:hdfs-arch}
 \end{figure}
 
-Secara struktur, HDFS terdiri dari NameNode sebagai \textit{node master} yang mengelola \textit{metadata} dan \textit{namespace}, serta DataNode sebagai \textit{node slave} yang bertugas menyimpan data sebenarnya dalam bentuk blok seperti pada Gambar \ref{fig:hdfs-arch}. Berkas di HDFS dipartisi menjadi satu atau lebih blok berukuran 64MB atau 128MB, kemudian didistribusikan dan disimpan di beberapa DataNode. Setiap blok direplikasi (biasanya 3x) di DataNode yang berbeda untuk toleransi kesalahan. Replikasi blok di \textit{node/rack} yang berbeda juga meningkatkan ketersediaan HDFS.
+Secara struktur, HDFS terdiri dari NameNode sebagai \textit{node master} yang mengelola \textit{metadata} dan \textit{namespace}, serta DataNode sebagai \textit{node slave} yang bertugas menyimpan data sebenarnya dalam bentuk blok seperti pada Gambar \ref{fig:hdfs-arch}. Berkas di HDFS dipartisi menjadi satu atau lebih blok berukuran 64MB atau 128MB, kemudian didistribusikan dan disimpan di beberapa DataNode. Setiap blok direplikasi di DataNode yang berbeda untuk toleransi kesalahan. Replikasi blok di \textit{node/rack} yang berbeda juga meningkatkan ketersediaan HDFS.
 
 Dengan desain terdistribusi, HDFS sangat populer digunakan bersama framework Hadoop untuk memproses \textit{big data} \cite{almansouriHadoopDistributedFile2019}. Namun, ketergantungan pada \textit{single} NameNode dan performa akses data acak yang kurang optimal menjadi kelemahan utama HDFS. Secara keseluruhan, HDFS telah terbukti menjadi pilihan matang untuk penyimpanan data massal secara terdistribusi.
 
@@ -352,7 +352,7 @@ HiBench memudahkan dalam eksekusi pengukuran berbagai beban kerja karena HiBench
 \end{figure}
 
 HiBench terdiri dari 3 proses utama. Proses pertama, pengguna melakukan konfigurasi parameter \textit{Data Generation}. Selanjutnya, \textit{Data Generation} akan melakukan pembentukan data yang nantinya akan disimpan pada \textit{Distributed File System} (DFS). Data ini yang akan digunakan pada proses selanjutnya. Proses kedua adalah proses eksekusi. Pengguna akan memicu salah satu beban kerja pada HiBench. Selanjutnya, HiBench akan memberi perintah kepada perangkat lunak (Hadoop/Spark) untuk menjalankan beban kerja tersebut. Setiap melakukan pengukuran, data yang digunakan adalah data dari \textit{Distributed File System} yang sebelumnya sudah dibentuk. Hasil dari eksekusi ini akan disimpan kembali di DFS. Proses terakhir adalah proses pembentukan laporan. Hasil dari proses sebelumnya akan diambil serta akan dibuatkan laporan secara otomatis.
-Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Metriks ini dihitung dalam skala detik. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam \textit{byte}/detik.
+Dalam laporan otomatis yang diberikan oleh HiBench, terdapat beberapa metriks yang tersedia, meliputi \textit{Execution Time} dan \textit{Throughput}. \textit{Execution Time} memiliki makna seberapa lama suatu kejadian berlangsung. Waktu yang dihitung adalah waktu diantara waktu awal dan waktu terakhir kejadian. Selanjutnya, \textit{Throughput} menghitung berapa banyak unit informasi yang dapat diproses oleh sistem dalam waktu tertentu. Metriks ini dinyatakan dalam \textit{byte}/detik.
 
 
 \subsection{Beban Kerja \textit{Micro Benchmark} dan Sumber Data}
@@ -365,12 +365,12 @@ HiBench versi 7.1 memiliki 29 beban kerja (\textit{workload}) yang dapat diuji \
   \label{table:workload-list-hibench}
 \end{table}
 
-Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang untuk menguji kemampuan \textit{raw processing power} \cite{barosenAnalysisComparisonInterfacing2018}. Dalam kategori ini, terdapat dua beban kerja populer, yaitu Sort, dan WordCount \cite{huangHiBenchBenchmarkSuitea}. Beban kerja Sort dan WordCount merepresentasikan pekerjaan MapReduce \cite{deanMapReduceSimplifiedData2004}. Beban kerja Sort akan mengurutkan setiap kata dalam berkas input. Beban kerja WordCount akan melakukan tugas pemetaan (\textit{map task}) dan mengeluarkan output (kata, 1) untuk setiap kata dalam inputnya.  Data masukan untuk beban kerja Sort dan WordCount dihasilkan menggunakan program RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. 
+Beban kerja \textit{micro benchmarks} merupakan kategori khusus yang dirancang untuk menguji kemampuan \textit{raw processing power} \cite{barosenAnalysisComparisonInterfacing2018}. Dalam kategori ini, terdapat dua beban kerja populer, yaitu \textit{Sort}, dan \textit{Word Count} \cite{huangHiBenchBenchmarkSuitea}. Beban kerja \textit{Sort} dan \textit{Word Count} merepresentasikan pekerjaan MapReduce \cite{deanMapReduceSimplifiedData2004}. Beban kerja \textit{Sort} akan mengurutkan setiap kata dalam berkas input. Beban kerja \textit{Word Count} akan melakukan tugas pemetaan (\textit{map task}) dan mengeluarkan output (kata, 1) untuk setiap kata dalam inputnya.  Data masukan untuk beban kerja \textit{Sort} dan \textit{Word Count} dihasilkan menggunakan program RandomTextWriter yang nantinya akan dibuat melalui proses \textit{Data Generation}. 
 
 \subsection{\textit{Data Generation} pada \textit{Word Count} dan \textit{Sort}}
 \textit{Data generation} merupakan tahapan krusial dalam benchmark menggunakan HiBench, khususnya untuk beban kerja \textit{Word Count} dan \textit{Sort}. Tahapan ini bertanggung jawab untuk membentuk data acak yang akan diproses oleh kedua beban kerja tersebut. Tujuannya adalah untuk menyimulasikan skenario nyata dengan input data yang bervolume besar dan beragam.
 
-Pada HiBench, skrip \textit{prepare.sh} seperti pada Algoritma \ref{algo:data-gen} berperan penting dalam menyiapkan data untuk beban kerja. Skrip ini mengeksekusi program \textit{randomtextwriter} yang terdapat dalam paket Hadoop. \textit{randomtextwriter} menghasilkan sekumpulan data acak yang terdiri dari kata-kata yang diambil dari daftar kata yang telah ditentukan. Jumlah data yang dihasilkan, jumlah \textit{map}, dan jumlah \textit{reduce} dapat dikonfigurasi melalui parameter-parameter yang diberikan kepada skrip \textit{prepare.sh}.
+Pada HiBench, skrip \textit{prepare.sh} seperti pada Algoritma \ref{algo:data-gen} berperan penting dalam menyiapkan data untuk beban kerja. Skrip ini mengeksekusi program RandomTextWriter yang terdapat dalam paket Hadoop. RandomTextWriter menghasilkan sekumpulan data acak yang terdiri dari kata-kata yang diambil dari daftar kata yang telah ditentukan. Jumlah data yang dihasilkan, jumlah \textit{map}, dan jumlah \textit{reduce} dapat dikonfigurasi melalui parameter-parameter yang diberikan kepada skrip \textit{prepare.sh}.
 
 \begin{lstlisting}[language=bash, caption=Skrip yang Digunakan HiBench pada Tahap \textit{Data Generation}, label=algo:data-gen]
 #!/bin/bash
@@ -398,14 +398,14 @@ show_bannar finish
 leave_bench
 \end{lstlisting}
 
-Dalam penerapannya, \textit{random text writer} akan menghitung jumlah total \textit{map task} yang diperlukan berdasarkan konfigurasi dan status kluster Hadoop. Setiap \textit{map task} akan menulis data hingga mencapai jumlah bita yang telah dikonfigurasi, menghasilkan kata acak sesuai dengan panjang yang telah ditentukan. Kata acak tersebut berasal dari kamus (\textit{dictionary}) yang sebelumnya sudah didefinisikan seperti pada Gambar \ref{fig:contoh-data}.
+Dalam penerapannya, RandomTextWriter akan menghitung jumlah total \textit{map task} yang diperlukan berdasarkan konfigurasi dan status kluster Hadoop. Setiap \textit{map task} akan menulis data hingga mencapai jumlah bita yang telah dikonfigurasi, menghasilkan kata acak sesuai dengan panjang yang telah ditentukan. Kata acak tersebut berasal dari kamus (\textit{dictionary}) yang sebelumnya sudah didefinisikan seperti pada Gambar \ref{fig:contoh-data}.
 
-Jika diberikan input yang pasti, misalnya 100 KB, \textit{random text writer} memungkinkan menghasilkan output dengan ukuran tersebut tanpa pemotongan kata, karena \textit{mapper} menghasilkan kata acak dalam satuan kata lengkap dan menghitung panjang kata-kata tersebut sebelum menulisnya.
+Jika diberikan input yang pasti, misalnya 100 KB, RandomTextWriter memungkinkan menghasilkan keluaran dengan ukuran tersebut tanpa pemotongan kata, karena \textit{mapper} menghasilkan kata acak dalam satuan kata lengkap dan menghitung panjang kata-kata tersebut sebelum menulisnya.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.85\textwidth]{figures/ch02/contoh-data}
-    \caption{Potongan Data pada \textit{Random Text Writer}}
+    \caption{Contoh Kata pada \textit{Random Text Writer}}
     \label{fig:contoh-data}
 \end{figure}
 
@@ -563,7 +563,7 @@ Diagram pada Gambar \ref{fig:output-hibench-dool} mengilustrasikan data keluaran
 \subsection{HiBench \textit{Report}}
 HiBench menghasilkan laporan yang mencakup dua metrik utama, yaitu
 \begin{enumerate}
-	\item \textbf{Waktu Eksekusi (\textit{Execution Time})}: Menunjukkan total waktu yang dibutuhkan untuk menjalankan beban kerja (\textit{benchmark}) dari awal hingga akhir, diukur dalam detik. Nilai detik didapatkan dari \textit{timestamp} awal beban kerja dijalankan, dikurangkan dengan \textit{timestamp} akhir beban kerja.
+	\item \textbf{Waktu Eksekusi (\textit{Execution Time})}: Waktu eksekusi suatu proses dapat dihitung dengan mengambil perbedaan antara waktu akhir dan waktu awal dari proses tersebut dalam format \textit{timestamp}. \textit{Timestamp} yang digunakan adalah dalam bentuk \textit{Unix time}, yaitu representasi waktu sebagai jumlah detik yang telah berlalu sejak 1 Januari 1970 UTC. Untuk mendapatkan waktu eksekusi, pertama-tama catat waktu awal proses menggunakan \textit{timestamp Unix}. Setelah proses selesai, catat waktu akhirnya dengan cara yang sama. Selanjutnya, kurangi waktu awal dari waktu akhir untuk memperoleh durasi eksekusi dalam satuan detik.
 	\item \textbf{\textit{Throughput}}: Mengukur jumlah data yang diproses per satuan waktu, biasanya dalam bita (\textit{byte}) per detik. Metrik ini mencerminkan efisiensi sistem dalam menangani beban kerja. Ilustrasi \textit{Throughput} terlihat seperti pada Gambar \ref{fig:ilustrasi-throughput}
 \end{enumerate}
 
@@ -583,15 +583,15 @@ Dool menyediakan pemantauan sistem yang mendetail dan diperbarui setiap detik. D
 	\item \textbf{\textit{Date}}: Tanggal pengambilan 
 	\item \textbf{\textit{Type}}: Jenis pengukuran yang dilakukan, misalnya CPU, memori, disk, atau jaringan. 
 	\item \textbf{io/total}: Total aktivitas input/output (I/O) pada \textit{disk}, diukur dalam jumlah operasi I/O per 
-	\item \textbf{total cpu usage}: Persentase penggunaan CPU secara keseluruhan. 
+	\item \textbf{\textit{total cpu usage}}: Persentase penggunaan CPU secara keseluruhan. 
 		\begin{enumerate}
-		\item \textbf{cpu/user}: Persentase waktu CPU yang digunakan oleh proses-proses di ruang pengguna (\textit{user space}). Ini mencerminkan aktivitas dari aplikasi-aplikasi dan proses-proses yang dijalankan oleh pengguna.
-		\item \textbf{cpu/wait}: Persentase waktu CPU yang dihabiskan untuk menunggu operasi I/O selesai. Angka yang tinggi pada metrik ini bisa menunjukkan adanya \textit{bottleneck} pada disk atau jaringan yang menyebabkan CPU harus menunggu data tersedia.
+		\item \textbf{\textit{cpu/user}}: Persentase waktu CPU yang digunakan oleh proses-proses di ruang pengguna (\textit{user space}). Ini mencerminkan aktivitas dari aplikasi-aplikasi dan proses-proses yang dijalankan oleh pengguna.
+		\item \textbf{\textit{cpu/wait}}: Persentase waktu CPU yang dihabiskan untuk menunggu operasi I/O selesai. Angka yang tinggi pada metrik ini bisa menunjukkan adanya \textit{bottleneck} pada disk atau jaringan yang menyebabkan CPU harus menunggu data tersedia.
 		\end{enumerate}
-	\item \textbf{dsk/total}: Total aktivitas \textit{disk}, mencakup baca dan tulis, diukur dalam bita per detik.
+	\item \textbf{\textit{disk/total}}: Total aktivitas \textit{disk}, mencakup baca dan tulis, diukur dalam bita per detik.
 		\begin{enumerate}
-		\item \textbf{disk/read}: Jumlah data yang dibaca dari disk, diukur dalam bita per detik. Metrik ini penting untuk mengidentifikasi seberapa banyak beban pembacaan yang diterima oleh sistem penyimpanan.
-		\item \textbf{disk/write}: Jumlah data yang ditulis ke disk, diukur dalam bita per detik. Metrik ini menunjukkan seberapa banyak data yang sedang ditulis ke penyimpanan, yang bisa mempengaruhi kinerja sistem jika terlalu tinggi.
+		\item \textbf{\textit{disk/read}}: Jumlah data yang dibaca dari disk, diukur dalam bita per detik. Metrik ini penting untuk mengidentifikasi seberapa banyak beban pembacaan yang diterima oleh sistem penyimpanan.
+		\item \textbf{\textit{disk/write}}: Jumlah data yang ditulis ke disk, diukur dalam bita per detik. Metrik ini menunjukkan seberapa banyak data yang sedang ditulis ke penyimpanan, yang bisa mempengaruhi kinerja sistem jika terlalu tinggi.
 		\end{enumerate}
 	\item \textbf{\textit{memory usage}}: Jumlah memori yang sedang digunakan oleh sistem.
 	\item \textbf{net/total}: Total aktivitas jaringan, mencakup data yang dikirim dan diterima, diukur dalam bita per detik.

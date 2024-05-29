@@ -105,7 +105,7 @@ Setiap pengujian akan menghasilkan berkas output berupa data HiBench \textit{Rep
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/ch04/data-hibench}
+    \includegraphics[width=1\textwidth]{figures/ch04/data-hibench}
     \caption{Data HiBench \textit{Report}}
     \label{fig:data-hibench-report}
 \end{figure}
@@ -144,9 +144,9 @@ Gambar \ref{fig:lama-waktu-eksekusi-sort} dan Gambar \ref{fig:lama-waktu-eksekus
     \label{fig:lama-waktu-eksekusi-sort}
 \end{figure}
 
-Pada Gambar \ref{fig:lama-waktu-eksekusi-sort}, terlihat bahwa waktu eksekusi Hadoop untuk input data 100 KB hingga 1 GB secara konsisten lebih cepat dibandingkan Spark. Hadoop berada pada rentang waktu 20-40 detik, sedangkan Spark berada pada rentang waktu 35-45 detik.
+Pada Gambar \ref{fig:lama-waktu-eksekusi-sort}, terlihat bahwa waktu eksekusi Hadoop untuk input data 100 KB hingga 1 GB secara konsisten lebih cepat dibandingkan Spark. Hadoop berada pada rentang waktu 20 hingga 40 detik, sedangkan Spark berada pada rentang waktu 35 hingga 45 detik.
 
-Namun, untuk input data sebesar 5 GB, Spark menunjukkan waktu eksekusi yang lebih cepat dibandingkan Hadoop. Spark berada pada rentang 80-100 detik, sementara Hadoop berada pada rentang 110-125 detik. Perbedaan performa ini semakin signifikan seiring bertambahnya ukuran data, terutama pada ukuran data 10 GB dan 15 GB. Perbedaan waktu eksekusi antara Hadoop dan Spark semakin jauh pada beban kerja \textit{sort} dengan ukuran data yang lebih besar.
+Namun, untuk input data sebesar 5 GB, Spark menunjukkan waktu eksekusi yang lebih cepat dibandingkan Hadoop. Spark berada pada rentang 80 hingga 100 detik, sementara Hadoop berada pada rentang 110 hingga 125 detik. Perbedaan performa ini semakin signifikan seiring bertambahnya ukuran data, terutama pada ukuran data 10 GB dan 15 GB. Perbedaan waktu eksekusi antara Hadoop dan Spark semakin jauh pada beban kerja \textit{sort} dengan ukuran data yang lebih besar.
 
 Tabel \ref{table:4-sort-dur-table} menunjukkan data yang lebih rinci mengenai durasi waktu eksekusi \textit{sort} untuk Hadoop dan Spark. Berdasarkan tabel tersebut, terlihat bahwa untuk ukuran input data yang kecil hingga menengah, Hadoop relatif lebih cepat daripada Spark. Namun, seiring bertambahnya ukuran input data, Spark menunjukkan performa yang lebih baik dengan waktu eksekusi yang lebih singkat.
 
@@ -167,16 +167,16 @@ Perbedaan kinerja ini dapat dilihat dari kolom "Waktu Eksekusi (maks)" dan "Wakt
 \end{figure}
 
 \newpage
-Pada Gambar \ref{fig:lama-waktu-eksekusi-wordcount}, Spark menunjukkan performa yang lebih baik dibandingkan Hadoop untuk ukuran input data 500 MB, 1 GB, 5 GB, 10 GB, dan 15 GB pada beban kerja \textit{word count}. Namun, untuk ukuran input data 100 KB hingga 100 MB, Hadoop masih lebih unggul. Waktu eksekusi Hadoop untuk input data 100 KB hingga 100 MB berada pada rentang 20-40 detik, meskipun perbedaannya tidak signifikan dibandingkan Spark karena titik data Hadoop dan Spark saling berdekatan.
+Pada Gambar \ref{fig:lama-waktu-eksekusi-wordcount}, Spark menunjukkan performa yang lebih baik dibandingkan Hadoop untuk ukuran input data 500 MB, 1 GB, 5 GB, 10 GB, dan 15 GB pada beban kerja \textit{word count}. Namun, untuk ukuran input data 100 KB hingga 100 MB, Hadoop masih lebih unggul. Waktu eksekusi Hadoop untuk input data 100 KB hingga 100 MB berada pada rentang 20 hingga 40 detik, meskipun perbedaannya tidak signifikan dibandingkan Spark karena titik data Hadoop dan Spark saling berdekatan.
 
 \begin{table}[h]
   \centering
   \caption{Statistika Deskriptif Lama Waktu Eksekusi (\textit{Word Count})}
-  \includegraphics[width=0.75\textwidth]{figures/ch04/4-wc-dur-table}
+  \includegraphics[width=0.8\textwidth]{figures/ch04/4-wc-dur-table}
   \label{table:4-wc-dur-table}
 \end{table}
 
-Tabel \ref{table:4-wc-dur-table} menunjukkan data yang lebih rinci mengenai durasi waktu eksekusi \textit{word count} untuk Hadoop dan Spark. Berdasarkan tabel tersebut, terlihat bahwa Hadoop lebih cepat daripada Spark untuk ukuran input data yang kecil hingga menengah yaitu pada 100 KB-100 MB, tetapi Spark lebih cepat untuk ukuran input data yang besar.
+Tabel \ref{table:4-wc-dur-table} menunjukkan data yang lebih rinci mengenai durasi waktu eksekusi \textit{word count} untuk Hadoop dan Spark. Berdasarkan tabel tersebut, terlihat bahwa Hadoop lebih cepat daripada Spark untuk ukuran input data yang kecil hingga menengah yaitu pada 100 KB hingga 100 MB, tetapi Spark lebih cepat untuk ukuran input data yang besar.
 
 Perbedaan kinerja ini dapat dilihat dari kolom "Waktu Eksekusi (maks)" dan "Waktu Eksekusi (min)". Misalnya, untuk input data 100 KB, Hadoop memiliki waktu eksekusi maksimum 28.186 detik, sedangkan Spark memiliki waktu eksekusi maksimum 35.764 detik. Hal ini menunjukkan bahwa Hadoop lebih stabil dengan waktu eksekusi yang lebih konsisten, namun secara rata-rata Spark lebih cepat. Namun, ketika input data mencapai 10 GB, waktu eksekusi maksimum Hadoop mencapai 557.603 detik, sementara Spark hanya mencapai 100.229 detik. Perbedaan yang signifikan ini menunjukkan bahwa Spark mampu menangani input data yang besar dengan lebih efisien dibandingkan Hadoop. Hal ini juga dapat dilihat dari kolom "Standar Deviasi" yang menunjukkan bahwa waktu eksekusi Spark lebih stabil daripada Hadoop untuk ukuran input data yang besar.
 
@@ -198,7 +198,7 @@ Gambar di bawah akan menyajikan \textit{scatter plot} yang membandingkan \textit
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{figures/ch04/1-throughput-sort.png}
-    \caption{\textit{Throughput Sort} (Hadoop, Spark)}
+    \caption{Persebaran \textit{Throughput Sort} (Hadoop, Spark)}
     \label{fig:throughput-sort}
 \end{figure}
 
@@ -207,31 +207,31 @@ Pada tugas \textit{sort} (Gambar \ref{fig:throughput-sort}), Spark menunjukkan p
 \begin{table}[h]
   \centering
   \caption{Statistika Deskriptif \textit{Throughput} (\textit{Sort})}
-  \includegraphics[width=0.75\textwidth]{figures/ch04/4-sort-th-table}
+  \includegraphics[width=0.8\textwidth]{figures/ch04/4-sort-th-table}
   \label{table:4-sort-th-table}
 \end{table}
 
 Tabel \ref{table:4-sort-th-table} menunjukkan data yang lebih rinci mengenai \textit{throughput} \textit{sort} untuk Hadoop dan Spark. Berdasarkan tabel tersebut, terlihat bahwa Hadoop memiliki \textit{throughput} yang lebih rendah dibandingkan Spark, terutama pada ukuran data yang lebih besar.
-Perbedaan kinerja ini dapat dilihat dari kolom "Throughput (maks)" dan "Throughput (min)". Misalnya, untuk input data 100 KB, Hadoop memiliki \textit{throughput} maksimum 0.00403214 MB/s, sedangkan Spark memiliki \textit{throughput} maksimum 0.00286674 MB/s. Hal ini menunjukkan bahwa Hadoop lebih stabil dengan \textit{throughput} yang lebih konsisten, namun secara rata-rata Spark lebih cepat. Namun, ketika input data mencapai 10 GB, \textit{throughput} maksimum Hadoop mencapai 42.2594395 MB/s, sementara Spark mencapai 69.3276262 MB/s. Perbedaan yang signifikan ini menunjukkan bahwa Spark mampu menangani input data yang besar dengan lebih efisien dibandingkan Hadoop. Hal ini juga dapat dilihat dari kolom "Standar Deviasi" yang menunjukkan bahwa \textit{throughput} Spark lebih stabil daripada Hadoop untuk ukuran input data yang besar.
+Perbedaan kinerja ini dapat dilihat dari kolom "Throughput (maks)" dan "Throughput (min)". Misalnya, untuk input data 100 KB, Hadoop memiliki \textit{throughput} maksimum 0.00403214 MB/s, sedangkan Spark memiliki \textit{throughput} maksimum 0.00286674 MB/s. Ketika input data mencapai 10 GB, \textit{throughput} maksimum Hadoop mencapai 42.2594395 MB/s, sementara Spark mencapai 69.3276262 MB/s. Perbedaan ini menunjukkan bahwa Spark mampu menangani input data yang besar dengan lebih efisien dibandingkan Hadoop. Hal ini juga dapat dilihat dari kolom "Standar Deviasi" yang menunjukkan bahwa \textit{throughput} Spark cenderung lebih stabil daripada Hadoop.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=1\textwidth]{figures/ch04/1-throughput-wordcount.png}
-    \caption{\textit{Throughput Word Count} (Hadoop, Spark)}
+    \caption{Persebaran \textit{Throughput Word Count} (Hadoop, Spark)}
     \label{fig:throughput-wordcount}
 \end{figure}
 
-Pada beban kerja \textit{word count} (Gambar \ref{fig:throughput-wordcount}), Spark mencapai \textit{throughput} yang lebih tinggi daripada Hadoop. Perbedaan \textit{throughput} paling mencolok terlihat pada ukuran data terbesar (15 GB), di mana Spark mencapai \textit{throughput} lebih dari 120 MB/s, sedangkan Hadoop hanya mencapai sekitar 20 MB/s. Meskipun Spark menunjukkan peningkatan \textit{throughput} yang signifikan pada ukuran data besar (1 GB, 5 GB, 10 GB, dan 15 GB), pada data input yang lebih kecil, 100 KB sampai 100 MB, perbedaan \textit{throughput} antara Hadoop dan Spark tidak berbeda jauh untuk \textit{word count}.
+Pada beban kerja \textit{word count} (Gambar \ref{fig:throughput-wordcount}), Spark mencapai \textit{throughput} yang lebih tinggi daripada Hadoop. Perbedaan \textit{throughput} paling mencolok terlihat pada ukuran data terbesar (15 GB), dimana Spark mencapai \textit{throughput} lebih dari 120 MB/s, sedangkan Hadoop hanya mencapai sekitar 20 MB/s. Meskipun Spark menunjukkan peningkatan \textit{throughput} yang signifikan pada ukuran data besar (1 GB, 5 GB, 10 GB, dan 15 GB), pada data input yang lebih kecil, 100 KB sampai 100 MB, perbedaan \textit{throughput} antara Hadoop dan Spark tidak berbeda jauh untuk \textit{word count}.
 
 \begin{table}[h]
   \centering
   \caption{Statistika Deskriptif \textit{Throughput} (\textit{Word Count})}
-  \includegraphics[width=0.75\textwidth]{figures/ch04/4-wc-th-table}
+  \includegraphics[width=0.8\textwidth]{figures/ch04/4-wc-th-table}
   \label{table:4-wc-th-table}
 \end{table}
 
 Tabel \ref{table:4-wc-th-table} menunjukkan data yang lebih rinci mengenai \textit{throughput} \textit{word count} untuk Hadoop dan Spark. Berdasarkan tabel tersebut, terlihat bahwa Hadoop memiliki \textit{throughput} yang lebih rendah dibandingkan Spark, terutama pada ukuran data yang lebih besar.
-Perbedaan kinerja ini dapat dilihat dari kolom "Throughput (maks)" dan "Throughput (min)". Misalnya, untuk input data 100 KB, Hadoop memiliki \textit{throughput} maksimum 0.00384808 MB/s, sedangkan Spark memiliki \textit{throughput} maksimum 0.00286102 MB/s. Hal ini menunjukkan bahwa Hadoop lebih stabil dengan \textit{throughput} yang lebih konsisten, namun secara rata-rata Spark lebih cepat. Namun, ketika input data mencapai 10 GB, \textit{throughput} maksimum Hadoop mencapai 17.9153442 MB/s, sementara Spark mencapai 101.596455 MB/s.
+Perbedaan kinerja ini dapat dilihat dari kolom "Throughput (maks)" dan "Throughput (min)". Misalnya, untuk input data 100 KB, Hadoop memiliki \textit{throughput} maksimum 0.00384808 MB/s, sedangkan Spark memiliki \textit{throughput} maksimum 0.00286102 MB/s. Ketika input data mencapai 10 GB, \textit{throughput} maksimum Hadoop mencapai 17.9153442 MB/s, sementara Spark mencapai 101.596455 MB/s.
 
 Hasil ini menunjukkan bahwa Spark lebih unggul dalam menangani data berukuran besar untuk kedua tugas pemrosesan data tersebut. Spark mampu mempertahankan \textit{throughput} yang lebih tinggi dibandingkan Hadoop, terutama saat menangani data berukuran besar, dengan rincian sebagai berikut:
 \begin{enumerate}
@@ -492,11 +492,17 @@ Secara keseluruhan, Spark menunjukkan kinerja yang lebih baik dalam hal \textit{
 \newpage
 \section{Analisis dan Evaluasi Hasil Eksperimen: Penggunaan Sumber Daya}
 \subsection{Penggunaan CPU}
-Gambar \ref{fig:4-penggunaan-cpu-all-sort} dan Gambar \ref{fig:4-penggunaan-cpu-all-wordcount} menunjukkan pola penggunaan CPU oleh Hadoop dan Spark untuk beban kerja \textit{sort} dan \textit{word count} pada berbagai ukuran data. Sumbu x mewakili waktu dalam detik, sedangkan sumbu y mewakili persentase penggunaan CPU. Setiap grafik menunjukkan ukuran data yang berbeda, mulai dari 100 KB hingga 15 GB. Titik hitam pada gambar menandakan titik perpotongan Hadoop dan Spark pada waktu yang sama. Titik hitam ini berfungsi sebagai batas waktu dimana penggunaan CPU Hadoop lebih tinggi dibandingkan Spark atau sebaliknya. Titik hitam ini memberikan informasi visual mengenai perubahan dominasi penggunaan CPU antara Hadoop dan Spark selama proses komputasi.
+Gambar \ref{fig:4-penggunaan-cpu-all-sort} dan Gambar \ref{fig:4-penggunaan-cpu-all-wordcount} menunjukkan pola penggunaan CPU oleh Hadoop dan Spark untuk beban kerja \textit{sort} dan \textit{word count} pada berbagai ukuran data. Sumbu x mewakili waktu dalam detik, sedangkan sumbu y mewakili persentase penggunaan CPU. Setiap grafik menunjukkan ukuran data yang berbeda, mulai dari 100 KB hingga 15 GB. Titik hitam pada gambar menandakan titik perpotongan Hadoop dan Spark pada waktu yang sama. Titik hitam tersebut berfungsi sebagai batas kondisi dimana penggunaan CPU Hadoop lebih tinggi dibandingkan Spark atau sebaliknya. Selanjutnya, titik hitam ini akan memberikan informasi visual mengenai perubahan dominasi penggunaan CPU antara Hadoop dan Spark selama proses komputasi.
 
-Pada beban kerja \textit{sort} (Gambar \ref{fig:4-penggunaan-cpu-all-sort}), perbedaan pola penggunaan CPU antara Hadoop dan Spark semakin terlihat pada ukuran data yang lebih besar. Jika dilihat pada input data 100 KB-1 GB, penggunaan CPU pada masing-masing Hadoop dan Spark tidak berbeda jauh. Selanjutnya, pada input data 5 GB, 10 GB, dan 15 GB, penggunaan CPU Hadoop sangat fluktuatif berkisar pada 60\%-95\% pada dua per tiga bagian waktu awal eksekusi, dan pada satu per tiga waktu eksekusi mengalami penurunan yang berkisar pada 20\%-80\%. Berbeda dengan Hadoop, Spark memiliki penggunaan CPU yang lebih stabil (terkadang pada 60\%-80\%, dan terkadang pada 80\%-100\%).
+Pada beban kerja \textit{sort} seperti yang terlihat pada Gambar \ref{fig:4-penggunaan-cpu-all-sort}, perbedaan pola penggunaan CPU antara Hadoop dan Spark terlihat pada ukuran data yang lebih besar. Jika dilihat pada input data 100 KB hingga 1 GB, penggunaan CPU pada masing-masing Hadoop dan Spark tidak terlihat perbedaannya. Selanjutnya, pada input data 5 GB, 10 GB, dan 15 GB, penggunaan CPU Hadoop sangat fluktuatif berkisar pada 60\% sampai 95\% pada dua per tiga bagian waktu awal eksekusi, dan satu per tiga waktu akhir eksekusi mengalami penurunan yang berkisar pada 20\% sampai 80\%. Berbeda dengan Hadoop, Spark memiliki penggunaan CPU yang lebih stabil, yaitu terkadang pada 60\% sampai 80\%, dan terkadang juga pada 80\% sampai 100\%).
 
-Pada beban kerja \textit{word count} (Gambar \ref{fig:4-penggunaan-cpu-all-wordcount}), Hadoop menunjukkan penggunaan CPU yang lebih fluktuatif (naik turun) dan tinggi secara keseluruhan dibandingkan dengan Spark. Penggunaan CPU pada 10 detik pertama pada Hadoop berkisar pada 10\%-60\%. Setelah itu, penggunaan CPU-nya naik sampai ke 100\% dan naik turun. Jika dilihat dari input data yang lebih besar (15 GB), Hadoop memiliki pola CPU yang hampir sama pada setiap data input, yaitu 10 detik pertama berada pada 10\%-60\%, setengah pertama naik turun pada penggunaan CPU 60\%-100\%, dan setengah terakhir menurunkan penggunaan CPU pada 50\%-90\%. Selanjutnya, Spark juga memiliki pola tersendiri. Penggunaan CPU Spark pada detik pertama sampai detik ke 15 fluktuatif pada 20\%-50\%, hingga pada detik 16 sampai detik ke 35 turun ke 0\%, dan baru naik lagi pada detik ke 35. Hal yang menarik juga adalah penggunaan CPU Spark tidak menyentuh 100\%, tetapi memiliki waktu eksekusi beban kerja yang lebih cepat pada \textit{word count}.
+Pada beban kerja \textit{word count} seperti yang terlihat pada Gambar \ref{fig:4-penggunaan-cpu-all-wordcount}, Hadoop menunjukkan penggunaan CPU yang lebih fluktuatif (naik turun) dan tinggi secara keseluruhan dibandingkan dengan Spark. Penggunaan CPU pada waktu ke-0 hingga ke-10 pada Hadoop berkisar pada 10\% sampai 60\%. Setelah itu, penggunaan CPU Hadoop naik sampai ke 100\% dan naik turun. Jika dilihat dari input data yang lebih besar yaitu 15 GB, Hadoop memiliki pola CPU yang hampir sama pada setiap data input, yaitu 
+\begin{enumerate}
+\item Sepuluh detik pertama penggunaan CPU berada pada 10\% sampai 60\%
+\item Setengah waktu eksekusi naik turun pada penggunaan CPU 60\% hingga 100\%
+\item Setengah waktu eksekusi terakhir menurunkan penggunaan CPU pada 50\% sampai 90\%
+\end{enumerate}
+Selanjutnya, Spark juga memiliki pola tersendiri. Penggunaan CPU Spark pada detik pertama sampai detik ke lima belas fluktuatif pada 20\% hingga 50\%. Pada waktu ke-16 sampai waktu ke-35 turun hingga 0\%, dan naik kembali pada waktu ke-35. Hal yang menarik lainnya adalah penggunaan CPU Spark tidak menyentuh 100\%, tetapi memiliki waktu eksekusi beban kerja yang lebih cepat pada \textit{word count}.
 
 Pada kedua tugas, terlihat bahwa beban kerja \textit{word count} cenderung menunjukkan pola penggunaan CPU yang lebih tinggi dan konsisten dibandingkan dengan beban kerja \textit{sort}. Pada beban kerja \textit{word count}, umumnya penggunaan CPU Hadoop lebih tinggi dan merata di sepanjang waktu eksekusi jika dibandingkan dengan Spark. Di sisi lain, beban kerja \textit{sort} menunjukkan penggunaan CPU yang cenderung lebih fluktuatif, dengan periode lonjakan dan penurunan yang signifikan, baik pada Hadoop maupun Spark.
 
@@ -522,7 +528,7 @@ Secara keseluruhan, Hadoop cenderung menggunakan CPU dengan lebih intensif dan f
 
 Tabel \ref{fig:4-state-sort} dan Tabel \ref{fig:4-state-wordcount} menunjukkan perbandingan \textit{state} penggunaan CPU antara Hadoop ($U_h$) dan Spark ($U_s$) pada beban kerja \textit{sort} dan \textit{word count}. \textit{State} $U_h > U_s$ menunjukkan durasi waktu di mana penggunaan CPU Hadoop lebih tinggi daripada Spark, sementara \textit{state} $U_h < U_s$ menunjukkan sebaliknya.
 
-Pada Tabel \ref{fig:4-state-sort}, terlihat bahwa durasi \textit{state} $U_h > U_s$ secara konsisten lebih tinggi dibandingkan dengan $U_h < U_s$ pada semua ukuran data. Ini menunjukkan bahwa Hadoop biasanya menggunakan lebih banyak CPU dibandingkan Spark untuk beban kerja \textit{sort}.
+Pada Tabel \ref{fig:4-state-sort}, terlihat bahwa durasi \textit{state} $U_h > U_s$ secara konsisten lebih tinggi dibandingkan dengan $U_h < U_s$ pada semua ukuran data. Hal ini menunjukkan bahwa Hadoop menggunakan lebih banyak CPU dibandingkan Spark untuk beban kerja \textit{sort}.
 
 \begin{table}[h]
   \centering
@@ -541,7 +547,7 @@ Contoh yang menonjol adalah pada ukuran data:
 
 Ketika ukuran data meningkat, perbedaan antara $U_h > U_s$ dan $U_h < U_s$ semakin besar. Hal ini menunjukkan bahwa Hadoop semakin intensif dalam penggunaan CPU dibandingkan Spark seiring dengan bertambahnya ukuran data.
 
-Pada Tabel \ref{fig:4-state-wordcount}, variasi dalam perbandingan \textit{state} lebih terlihat dibandingkan beban kerja \textit{sort}. Namun, secara umum, durasi \textit{state} $U_h > U_s$ tetap lebih tinggi dibandingkan $U_h < U_s$.
+Pada Tabel \ref{fig:4-state-wordcount}, variasi dalam perbandingan \textit{state} \textit{word count} lebih terlihat dibandingkan  \textit{sort}. Secara umum, durasi \textit{state} $U_h > U_s$ tetap lebih tinggi dibandingkan $U_h < U_s$.
 
 Contoh yang menonjol adalah pada ukuran data:
 \begin{enumerate}
@@ -607,7 +613,7 @@ Pada beban kerja \textit{sort} dan input data sebesar 100 KB (seperti yang ditun
     \label{fig:5-util-sistem-sort-fiveteengig}
 \end{figure}
 
-Pada beban kerja \textit{sort} dan input data yang lebih besar, yaitu 15 GB (seperti yang ditunjukkan pada Gambar \ref{fig:5-util-sistem-sort-fiveteengig}), utilisasi sistem pada Hadoop dan Spark lebih terlihat jelas perbedaannya. Jika dilihat pada penggunaan CPU, Hadoop membutuhkan waktu penggunaan CPU yang lebih lama, yaitu sekitar 370 detik, dimana Spark hanya membutuhkan waktu sekitar 220 detik. Selanjutnya, Hadoop memiliki penggunaan CPU "\textit{user}" yang lebih stabil, jika dibandingkan dengan Spark yang naik turun secara konstan. Penggunaan CPU "\textit{wait}" akan naik ketika penggunaan CPU "\textit{user}" itu turun. Bergeser pada \textit{disk I/O}, Hadoop memiliki siklus baca tulis yang lebih intensif jika dibandingkan pada Spark. Selanjutnya, jika dilihat dari penggunaan memori, Spark lebih "rakus" akan memori. Hal ini ditandai dengan puncaknya membutuhkan memori sekitar 6-7 GB, dimana Hadoop hanya membutuhkan memori sekitar 3.5 GB.
+Pada beban kerja \textit{sort} dan input data yang lebih besar, yaitu 15 GB (seperti yang ditunjukkan pada Gambar \ref{fig:5-util-sistem-sort-fiveteengig}), utilisasi sistem pada Hadoop dan Spark lebih terlihat jelas perbedaannya. Jika dilihat pada penggunaan CPU, Hadoop membutuhkan waktu penggunaan CPU yang lebih lama, yaitu sekitar 370 detik, dimana Spark hanya membutuhkan waktu sekitar 220 detik. Selanjutnya, Hadoop memiliki penggunaan CPU "\textit{user}" yang lebih stabil, jika dibandingkan dengan Spark yang naik turun secara konstan. Penggunaan CPU "\textit{wait}" akan naik ketika penggunaan CPU "\textit{user}" turun. Bergeser pada \textit{disk I/O}, Hadoop memiliki siklus baca tulis yang lebih intensif jika dibandingkan pada Spark. Selanjutnya, jika dilihat dari penggunaan memori, Spark lebih "rakus" akan memori. Hal ini ditandai dengan puncaknya membutuhkan memori sekitar 6-7 GB, dimana Hadoop hanya membutuhkan memori sekitar 3.5 GB.
 
 \begin{figure}[h]
     \centering
@@ -627,7 +633,7 @@ Selanjutnya beban kerja \textit{word count}. Pada beban kerja \textit{word count
 
 Pada beban kerja \textit{word count} dan input data yang lebih besar, yaitu 15 GB (seperti yang ditunjukkan pada Gambar \ref{fig:5-util-sistem-wordcount-fiveteengig}), utilisasi sistem pada Hadoop dan Spark lebih terlihat jelas perbedaannya. Pada penggunaan CPU, Hadoop memiliki aktivitas penggunaan yang lebih tinggi dan lebih konstan sampai akhir waktu eksekusi. Hal ini berbeda dengan Spark yang hanya butuh waktu sekitar 150 detik saja dengan penggunaan CPU yang hanya 90\%. Selanjutnya, pada aktivitas baca tulis (\textit{disk I/O}), Hadoop memiliki aktivitas baca yang lebih intensif (sepanjang waktu eksekusi) dengan sedikit aktivitas tulis (pada awal waktu eksekusi). Aktivitas baca yang dilakukan oleh Hadoop berada pada ukuran 50-100 MB setiap waktunya. Pada Spark, aktivitas baca tersebut berukuran 150-200 MB. Kemudian, jika ditinjau melalui penggunaan memori, memori yang dibutuhkan Hadoop berkisar pada 2.5-3.7 GB. Pada Spark, memori yang dibutuhkan berkisar pada 2-4.5 GB.  
 
-Hadoop menunjukkan aktivitas \textit{Disk} I/O yang jauh lebih tinggi dibandingkan dengan Spark, terutama pada beban kerja \textit{sort}. Grafik \textit{Disk} I/O Hadoop menunjukkan lonjakan aktivitas baca dan tulis yang signifikan sepanjang waktu eksekusi. Hal ini sesuai dengan pendekatan berbasis disk Hadoop yang membutuhkan pembacaan dan penulisan data ke \textit{disk} secara intensif. Sebaliknya, Spark, dengan arsitektur \textit{in-memory}, meminimalkan operasi \textit{Disk} I/O. Grafik \textit{Disk} I/O Spark menunjukkan aktivitas yang jauh lebih rendah dan stabil, yang berkontribusi pada peningkatan performanya.
+Hadoop menunjukkan aktivitas \textit{Disk} I/O yang jauh lebih tinggi dibandingkan dengan Spark, terutama pada beban kerja \textit{sort}. Grafik \textit{Disk} I/O Hadoop menunjukkan lonjakan aktivitas baca dan tulis yang signifikan sepanjang waktu eksekusi. Hal ini sesuai dengan pendekatan berbasis \textit{disk} Hadoop yang membutuhkan pembacaan dan penulisan data ke \textit{disk} secara intensif. Sebaliknya, Spark, dengan arsitektur \textit{in-memory}, meminimalkan operasi \textit{Disk} I/O. Grafik \textit{Disk} I/O Spark menunjukkan aktivitas yang jauh lebih rendah dan stabil, yang berkontribusi pada peningkatan performanya.
 
 Spark menunjukkan penggunaan memori yang lebih tinggi dan stabil dibandingkan dengan Hadoop, terutama pada beban kerja \textit{sort}. Grafik penggunaan memori Spark menunjukkan garis yang cenderung mendatar pada tingkat utilisasi yang tinggi, menunjukkan bahwa Spark menyimpan data dalam RAM untuk akses yang lebih cepat dan pemrosesan yang efisien. Penggunaan memori Hadoop lebih rendah dan fluktuatif, menunjukkan bahwa Hadoop tidak memanfaatkan memori secara optimal. 
 
